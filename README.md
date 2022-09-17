@@ -1,12 +1,16 @@
-<!-- markdownlint-disable-next-line MD026 -->
-# C'est donné !
+# C'est donné
 
-An app to facilitate donations between friends and relatives, give a second life to your objects :)
+[![Project license](https://img.shields.io/github/license/Shuunen/c-est-donne.svg?color=informational)](https://github.com/Shuunen/c-est-donne/blob/master/LICENSE)
+[![Website up](https:/
+/img.shields.io/website/https/my-website.com.svg)](https://my-website.com)
 
-- [C'est donné !](#cest-donné-)
+> Donations between friends and relatives made easy ! Give a second life to your objects :)
+
+- [C'est donné](#cest-donné)
   - [Vue 3 + TypeScript + Vite](#vue-3--typescript--vite)
   - [Recommended IDE Setup](#recommended-ide-setup)
   - [Type Support For `.vue` Imports in TS](#type-support-for-vue-imports-in-ts)
+  - [Thanks](#thanks)
 
 ## Vue 3 + TypeScript + Vite
 
@@ -24,3 +28,12 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+
+## Thanks
+
+- [Eslint](https://eslint.org) : super tool to find & fix problems  
+- [Github](https://github.com) : for all their great work year after year, pushing OSS forward  
+- [Repo-checker](https://github.com/Shuunen/repo-checker) : eslint cover /src code and this tool the rest ^^  
+- [Shields.io](https://shields.io) : for the nice badges on top of this readme
+- [Vite](https://github.com/vitejs/vite) : super fast frontend tooling  
+- [Vue](https://vuejs.org) : when I need a front framework, this is the one I choose <3
