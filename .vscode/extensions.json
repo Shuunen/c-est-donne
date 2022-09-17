@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "vue.volar",
+    "lzp.svg-preview-in-code",
+    "mikeburgh.xml-format",
+    "richie5um2.vscode-sort-json",
+    "davidanson.vscode-markdownlint",
+    "yzhang.markdown-all-in-one",
+    "michelemelluso.gitignore",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "ryanluker.vscode-coverage-gutters",
+    "streetsidesoftware.code-spell-checker",
+    "aaron-bond.better-comments"
+  ]
+}
