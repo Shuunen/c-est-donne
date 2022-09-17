@@ -46,7 +46,7 @@ jobs:
         run: npm run lint
 
       - name: Run check 👀
-        run: npm start
+        run: npm run check
 
       - name: Run tests 👀
         run: npm run test
