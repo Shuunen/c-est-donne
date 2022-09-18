@@ -6,8 +6,12 @@
   },
   "overrides": [
     {
+      "extends": [
+        "plugin:tailwindcss/recommended"
+      ],
       "files": [
-        "*.html"
+        "*.html",
+        "*.vue"
       ],
       "parser": "@angular-eslint/template-parser"
     },
@@ -109,6 +113,20 @@
   "plugins": [
     "@typescript-eslint",
     "vue",
+    "tailwindcss",
     "unicorn"
-  ]
+  ],
+  "settings": {
+    "tailwindcss": {
+      "callees": [
+        "tw"
+      ],
+      "cssFiles": [
+        "src/*.css"
+      ],
+      "whitelist": [
+        "sl-[a-z-]+"
+      ]
+    }
+  }
 }
