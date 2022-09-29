@@ -125,7 +125,9 @@
         "src/*.css"
       ],
       "whitelist": [
-        "sl-[a-z-]+"
+        "sl-[a-z-]+",
+        "[a-z-]+-(accent|primary)",
+        "app-[a-z-]+"
       ]
     }
   }
