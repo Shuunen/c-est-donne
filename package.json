@@ -3,6 +3,7 @@
   "bugs": "https://github.com/Shuunen/c-est-donne/issues",
   "description": "Donations between friends made easy !",
   "devDependencies": {
+    "@auth0/auth0-vue": "1",
     "@angular-eslint/template-parser": "14",
     "@shoelace-style/shoelace": "2.0.0-beta.83",
     "@types/node": "16",

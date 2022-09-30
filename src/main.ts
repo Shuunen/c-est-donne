@@ -1,3 +1,4 @@
+import { createAuth0 } from '@auth0/auth0-vue'
 import { createApp } from 'vue'
 import App from './app.vue'
 import './plugins/shoelace'
@@ -12,5 +13,15 @@ Object.entries(components).forEach(([path, definition]) => {
   const componentName = path.split('/').pop()?.replace(/\.\w+$/, '')
   if (componentName) app.component(componentName, (definition as any).default) // eslint-disable-line @typescript-eslint/no-explicit-any
 })
+
+app.use(
+  createAuth0({
+    domain: 'shuunen.eu.auth0.com',
+    client_id: 'NRwwKnaUuumbilipbUBWORC6L4TNdN09',
+    redirect_uri: window.location.origin,
+    useRefreshTokens: true,
+    cacheLocation: 'localstorage',
+  }),
+)
 
 app.mount('#app')

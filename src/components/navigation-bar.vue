@@ -8,6 +8,6 @@
     <sl-skeleton class="h-10 w-28"></sl-skeleton>
     <sl-skeleton class="h-10 w-28"></sl-skeleton>
     <theme-switcher />
-    <img src="https://i.pravatar.cc/100" alt="avatar" class="h-10 rounded-full border-2 border-solid border-slate-500">
+    <login-button />
   </div>
 </template>
