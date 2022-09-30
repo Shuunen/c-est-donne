@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@angular-eslint/template-parser': '14'
-  '@shoelace-style/shoelace': 2.0.0-beta.82
+  '@shoelace-style/shoelace': 2.0.0-beta.83
   '@types/node': '16'
   '@typescript-eslint/eslint-plugin': '5'
   '@typescript-eslint/parser': '5'
@@ -25,7 +25,7 @@ specifiers:
 
 devDependencies:
   '@angular-eslint/template-parser': 14.0.4_3pgpbtxx6aaanl2g7t7xjqhlje
-  '@shoelace-style/shoelace': 2.0.0-beta.82
+  '@shoelace-style/shoelace': 2.0.0-beta.83
   '@types/node': 16.11.59
   '@typescript-eslint/eslint-plugin': 5.37.0_vpfwyhskjqhqlqfzssbegenm4y
   '@typescript-eslint/parser': 5.37.0_3pgpbtxx6aaanl2g7t7xjqhlje
@@ -204,8 +204,8 @@ packages:
     resolution: {integrity: sha512-nmv1syJ3ormbGq29GsuxGRK6BFq7Jhx+kVFyuuozz0Pckkvk1SGk2vpZZcdnj2vRZCETvlVB7KYgakUwgGmn+A==}
     dev: true
 
-  /@shoelace-style/shoelace/2.0.0-beta.82:
-    resolution: {integrity: sha512-ckX/1p7TjPfcM0vnf7XVebHOBIvSx60bLTzFnRFu7tFtR2VuCCRbLbhy0bzZ/9T0Di/jOXJfdjqF2bLIImZ2gA==}
+  /@shoelace-style/shoelace/2.0.0-beta.83:
+    resolution: {integrity: sha512-dHVBtapuqxSRu3klBZhf9/LtEtircaLLnDajNbhuiBiY7PVCxjjf/9Kyd/S/BpbhKwMICqJr+PaKoCTd2iWDJA==}
     engines: {node: '>=14.17.0'}
     dependencies:
       '@floating-ui/dom': 1.0.1

@@ -4,7 +4,7 @@
   "description": "Donations between friends made easy !",
   "devDependencies": {
     "@angular-eslint/template-parser": "14",
-    "@shoelace-style/shoelace": "2.0.0-beta.82",
+    "@shoelace-style/shoelace": "2.0.0-beta.83",
     "@types/node": "16",
     "@typescript-eslint/eslint-plugin": "5",
     "@typescript-eslint/parser": "5",
