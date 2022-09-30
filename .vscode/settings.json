@@ -1,0 +1,10 @@
+{
+  "html.customData": [
+    "./node_modules/@shoelace-style/shoelace/dist/vscode.html-custom-data.json"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#421b00",
+    "titleBar.activeBackground": "#532d14",
+    "titleBar.activeForeground": "#FDFCFE"
+  }
+}
