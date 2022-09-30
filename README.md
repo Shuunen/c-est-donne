@@ -33,6 +33,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 - [Eslint](https://eslint.org) : super tool to find & fix problems  
 - [Github](https://github.com) : for all their great work year after year, pushing OSS forward  
+- [Jake Dohm](https://dev.to/jakedohm_34/auto-registering-all-your-components-in-vue-3-with-vite-4884) : for his article on global components registration
 - [Repo-checker](https://github.com/Shuunen/repo-checker) : eslint cover /src code and this tool the rest ^^  
 - [Shields.io](https://shields.io) : for the nice badges on top of this readme
 - [Vite](https://github.com/vitejs/vite) : super fast frontend tooling  

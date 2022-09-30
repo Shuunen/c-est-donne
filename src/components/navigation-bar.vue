@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import ThemeSwitcher from './theme-switcher.vue'
-</script>
-
 <template>
   <div class="app-nav-bar mb-12 flex flex-row items-center gap-4 p-6">
     <a href="/" class="flex items-center gap-4">
@@ -11,7 +7,7 @@ import ThemeSwitcher from './theme-switcher.vue'
     <sl-skeleton class="h-10 w-28"></sl-skeleton>
     <sl-skeleton class="h-10 w-28"></sl-skeleton>
     <sl-skeleton class="h-10 w-28"></sl-skeleton>
-    <ThemeSwitcher />
+    <theme-switcher />
     <img src="https://i.pravatar.cc/100" alt="avatar" class="h-10 rounded-full border-2 border-solid border-slate-500">
   </div>
 </template>

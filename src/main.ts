@@ -1,7 +1,16 @@
 import { createApp } from 'vue'
-import app from './app.vue'
+import App from './app.vue'
 import './plugins/shoelace'
 import './plugins/storage'
 import './style.css'
 
-createApp(app).mount('#app')
+const app = createApp(App)
+
+// globally register components, restrict the regex if needed
+const components = import.meta.globEager('./components/*.vue')
+Object.entries(components).forEach(([path, definition]) => {
+  const componentName = path.split('/').pop()?.replace(/\.\w+$/, '')
+  if (componentName) app.component(componentName, (definition as any).default) // eslint-disable-line @typescript-eslint/no-explicit-any
+})
+
+app.mount('#app')
