@@ -1,3 +1,3 @@
 import { storage } from 'shuutils'
 
-storage.prefix = 'c-est-donne'
+storage.prefix = 'c-est-donne_'
