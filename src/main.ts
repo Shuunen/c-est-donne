@@ -16,8 +16,8 @@ Object.entries(components).forEach(([path, definition]) => {
 
 app.use(
   createAuth0({
-    domain: 'shuunen.eu.auth0.com',
-    client_id: 'NRwwKnaUuumbilipbUBWORC6L4TNdN09',
+    domain: 'c-est-donne.eu.auth0.com',
+    client_id: 'eIiHJseJCImejDN3lfQWnXp3tznrEQeR',
     redirect_uri: window.location.origin,
     useRefreshTokens: true,
     cacheLocation: 'localstorage',
