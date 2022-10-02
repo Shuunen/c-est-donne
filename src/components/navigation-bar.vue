@@ -4,9 +4,6 @@
       <h1 class="text-2xl font-extrabold tracking-tight">C'est donné <span class="text-accent">!</span></h1>
     </a>
     <div class="ml-auto"></div>
-    <sl-skeleton class="h-10 w-28"></sl-skeleton>
-    <sl-skeleton class="h-10 w-28"></sl-skeleton>
-    <sl-skeleton class="h-10 w-28"></sl-skeleton>
     <theme-switcher />
     <login-button />
   </div>

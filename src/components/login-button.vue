@@ -43,7 +43,7 @@ watch(user, syncStorageDebounced)
   <sl-button v-if="!username" :loading="isLoading" variant="primary" @click="doLogin">Login</sl-button>
   <sl-button v-else variant="default" class="overflow-hidden" @click="doLogout" @mouseenter="hover = true" @mouseleave="hover = false">
     <div v-if="!hover" class="flex items-center">
-      <span class="float-left mr-3 hidden sm:block">{{ username }}</span>
+      <span class="float-left mr-3">{{ username }}</span>
       <img v-if="picture" class="w-7 rounded-full" :src="picture" alt="avatar" />
     </div>
     <div v-else class="flex items-center">
