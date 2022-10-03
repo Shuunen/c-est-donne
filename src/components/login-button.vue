@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
-import { copy, debounce, storage } from 'shuutils'
+import { copy, debounce, emit, storage } from 'shuutils'
 import { ref, watch } from 'vue'
+import type { AirtableCredentials } from '../models/airtable'
 import { getUser } from '../utils/user'
 
 const { loginWithRedirect, logout, user } = useAuth0()
 const isLoading = ref(false)
 const hover = ref(false)
 const username = ref('')
-const picture = ref('')
 
 const doLogin = (): void => {
   console.log('login')
@@ -32,7 +32,7 @@ const syncStorage = async (): Promise<void> => {
   console.log(`sync storage data ${same ? 'does not need update' : 'are different and will be updated'}`)
   if (!same) storage.set('user', expected)
   username.value = expected.name
-  picture.value = expected.picture
+  if (expected.AIRTABLE_API_APP && expected.AIRTABLE_API_KEY) emit<AirtableCredentials>('airtable-credentials', { app: expected.AIRTABLE_API_APP, key: expected.AIRTABLE_API_KEY })
 }
 const syncStorageDebounced = debounce(syncStorage, 100)
 syncStorageDebounced()
