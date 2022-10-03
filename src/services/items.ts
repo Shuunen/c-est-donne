@@ -1,5 +1,6 @@
 import { emit, on } from 'shuutils'
 import type { AirtableCredentials, AirtableItemRecord, AirtableResponse } from '../models/airtable'
+import { error, log } from '../utils/logs'
 
 export class Item {
   id = ''
@@ -25,21 +26,21 @@ class ItemsService {
   }
 
   onAirtableCredentials (credentials: AirtableCredentials): void {
-    console.log('got credentials', credentials)
+    log('got credentials')
     this.app = credentials.app
     this.key = credentials.key
     this.fetchItems()
   }
 
   fetchItems = async ():Promise<boolean> => {
-    console.log('fetching items')
+    log('fetching items')
     emit('loading', true)
     const url = await this.airtableUrl('items')
-    if (typeof url !== 'string') return emit('error', 'failed to build airtable url')
+    if (typeof url !== 'string') return error('failed-to-build-airtable-url')
     const response: AirtableResponse = await fetch(url).then(async response => response.json())
-    if (response.error) return emit('error', response.error)
-    if (!response.records) return emit('error', 'no records found')
-    console.log('found items', response.records)
+    if (response.error) return error(response.error.message)
+    if (!response.records) return error('no-items-found')
+    log('found', response.records.length, 'items, here is the first one', response.records[0])
     return emit<Item[]>('list-items', response.records.map(record => new Item(record)).filter(item => item.status === 'available' && item.images.length > 0))
   }
 
@@ -47,7 +48,8 @@ class ItemsService {
     const appOk = app !== undefined && typeof app === 'string' && app.length === 17
     const keyOk = key !== undefined && typeof key === 'string' && key.length === 17
     const valid = appOk && keyOk
-    console.log('credentials valid ?', valid)
+    log('credentials valid ?', valid)
+    if (!valid) error('invalid-credentials')
     return valid
   }
 

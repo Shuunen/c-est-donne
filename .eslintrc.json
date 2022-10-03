@@ -58,13 +58,10 @@
           "always"
         ],
         "import/no-unassigned-import": "off",
-        "indent": [
-          "error",
-          2
-        ],
+        "indent": "off",
         "lines-between-class-members": "off",
         "max-statements-per-line": "off",
-        "no-console": "off",
+        "no-console": "error",
         "object-curly-spacing": [
           "error",
           "always"
