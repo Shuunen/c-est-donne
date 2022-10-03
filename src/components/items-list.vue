@@ -1,10 +1,12 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <script setup lang="ts">
+import { useI18n } from 'petite-vue-i18n'
 import { ellipsis, emit, on } from 'shuutils'
 import { ref } from 'vue'
 import type { Item } from '../services/items'
 import { getUser } from '../utils/user'
 
+const { t } = useI18n()
 const items = ref<Item[]>([])
 const user = ref(getUser())
 
@@ -18,8 +20,8 @@ on('list-items', (list: Item[]) => {
   <Transition>
     <sl-alert v-if="items.length > 0" variant="success" open class="mb-6">
       <sl-icon slot="icon" name="check2-circle"></sl-icon>
-      <strong>Welcome {{ user.name }} !</strong><br />
-      There is {{ items.length }} items remaining, check them out 👇
+      <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
+      {{ t('items-remaining', {number: items.length}) }}
     </sl-alert>
   </Transition>
 
@@ -29,11 +31,11 @@ on('list-items', (list: Item[]) => {
 
       <strong class="mb-2 inline-block">{{ item.name }}</strong><br />
       <span v-if="item.notes.length > 0">{{ ellipsis(item.notes, 25) }}<br /></span>
-      <small class="mt-3 inline-block">Status : {{ item.status }}</small>
+      <small class="mt-3 inline-block">{{ t('status', {status: t('status-'+item.status)}) }}</small>
 
       <div slot="footer" class="flex justify-between">
-        <sl-button variant="neutral" outline pill>View details</sl-button>
-        <sl-button variant="primary" pill>More Info</sl-button>
+        <sl-button variant="neutral" outline pill>{{ t('view-details') }}</sl-button>
+        <sl-button variant="primary" pill>{{ t('i-take-it') }}</sl-button>
       </div>
     </sl-card>
   </div>

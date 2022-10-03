@@ -1,6 +1,7 @@
 import { createAuth0 } from '@auth0/auth0-vue'
 import { createApp } from 'vue'
 import App from './app.vue'
+import { i18n } from './plugins/i18n'
 import './plugins/shoelace'
 import './plugins/storage'
 import './services'
@@ -24,5 +25,7 @@ app.use(
     cacheLocation: 'localstorage',
   }),
 )
+
+app.use(i18n)
 
 app.mount('#app')

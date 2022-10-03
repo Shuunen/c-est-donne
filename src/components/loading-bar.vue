@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useI18n } from 'petite-vue-i18n'
 import { on } from 'shuutils'
 import { ref } from 'vue'
 
+const { t } = useI18n()
 const loading = ref(false)
 
 on('loading', (isLoading: boolean) => loading.value = isLoading)
@@ -9,7 +11,8 @@ on('loading', (isLoading: boolean) => loading.value = isLoading)
 
 <template>
   <Transition>
-    <div v-if="loading" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+    <div v-if="loading" class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/70 pt-6">
+      <p>{{ t('loading') }}</p>
       <sl-spinner style="font-size: 3rem; --indicator-color: deeppink; --track-color: pink;"></sl-spinner>
     </div>
   </Transition>

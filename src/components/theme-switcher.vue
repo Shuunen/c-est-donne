@@ -1,20 +1,17 @@
-<template>
-  <sl-button variant="default" size="medium" circle :title="`switch to ${theme.includes('dark') ? 'light' : 'dark'} theme`" @click="switchTheme">
-    <sl-icon :name="theme.includes('dark') ? 'lightbulb' : 'lightbulb-off'" label="Settings"></sl-icon>
-  </sl-button>
-</template>
-
 <script setup lang="ts">
+import { useI18n } from 'petite-vue-i18n'
 import { storage } from 'shuutils'
 import { ref } from 'vue'
+import { log } from '../utils/logs'
 
 const enum Theme {
   dark = 'sl-theme-dark',
   light = 'sl-theme-light',
 }
 
+const { t } = useI18n()
 const theme = ref(storage.get<Theme>('theme', Theme.dark))
-console.log('theme found in local storage :', theme.value)
+log('theme found in local storage :', theme.value)
 
 const setThemeInDom = (): void => {
   document.body.classList.remove(Theme.dark, Theme.light)
@@ -30,3 +27,9 @@ const switchTheme = (): void => {
   setThemeInDom()
 }
 </script>
+
+<template>
+  <sl-button variant="default" size="medium" circle :title="t(`switch-to-${theme.includes('dark') ? 'light' : 'dark'}-theme`)" @click="switchTheme">
+    <sl-icon :name="theme.includes('dark') ? 'lightbulb' : 'lightbulb-off'"></sl-icon>
+  </sl-button>
+</template>

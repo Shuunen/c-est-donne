@@ -1,4 +1,6 @@
+import vueI18n from '@intlify/vite-plugin-vue-i18n'
 import vue from '@vitejs/plugin-vue'
+import { dirname, resolve } from 'node:path'
 import { fileURLToPath, URL } from 'url'
 import { defineConfig } from 'vite'
 
@@ -11,6 +13,9 @@ export default defineConfig({
           isCustomElement: tag => tag.indexOf('sl-') === 0,
         },
       },
+    }),
+    vueI18n({
+      include: resolve(dirname(fileURLToPath(import.meta.url)), './src/locales/**'),
     }),
   ],
   resolve: {

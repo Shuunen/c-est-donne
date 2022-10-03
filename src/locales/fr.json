@@ -1,0 +1,19 @@
+{
+  "an-error-occurred": "Une erreur est apparue",
+  "close": "Fermer",
+  "error-body": "Bonjour,\n\nCette erreur est survenue lors de ma navigation : {error}\n\nVoici mon environnement : {environment}\n\n{user}",
+  "error-no-items-found": "Aucun objet trouvé.",
+  "error-report": "Vous pouvez, si vous le souhaitez, remonter cette erreur à l'administrateur du site par mail",
+  "error-report-mailto": "en cliquant ici",
+  "error-report-subject": "Rapport d'erreur",
+  "i-take-it": "Je le prend",
+  "items-remaining": "Il reste {number} objets à donner, servez-vous 👇",
+  "loading": "Chargement...",
+  "logout": "Déconnexion",
+  "status": "Statut : {status}",
+  "status-available": "disponible",
+  "switch-to-dark-theme": "Utiliser le thème sombre",
+  "switch-to-light-theme": "Utiliser le thème clair",
+  "view-details": "Voir les détails",
+  "welcome": "Bienvenue {name} !"
+}
