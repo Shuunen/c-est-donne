@@ -42,13 +42,9 @@ watch(user, syncStorageDebounced)
 <template>
   <sl-button v-if="!username" :loading="isLoading" variant="primary" @click="doLogin">Login</sl-button>
   <sl-button v-else variant="default" class="overflow-hidden" @click="doLogout" @mouseenter="hover = true" @mouseleave="hover = false">
-    <div v-if="!hover" class="flex items-center">
-      <span class="float-left mr-3">{{ username }}</span>
-      <img v-if="picture" class="w-7 rounded-full" :src="picture" alt="avatar" />
-    </div>
-    <div v-else class="flex items-center">
-      <span class="float-left mr-3">Logout</span>
-      <sl-icon class="text-lg" name="box-arrow-right"></sl-icon>
+    <div class="flex items-center">
+      <span class="float-left mr-3">{{ hover ? 'Logout' : username }}</span>
+      <sl-icon class="text-lg" :name="hover ? 'box-arrow-right' : 'person-circle'"></sl-icon>
     </div>
   </sl-button>
 </template>
