@@ -103,8 +103,10 @@
         ],
         "vue/first-attribute-linebreak": "off",
         "vue/html-closing-bracket-newline": "off",
+        "vue/html-indent": "off",
         "vue/html-self-closing": "off",
         "vue/max-attributes-per-line": "off",
+        "vue/no-deprecated-slot-attribute": "off",
         "vue/no-multiple-template-root": "off",
         "vue/singleline-html-element-content-newline": "off"
       }
