@@ -4,7 +4,7 @@ import { useI18n } from 'petite-vue-i18n'
 import { ellipsis, emit, on } from 'shuutils'
 import { ref } from 'vue'
 import type { Item } from '../services/items'
-import { getUser } from '../utils/user'
+import { getUser, User } from '../utils/user'
 
 const { t } = useI18n()
 const items = ref<Item[]>([])
@@ -14,16 +14,31 @@ on('list-items', (list: Item[]) => {
   items.value = list
   emit('loading', false)
 })
+
+on('user', (data: User) => user.value = data)
 </script>
 
 <template>
-  <Transition>
-    <sl-alert v-if="items.length > 0" variant="success" open class="mb-6">
-      <sl-icon slot="icon" name="check2-circle"></sl-icon>
-      <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
-      {{ t('items-remaining', {number: items.length}) }}
-    </sl-alert>
-  </Transition>
+  <sl-alert v-if="!user.isConnected" variant="primary" open>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>{{ t('welcome') }}</strong><br />
+    {{ t('please-login') }}
+  </sl-alert>
+  <sl-alert v-else-if="!user.hasAccess" variant="warning" open>
+    <sl-icon slot="icon" name="exclamation-triangle"></sl-icon>
+    <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
+    {{ t('no-access') }}
+  </sl-alert>
+  <sl-alert v-else-if="items.length > 0" variant="success" open class="mb-6">
+    <sl-icon slot="icon" name="check2-circle"></sl-icon>
+    <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
+    {{ t('items-remaining', {number: items.length}) }}
+  </sl-alert>
+  <sl-alert v-else-if="items.length === 0" variant="primary" open>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
+    {{ t('no-items-remaining') }}
+  </sl-alert>
 
   <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <sl-card v-for="item, index in items" :key="item.id" :style="`animation-delay: ${200 * index}ms;`" class="app-item app-fade-in">
