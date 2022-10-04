@@ -42,9 +42,6 @@ jobs:
       - name: Run build 👀
         run: npm run build
 
-      - name: Run mark 👀
-        run: npm run mark
-
       - name: Run linter 👀
         run: npm run lint
 

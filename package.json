@@ -45,12 +45,12 @@
     "url": "https://github.com/Shuunen/c-est-donne.git"
   },
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build && npm run mark",
     "check": "repo-check",
     "ci": "npm run build && npm run check && npm run lint && npm run test",
     "dev": "vite",
     "lint": "tsc --noEmit && eslint --fix --ignore-path .gitignore --ext .js,.ts,.html,.vue .",
-    "mark": "unique-mark public/index.html",
+    "mark": "unique-mark dist/index.html",
     "postversion": "git push && git push --tags",
     "preversion": "npm run ci",
     "preview": "vite preview",
