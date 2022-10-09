@@ -1,9 +1,9 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
-import { ellipsis, emit, on } from 'shuutils'
+import { capitalize, ellipsis, emit, on } from 'shuutils'
 import { ref } from 'vue'
-import type { Item } from '../services/items'
+import { Item, ItemStatus } from '../models/item'
 import { getUser, User } from '../utils/user'
 
 const { t } = useI18n()
@@ -37,7 +37,7 @@ on('user', (data: User) => user.value = data)
     <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
     {{ t('no-access') }}
   </sl-alert>
-  <sl-alert v-else-if="items.length > 0" variant="success" open class="mb-6">
+  <sl-alert v-else-if="items.length > 0" variant="primary" open class="mb-6">
     <sl-icon slot="icon" name="check2-circle"></sl-icon>
     <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
     {{ t('items-remaining', {number: items.length}) }}
@@ -53,12 +53,30 @@ on('user', (data: User) => user.value = data)
       <img slot="image" class="mx-auto mt-6 h-52 w-10/12 object-contain" :src="item.images[0] ?? '/no-visual.svg'" :alt="item.name + 'image'" />
 
       <strong class="mb-2 inline-block">{{ item.name }}</strong><br />
-      <span v-if="item.notes.length > 0">{{ ellipsis(item.notes, 25) }}<br /></span>
-      <small class="mt-3 inline-block">{{ t('status', {status: t('status-'+item.status)}) }}</small>
+      <span>{{ capitalize(ellipsis(item.notes, 25)) }}<br /></span>
+
+      <div v-if="item.status === ItemStatus.available" class="app-item-status text-green-700">
+        {{ t('status-available') }}
+        <sl-icon name="bag-plus"></sl-icon>
+      </div>
+      <div v-else-if="item.status === ItemStatus.reservedByMe" class="app-item-status text-green-700">
+        {{ t('status-reserved-by-me') }}
+        <sl-icon name="bag-check"></sl-icon>
+      </div>
+      <div v-else-if="item.status === ItemStatus.reserved" class="app-item-status text-orange-700">
+        {{ t('status-reserved') }}
+        <sl-icon name="bag-x"></sl-icon>
+      </div>
+      <div v-else-if="item.status === ItemStatus.gone" class="app-item-status text-accent">
+        {{ t('status-gone') }}
+        <sl-icon name="bag"></sl-icon>
+      </div>
 
       <div slot="footer" class="flex justify-between">
         <sl-button variant="neutral" outline pill>{{ t('view-details') }}</sl-button>
-        <sl-button variant="primary" pill>{{ t('i-take-it') }}</sl-button>
+        <sl-button v-if="[ItemStatus.reservedByMe, ItemStatus.available].includes(item.status)" variant="primary" pill>
+          {{ item.status === ItemStatus.reservedByMe ? t('i-wont-take-it') : t('i-take-it') }}
+        </sl-button>
       </div>
     </sl-card>
   </div>
@@ -79,5 +97,13 @@ on('user', (data: User) => user.value = data)
   animation-name: fadeIn;
   animation-duration: 1s;
   animation-fill-mode: both;
+}
+
+.app-item-status {
+  @apply mt-3 flex items-center gap-2;
+}
+
+.app-item::part(footer) {
+  @apply border-t-2;
 }
 </style>

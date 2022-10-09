@@ -1,38 +1,27 @@
 import { emit, on } from 'shuutils'
-import type { AirtableCredentials, AirtableItemRecord, AirtableResponse } from '../models/airtable'
+import type { AirtableResponse } from '../models/airtable'
+import { Item, ItemStatus } from '../models/item'
 import { error, log } from '../utils/logs'
-
-export class Item {
-  id = ''
-  images: string[] = []
-  name = ''
-  notes = ''
-  status = ''
-  constructor (record: AirtableItemRecord) {
-    this.id = record.id
-    this.images = record.fields.Images?.map(image => image.url) ?? []
-    this.name = record.fields.Name
-    this.notes = record.fields.Notes ?? ''
-    this.status = record.fields.Status ?? 'unknown'
-  }
-}
+import type { User } from '../utils/user'
 
 class ItemsService {
   app = ''
   key = ''
+  email = ''
 
-  init ():void {
-    on('airtable-credentials', (credentials: AirtableCredentials) => this.onAirtableCredentials(credentials))
+  init (): void {
+    on('user', (user: User) => this.onUser(user))
   }
 
-  onAirtableCredentials (credentials: AirtableCredentials): void {
-    log('got credentials')
-    this.app = credentials.app
-    this.key = credentials.key
+  onUser (user: User): void {
+    log('got user')
+    this.app = user.AIRTABLE_API_APP
+    this.key = user.AIRTABLE_API_KEY
+    this.email = user.email
     this.fetchItems()
   }
 
-  fetchItems = async ():Promise<boolean> => {
+  fetchItems = async (): Promise<boolean> => {
     log('fetching items')
     emit('loading', true)
     const url = await this.airtableUrl('items')
@@ -41,7 +30,7 @@ class ItemsService {
     if (response.error) return error(response.error.message)
     if (!response.records) return error('no-items-found')
     log('found', response.records.length, 'items, here is the first one', response.records[0])
-    return emit<Item[]>('list-items', response.records.map(record => new Item(record)).filter(item => item.status === 'available' && item.images.length > 0))
+    return emit<Item[]>('list-items', response.records.map(record => new Item(record, this.email)).filter(item => item.status !== ItemStatus.unknown))
   }
 
   validate (app: string, key: string): boolean {
