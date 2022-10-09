@@ -50,20 +50,21 @@ on('user', (data: User) => user.value = data)
 
   <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <sl-card v-for="item, index in items" :key="item.id" :style="`animation-delay: ${200 * index}ms;`" class="app-item app-fade-in">
-      <img slot="image" class="mx-auto mt-6 h-52 w-10/12 object-contain" :src="item.images[0] ?? '/no-visual.svg'" :alt="item.name + 'image'" />
+      <img slot="image" class="h-64 bg-white object-contain p-6 dark:brightness-75 dark:saturate-[1.2]" :src="item.images[0] ?? '/no-visual.svg'"
+        :alt="item.name + 'image'" />
 
       <strong class="mb-2 inline-block">{{ item.name }}</strong><br />
       <span>{{ capitalize(ellipsis(item.notes, 25)) }}<br /></span>
 
-      <div v-if="item.status === ItemStatus.available" class="app-item-status text-green-700">
+      <div v-if="item.status === ItemStatus.available" class="app-item-status text-green-700 dark:text-green-500">
         {{ t('status-available') }}
         <sl-icon name="bag-plus"></sl-icon>
       </div>
-      <div v-else-if="item.status === ItemStatus.reservedByMe" class="app-item-status text-green-700">
+      <div v-else-if="item.status === ItemStatus.reservedByMe" class="app-item-status text-green-700 dark:text-green-500">
         {{ t('status-reserved-by-me') }}
         <sl-icon name="bag-check"></sl-icon>
       </div>
-      <div v-else-if="item.status === ItemStatus.reserved" class="app-item-status text-orange-700">
+      <div v-else-if="item.status === ItemStatus.reserved" class="app-item-status text-orange-700 dark:text-orange-400">
         {{ t('status-reserved') }}
         <sl-icon name="bag-x"></sl-icon>
       </div>
