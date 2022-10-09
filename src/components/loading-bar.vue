@@ -12,8 +12,8 @@ on('loading', (isLoading: boolean) => loading.value = isLoading)
 <template>
   <Transition>
     <div v-if="loading" class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/70 pt-6">
-      <p>{{ t('loading') }}</p>
-      <sl-spinner style="font-size: 3rem; --indicator-color: deeppink; --track-color: pink;"></sl-spinner>
+      <p class="text-xl text-white">{{ t('loading') }}</p>
+      <sl-spinner></sl-spinner>
     </div>
   </Transition>
 </template>
@@ -27,5 +27,12 @@ on('loading', (isLoading: boolean) => loading.value = isLoading)
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+sl-spinner {
+  font-size: 4rem;
+  --indicator-color: hsl(var(--color-accent));
+  --track-width: 4px;
+  --track-color: hsl(var(--color-accent));
 }
 </style>
