@@ -31,7 +31,7 @@ on('user', (data: User) => user.value = data)
     <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
     {{ t('no-access') }}
   </sl-alert>
-  <sl-alert v-else-if="items.length > 0" variant="primary" open class="mb-6">
+  <sl-alert v-else-if="items.length > 0" variant="primary" open closable>
     <sl-icon slot="icon" name="check2-circle"></sl-icon>
     <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
     {{ t('items-remaining', {number: items.length}) }}
