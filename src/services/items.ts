@@ -1,4 +1,4 @@
-import { emit, on } from 'shuutils'
+import { emit, on, sleep } from 'shuutils'
 import type { AirtableResponse } from '../models/airtable'
 import { Item, ItemStatus } from '../models/item'
 import { error, log } from '../utils/logs'
@@ -30,7 +30,9 @@ class ItemsService {
     if (response.error) return error(response.error.message)
     if (!response.records) return error('no-items-found')
     log('found', response.records.length, 'items, here is the first one', response.records[0])
-    return emit<Item[]>('list-items', response.records.map(record => new Item(record, this.email)).filter(item => item.status !== ItemStatus.unknown))
+    emit<Item[]>('list-items', response.records.map(record => new Item(record, this.email)).filter(item => item.status !== ItemStatus.unknown))
+    await sleep(300)
+    return emit('loading', false)
   }
 
   validate (app: string, key: string): boolean {
