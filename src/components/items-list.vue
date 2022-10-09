@@ -9,6 +9,9 @@ import { getUser, User } from '../utils/user'
 const { t } = useI18n()
 const items = ref<Item[]>([])
 const user = ref(getUser())
+const loading = ref(false)
+
+on('loading', (state: boolean) => loading.value = state)
 
 on('list-items', (list: Item[]) => {
   items.value = list
@@ -19,7 +22,12 @@ on('user', (data: User) => user.value = data)
 </script>
 
 <template>
-  <sl-alert v-if="!user.isConnected" variant="primary" open>
+  <sl-alert v-if="loading" variant="primary" open>
+    <sl-icon slot="icon" name="info-circle"></sl-icon>
+    <strong>{{ t('welcome') }}</strong><br />
+    {{ t('loading') }}
+  </sl-alert>
+  <sl-alert v-else-if="!user.isConnected" variant="primary" open>
     <sl-icon slot="icon" name="info-circle"></sl-icon>
     <strong>{{ t('welcome') }}</strong><br />
     {{ t('please-login') }}
