@@ -1,14 +1,21 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
-import { capitalize, ellipsis, on } from 'shuutils'
+import { capitalize, ellipsis, emit, on } from 'shuutils'
 import { ref } from 'vue'
 import { Item, ItemStatus } from '../models/item'
+import { error } from '../utils/logs'
 
 const { t } = useI18n()
 const items = ref<Item[]>([])
 
 on('list-items', (list: Item[]) => items.value = list)
+on('update-item-status', (data: { id: string, status: ItemStatus }) => {
+  const updated = items.value.find(item => item.id === data.id)
+  if (!updated) return error(`Item with id ${data.id} not found`)
+  updated.status = data.status
+  return true
+})
 </script>
 
 <template>
@@ -38,8 +45,8 @@ on('list-items', (list: Item[]) => items.value = list)
       </div>
 
       <div slot="footer" class="flex justify-between">
-        <sl-button variant="neutral" outline pill>{{ t('view-details') }}</sl-button>
-        <sl-button v-if="[ItemStatus.reservedByMe, ItemStatus.available].includes(item.status)" variant="primary" pill>
+        <sl-button variant="neutral" outline pill @click="emit('item-details', item)">{{ t('view-details') }}</sl-button>
+        <sl-button v-if="item.canBeToggle" :outline="item.status === ItemStatus.reservedByMe" variant="primary" pill @click="item.toggleStatus()">
           {{ item.status === ItemStatus.reservedByMe ? t('i-wont-take-it') : t('i-take-it') }}
         </sl-button>
       </div>
