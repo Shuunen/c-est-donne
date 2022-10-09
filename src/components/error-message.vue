@@ -14,8 +14,8 @@ const { t } = useI18n()
 const message = ref('')
 const dialog = ref<SLDialog>()
 
-on('error', (content: string) => {
-  message.value = content
+on('error', (content: string | ErrorEvent) => {
+  message.value = content instanceof ErrorEvent ? content.message : content
   dialog.value?.show()
 })
 
