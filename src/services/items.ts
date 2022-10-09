@@ -26,10 +26,10 @@ class ItemsService {
     log('fetching items')
     emit('loading', true)
     const url = await this.airtableUrl('items')
-    if (typeof url !== 'string') return error('failed-to-build-airtable-url')
+    if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
     const response: AirtableResponse = await fetch(url).then(async response => response.json())
-    if (response.error) return error(response.error.message)
-    if (!response.records) return error('no-items-found')
+    if (response.error) return error('error-airtable', response.error.message)
+    if (!response.records) return error('error-no-items-found')
     log('found', response.records.length, 'items, here is the first one', response.records[0])
     emit<Item[]>('list-items', response.records.map(record => new Item(record, this.email)).filter(item => item.status !== ItemStatus.unknown))
     await sleep(300)
@@ -41,7 +41,7 @@ class ItemsService {
     const keyOk = key !== undefined && typeof key === 'string' && key.length === 17
     const valid = appOk && keyOk
     log('credentials valid ?', valid)
-    if (!valid) error('invalid-credentials')
+    if (!valid) error('error-invalid-credentials')
     return valid
   }
 
@@ -58,10 +58,10 @@ class ItemsService {
   async updateItemStatus (id: Item['id'], status: ItemStatus, statusFront: ItemStatus): Promise<boolean> {
     emit('loading', true)
     const url = await this.airtableUrl(`items/${id}`)
-    if (typeof url !== 'string') return error('failed-to-build-airtable-url')
+    if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
     const data = { fields: { Status: status, Beneficiary: this.email } }
     const response = await this.patch(url, data)
-    if (response.error) return error(response.error.message)
+    if (response.error) return error('error-airtable', response.error.message)
     log('updated item', id, 'status to', status)
     emit('update-item-status', { id, status: statusFront })
     return emit('loading', false)

@@ -12,7 +12,7 @@ const items = ref<Item[]>([])
 on('list-items', (list: Item[]) => items.value = list)
 on('update-item-status', (data: { id: string, status: ItemStatus }) => {
   const updated = items.value.find(item => item.id === data.id)
-  if (!updated) return error(`Item with id ${data.id} not found`)
+  if (!updated) return error('error-updated-record-not-found', `Item with id ${data.id}`)
   updated.status = data.status
   return true
 })

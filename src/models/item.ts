@@ -1,5 +1,4 @@
 import { itemsService } from '../services/items'
-import { log } from '../utils/logs'
 import type { AirtableItemRecord } from './airtable'
 
 export const enum ItemCondition {
@@ -58,7 +57,6 @@ export class Item {
   toggleStatus (): void {
     const newStatusAirtable = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
     const newStatusFront = this.status === ItemStatus.available ? ItemStatus.reservedByMe : ItemStatus.available
-    log('toggling status from', this.status, 'to', newStatusAirtable)
     itemsService.updateItemStatus(this.id, newStatusAirtable, newStatusFront)
   }
 }
