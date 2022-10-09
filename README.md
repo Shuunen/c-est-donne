@@ -10,6 +10,7 @@
   - [Vue 3 + TypeScript + Vite](#vue-3--typescript--vite)
   - [Recommended IDE Setup](#recommended-ide-setup)
   - [Type Support For `.vue` Imports in TS](#type-support-for-vue-imports-in-ts)
+  - [Todos](#todos)
   - [Thanks](#thanks)
 
 ## Vue 3 + TypeScript + Vite
@@ -28,6 +29,16 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+
+## Todos
+
+- [ ] add about modal with repo links, etc
+- [ ] add illustrations
+- [ ] add horizontal layout
+- [ ] add details modal
+- [ ] add activity monitor to refresh items
+- [ ] add logo
+- [ ] add demo
 
 ## Thanks
 

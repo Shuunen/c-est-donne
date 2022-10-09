@@ -1,33 +1,28 @@
 
 interface AirtableItemRecordImage {
-  id: string;
-  url: string;
+  id: string
+  url: string
 }
 
 export interface AirtableItemRecord {
-  id: string;
-  createdTime: string;
+  id: string
+  createdTime: string
   fields: {
-    Beneficiary?: string;
-    Condition?: string;
-    Images?: AirtableItemRecordImage[];
-    Name: string;
-    Notes?: string;
-    Status?: string;
-    ValueNew?: number;
-    ValueUsed?: number;
-  };
+    Beneficiary?: string
+    Condition?: string
+    Images?: AirtableItemRecordImage[]
+    Name: string
+    Notes?: string
+    Status?: string
+    ValueNew?: number
+    ValueUsed?: number
+  }
 }
 
 export interface AirtableResponse {
-  records?: AirtableItemRecord[];
+  records?: AirtableItemRecord[]
   error?: {
-    type: string;
-    message: string;
-  };
-}
-
-export interface AirtableCredentials {
-  app: string
-  key: string
+    type: string
+    message: string
+  }
 }

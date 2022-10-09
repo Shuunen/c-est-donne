@@ -3,7 +3,6 @@ import { useAuth0 } from '@auth0/auth0-vue'
 import { useI18n } from 'petite-vue-i18n'
 import { copy, debounce, emit, storage } from 'shuutils'
 import { ref, watch } from 'vue'
-import type { AirtableCredentials } from '../models/airtable'
 import { log } from '../utils/logs'
 import { firstName, getUser, User } from '../utils/user'
 
@@ -38,7 +37,6 @@ const syncStorage = async (): Promise<void> => {
   log(`sync storage data ${same ? 'does not need update' : 'are different and will be updated'}`)
   if (!same) storage.set('user', expected)
   username.value = expected.firstName
-  if (expected.AIRTABLE_API_APP && expected.AIRTABLE_API_KEY) emit<AirtableCredentials>('airtable-credentials', { app: expected.AIRTABLE_API_APP, key: expected.AIRTABLE_API_KEY })
   emit<User>('user', expected)
 }
 const syncStorageDebounced = debounce(syncStorage, 100)

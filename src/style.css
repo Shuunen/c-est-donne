@@ -10,20 +10,20 @@
   }
   :root.dark {
     --color-primary: 214deg 32% 91%;
-    --color-accent: 270deg 95% 75%;
+    --color-accent: 270deg 95% 80%;
   }
 }
 
 body.sl-theme-light {
   --sl-color-primary-50: hsl(var(--color-primary) / .05);
-  --sl-color-primary-100: hsl(var(--color-primary) / .1);
-  --sl-color-primary-200: hsl(var(--color-primary) / .2);
-  --sl-color-primary-300: hsl(var(--color-primary) / .3);
-  --sl-color-primary-400: hsl(var(--color-primary) / .4);
-  --sl-color-primary-500: hsl(var(--color-primary) / .5);
-  --sl-color-primary-600: hsl(var(--color-primary) / .6);
-  --sl-color-primary-700: hsl(var(--color-primary) / .7);
-  --sl-color-primary-800: hsl(var(--color-primary) / .8);
-  --sl-color-primary-900: hsl(var(--color-primary) / .9);
-  --sl-color-primary-950: hsl(var(--color-primary) / .95);
+  --sl-color-primary-100: hsl(var(--color-primary) / .2);
+  --sl-color-primary-200: hsl(var(--color-primary) / .4);
+  --sl-color-primary-300: hsl(var(--color-primary) / .5);
+  --sl-color-primary-400: hsl(var(--color-primary) / .6);
+  --sl-color-primary-500: hsl(var(--color-primary) / .7);
+  --sl-color-primary-600: hsl(var(--color-primary) / .8);
+  --sl-color-primary-700: hsl(var(--color-primary) / .9);
+  --sl-color-primary-800: hsl(var(--color-primary) / 1);
+  --sl-color-primary-900: hsl(var(--color-primary) / 1);
+  --sl-color-primary-950: hsl(var(--color-primary) / 1);
 }

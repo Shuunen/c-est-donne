@@ -1,16 +1,20 @@
+/* c8 ignore start */
 /* eslint-disable no-console */
-import messages from '@intlify/vite-plugin-vue-i18n/messages'
 import { BrowserScout, emit } from 'shuutils'
-import { i18n } from '../plugins/i18n'
+import messages from '../locales/en.json'
 
-export const error = (key: string): boolean => {
-  const locale = (i18n.global.locale as unknown as {value:string}).value
-  const message = messages[locale]?.[`error-${key}`].source ?? `Un-translated error : error-${key}`
+type ErrorKey = keyof typeof messages
+
+export const error = (key: ErrorKey, details?: string): boolean => {
+  if (typeof window === 'undefined') return false
+  let message = messages[key] ?? `Un-translated error : ${key}`
+  if (details) message += `. ${details}`
   console.error(`error triggered : ${message}`)
   return emit('error', message)
 }
 
 export const log = (...stuff: unknown[]): void => {
+  if (typeof window === 'undefined') return
   console.log(...stuff)
   emit('log', stuff.join(' '))
 }
@@ -26,3 +30,4 @@ export const getEnvironment = (): string => {
 - Url : ${window.location.href}
 `
 }
+/* c8 ignore stop */
