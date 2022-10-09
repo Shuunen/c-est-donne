@@ -1,3 +1,4 @@
+/* c8 ignore next */
 import { storage } from 'shuutils'
 
 export interface User {
@@ -11,9 +12,10 @@ export interface User {
   AIRTABLE_API_APP: string
 }
 
-export const getUser = ():User => storage.get<User>('user', { name: '', firstName: '', isConnected: false, hasAccess:false, picture: '', email: '', AIRTABLE_API_KEY: '', AIRTABLE_API_APP: '' })
+/* c8 ignore next */
+export const getUser = (): User => storage.get<User>('user', { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', AIRTABLE_API_KEY: '', AIRTABLE_API_APP: '' })
 
-export const firstName = (fullName:string):string => {
+export const firstName = (fullName: string): string => {
   const first = fullName.match(/[^\s._-]+/g)
   return first?.[0] ?? fullName
 }

@@ -1,0 +1,12 @@
+{
+  "branches": 90,
+  "check-coverage": true,
+  "functions": 90,
+  "lines": 90,
+  "reporter": [
+    "html",
+    "text",
+    "lcovonly"
+  ],
+  "statements": 90
+}

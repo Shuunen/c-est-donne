@@ -22,21 +22,8 @@ class ItemsService {
     this.fetchItems()
   }
 
-  fetchItems = async (): Promise<boolean> => {
-    log('fetching items')
-    emit('loading', true)
-    const url = await this.airtableUrl('items')
-    if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
-    const response: AirtableResponse = await fetch(url).then(async response => response.json())
-    if (response.error) return error('error-airtable', response.error.message)
-    if (!response.records) return error('error-no-items-found')
-    log('found', response.records.length, 'items, here is the first one', response.records[0])
-    emit<Item[]>('list-items', response.records.map(record => new Item(record, this.email)).filter(item => item.status !== ItemStatus.unknown))
-    await sleep(300)
-    return emit('loading', false)
-  }
-
-  validate (app: string, key: string): boolean {
+  validate (): boolean {
+    const { app, key } = this
     const appOk = app !== undefined && typeof app === 'string' && app.length === 17
     const keyOk = key !== undefined && typeof key === 'string' && key.length === 17
     const valid = appOk && keyOk
@@ -45,14 +32,34 @@ class ItemsService {
     return valid
   }
 
-  async airtableUrl (target = ''): Promise<string | boolean> {
-    const ok = this.validate(this.app, this.key)
-    if (!ok) return emit('need-credentials')
+  async airtableUrl (target = ''): Promise<string | undefined> {
+    if (!this.validate()) return
     return `https://api.airtable.com/v0/${this.app}/${target}?api_key=${this.key}&view=all`
   }
 
+  /* c8 ignore start */
+
+  async fetch (url: string, options?: RequestInit): Promise<AirtableResponse> {
+    if (typeof window === 'undefined') return { error: { message: 'window is undefined', type: 'error' } }
+    return fetch(url, options).then(async response => response.json()) as Promise<AirtableResponse>
+  }
+
+  fetchItems = async (): Promise<boolean> => {
+    log('fetching items')
+    emit('loading', true)
+    const url = await this.airtableUrl('items')
+    if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
+    const response = await this.fetch(url)
+    if (response.error) return error('error-airtable', response.error.message)
+    if (!response.records) return error('error-no-items-found')
+    log('found', response.records.length, 'items, here is the first one', response.records[0])
+    emit<Item[]>('list-items', response.records.map(record => new Item(record, this.email)).filter(item => item.status !== ItemStatus.unknown))
+    await sleep(300)
+    return emit('loading', false)
+  }
+
   async patch (url: string, data: Record<string, unknown>): Promise<AirtableResponse> {
-    return fetch(url, { headers: this.headersJson, method: 'patch', body: JSON.stringify(data) }).then(async response => response.json()) as Promise<AirtableResponse>
+    return this.fetch(url, { headers: this.headersJson, method: 'patch', body: JSON.stringify(data) })
   }
 
   async updateItemStatus (id: Item['id'], status: ItemStatus, statusFront: ItemStatus): Promise<boolean> {
@@ -67,6 +74,7 @@ class ItemsService {
     return emit('loading', false)
   }
 
+  /* c8 ignore stop */
 }
 
 export const itemsService = new ItemsService()

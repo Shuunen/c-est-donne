@@ -107,6 +107,14 @@
         "vue/no-multiple-template-root": "off",
         "vue/singleline-html-element-content-newline": "off"
       }
+    },
+    {
+      "files": [
+        "tests/*"
+      ],
+      "rules": {
+        "func-names": "off"
+      }
     }
   ],
   "plugins": [

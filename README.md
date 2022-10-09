@@ -37,7 +37,6 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [ ] add horizontal layout
 - [ ] add details modal
 - [ ] add activity monitor to refresh items
-- [ ] add unit tests & coverage
 - [ ] add logo
 - [ ] add demo
 

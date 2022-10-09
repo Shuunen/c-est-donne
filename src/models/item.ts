@@ -1,3 +1,4 @@
+/* c8 ignore next */
 import { itemsService } from '../services/items'
 import type { AirtableItemRecord } from './airtable'
 
@@ -54,9 +55,11 @@ export class Item {
     }
   }
 
-  toggleStatus (): void {
+  toggleStatus (): { newStatusAirtable: ItemStatus, newStatusFront: ItemStatus } | undefined {
+    if (!this.canBeToggle) return
     const newStatusAirtable = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
     const newStatusFront = this.status === ItemStatus.available ? ItemStatus.reservedByMe : ItemStatus.available
     itemsService.updateItemStatus(this.id, newStatusAirtable, newStatusFront)
+    return { newStatusAirtable, newStatusFront }
   }
 }
