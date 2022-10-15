@@ -22,7 +22,7 @@
     "eslint-plugin-vue": "9",
     "petite-vue-i18n": "9",
     "postcss": "8",
-    "repo-check": "1.26",
+    "repo-check": "1.27",
     "rollup-plugin-visualizer": "5",
     "shuutils": "6.3",
     "tailwindcss": "3",
