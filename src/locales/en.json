@@ -5,6 +5,7 @@
   "error-body": "",
   "error-failed-to-build-airtable-url": "Failed to construct Airtable URL",
   "error-invalid-credentials": "Airtable credentials are incorrect",
+  "error-missing-user-data": "User data are missing.",
   "error-no-items-found": "No items found.",
   "error-report": "You can, if you wish, report this error to the site administrator by email",
   "error-report-mailto": "by clicking here",

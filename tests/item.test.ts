@@ -110,8 +110,11 @@ check('item E has the good id', itemE.id, recordE.id)
 check('item E has gone status', itemE.status, ItemStatus.gone)
 check('item E toggle status is blocked', itemE.toggleStatus())
 
+check('items service cannot validate without user', itemsService.validate(), false)
+check('items service cannot build url without user', itemsService.airtableUrl(), false)
+
 itemsService.onUser(userA)
-check('items service has the good user', itemsService.email, userA.email)
+check('items service has the good user', itemsService.user.email, userA.email)
 check('items service has no valid airtable credentials', itemsService.validate(), false)
 
 const userB: User = {
@@ -126,7 +129,7 @@ const userB: User = {
 }
 
 itemsService.onUser(userB)
-check('items service has the good user', itemsService.email, userB.email)
+check('items service has the good user', itemsService.user.email, userB.email)
 check('items service has valid airtable credentials', itemsService.validate(), true)
 
 checksRun()

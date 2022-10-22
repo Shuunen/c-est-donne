@@ -5,6 +5,7 @@
   "error-body": "Bonjour,\n\nCette erreur est survenue lors de ma navigation : {error}\n\nVoici mon environnement : {environment}\n\n{user}",
   "error-failed-to-build-airtable-url": "La construction de l'URL Airtable a échouée",
   "error-invalid-credentials": "Les identifiants Airtable sont incorrects",
+  "error-missing-user-data": "Les données utilisateurs sont manquantes.",
   "error-no-items-found": "Aucun objet trouvé.",
   "error-report": "Vous pouvez, si vous le souhaitez, remonter cette erreur à l'administrateur du site par mail",
   "error-report-mailto": "en cliquant ici",
