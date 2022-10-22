@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
-import { on } from 'shuutils'
+import { debounce, on } from 'shuutils'
 import { ref } from 'vue'
 
 const { t } = useI18n()
 const loading = ref(false)
 
-on('loading', (isLoading: boolean) => loading.value = isLoading)
+const showLoading = (): void => { loading.value = true }
+const hideLoadingSync = (): void => { loading.value = false }
+const hideLoading = debounce(hideLoadingSync, 400)
+
+on('loading', (newStatus: boolean) => newStatus ? showLoading() : hideLoading())
 </script>
 
 <template>
