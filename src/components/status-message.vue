@@ -2,7 +2,7 @@
 import { useI18n } from 'petite-vue-i18n'
 import { on } from 'shuutils'
 import { ref } from 'vue'
-import type { Item } from '../models/item'
+import { Item, ItemStatus } from '../models/item'
 import { getUser, User } from '../utils/user'
 
 const { t } = useI18n()
@@ -34,7 +34,7 @@ on('user', (data: User) => user.value = data)
   <sl-alert v-else-if="items.length > 0" variant="primary" open closable>
     <sl-icon slot="icon" name="check2-circle"></sl-icon>
     <strong>{{ t('welcome', {name: user.firstName}) }}</strong><br />
-    {{ t('items-remaining', {number: items.length}) }}
+    {{ t('items-remaining', {number: items.filter(item => item.status === ItemStatus.available).length}) }}
   </sl-alert>
   <sl-alert v-else-if="items.length === 0" variant="primary" open>
     <sl-icon slot="icon" name="info-circle"></sl-icon>
