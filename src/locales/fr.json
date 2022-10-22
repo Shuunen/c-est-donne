@@ -1,6 +1,8 @@
 {
   "an-error-occurred": "Une erreur est apparue",
   "close": "Fermer",
+  "display-card": "Cartes",
+  "display-list": "Liste",
   "error-airtable": "Une erreur Airtable s'est produite",
   "error-body": "Bonjour,\n\nCette erreur est survenue lors de ma navigation : {error}\n\nVoici mon environnement : {environment}\n\n{user}",
   "error-failed-to-build-airtable-url": "La construction de l'URL Airtable a échouée",
@@ -26,6 +28,9 @@
   "status-reserved-by-me": "Vous avez réservé cet objet",
   "switch-to-dark-theme": "Utiliser le thème sombre",
   "switch-to-light-theme": "Utiliser le thème clair",
+  "tab-all": "Tout les objets ({count})",
+  "tab-available": "Objets disponibles ({count})",
+  "tab-reserved-by-me": "Objets que j'ai réservé ({count})",
   "view-details": "Voir les détails",
   "welcome": "Bienvenue {name} !"
 }

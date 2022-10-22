@@ -3,11 +3,11 @@ import { itemsService } from '../services/items'
 import type { AirtableItemRecord } from './airtable'
 
 export const enum ItemCondition {
-  'acceptable' = 'acceptable',
-  'good' = 'good',
-  'very-good' = 'very-good',
-  'like-new' = 'like-new',
-  'unknown' = 'unknown',
+  acceptable = 'acceptable',
+  good = 'good',
+  veryGood = 'very-good',
+  likeNew = 'like-new',
+  unknown = 'unknown',
 }
 
 export const enum ItemStatus {
@@ -25,6 +25,7 @@ export class Item {
   name = ''
   notes = ''
   status = ItemStatus.unknown
+  visible = true
 
   get canBeToggle (): boolean {
     return [ItemStatus.reservedByMe, ItemStatus.available].includes(this.status)
