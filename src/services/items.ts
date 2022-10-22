@@ -63,7 +63,7 @@ class ItemsService {
     return this.fetch(url, { headers: this.headersJson, method: 'patch', body: JSON.stringify(data) })
   }
 
-  async updateItemStatus (id: Item['id'], status: ItemStatus, statusFront: ItemStatus): Promise<boolean> {
+  async updateItemStatus (id: Item['id'], status: ItemStatus): Promise<boolean> {
     if (!this.user) return error('error-missing-user-data')
     emit('loading', true)
     const url = await this.airtableUrl(`items/${id}`)
@@ -72,7 +72,7 @@ class ItemsService {
     const response = await this.patch(url, data)
     if (response.error) return error('error-airtable', response.error.message)
     log('updated item', id, 'status to', status)
-    emit('update-item-status', { id, status: statusFront })
+    await this.fetchItems()
     return emit('loading', false)
   }
 

@@ -36,30 +36,17 @@ export class Item {
     this.images = record.fields.Images?.map(image => image.url) ?? []
     this.name = record.fields.Name
     this.notes = record.fields.Notes ?? ''
-    switch (record.fields.Status) {
-      case 'available': {
-        this.status = ItemStatus.available
-        break
-      }
-      case 'reserved': {
-        this.status = this.beneficiary === currentUserMail ? ItemStatus.reservedByMe : ItemStatus.reserved
-        break
-      }
-      case 'gone': {
-        this.status = ItemStatus.gone
-        break
-      }
-      default: {
-        this.status = ItemStatus.unknown
-      }
-    }
+    const status = record.fields.Status
+    if (status === 'available') this.status = ItemStatus.available
+    else if (status === 'reserved') this.status = this.beneficiary === currentUserMail ? ItemStatus.reservedByMe : ItemStatus.reserved
+    else if (status === 'gone') this.status = ItemStatus.gone
+    else this.status = ItemStatus.unknown
   }
 
-  toggleStatus (): { newStatusAirtable: ItemStatus, newStatusFront: ItemStatus } | undefined {
+  toggleStatus (): ItemStatus.reserved | ItemStatus.available | undefined {
     if (!this.canBeToggle) return
-    const newStatusAirtable = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
-    const newStatusFront = this.status === ItemStatus.available ? ItemStatus.reservedByMe : ItemStatus.available
-    itemsService.updateItemStatus(this.id, newStatusAirtable, newStatusFront)
-    return { newStatusAirtable, newStatusFront }
+    const newStatus = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
+    itemsService.updateItemStatus(this.id, newStatus)
+    return newStatus
   }
 }

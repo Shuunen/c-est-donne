@@ -53,7 +53,7 @@ check('item B has no images', itemB.images, [])
 check('item B has the good id', itemB.id, recordB.id)
 check('item B has no beneficiary', itemB.beneficiary, '')
 check('item B has available status', itemB.status, ItemStatus.available)
-check('item B toggle status', itemB.toggleStatus(), { newStatusAirtable: ItemStatus.reserved, newStatusFront: ItemStatus.reservedByMe })
+check('item B toggle status', itemB.toggleStatus(), ItemStatus.reserved)
 
 const recordC: AirtableItemRecord = {
   id: 'rec789',
@@ -91,7 +91,7 @@ check('item D has no images', itemD.images, [])
 check('item D has the good id', itemD.id, recordD.id)
 check('item D has reservedByMe status', itemD.status, ItemStatus.reservedByMe)
 check('item D has the good beneficiary', itemD.beneficiary, userA.email)
-check('item D toggle status', itemD.toggleStatus(), { newStatusAirtable: ItemStatus.available, newStatusFront: ItemStatus.available })
+check('item D toggle status', itemD.toggleStatus(), ItemStatus.available)
 
 const recordE: AirtableItemRecord = {
   id: 'rec131415',
