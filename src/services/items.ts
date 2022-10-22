@@ -1,4 +1,4 @@
-import { emit, on, sleep } from 'shuutils'
+import { emit, on } from 'shuutils'
 import type { AirtableResponse } from '../models/airtable'
 import { Item, ItemStatus } from '../models/item'
 import { error, log } from '../utils/logs'
@@ -12,10 +12,12 @@ class ItemsService {
     on('user', (user: User) => this.onUser(user))
   }
 
-  onUser (user: User): void {
+  async onUser (user: User): Promise<void> {
     log('got user')
     this.user = user
-    this.fetchItems()
+    emit('loading', true)
+    await this.fetchItems()
+    emit('loading', false)
   }
 
   validate (): boolean {
@@ -47,7 +49,6 @@ class ItemsService {
     if (!email) return error('error-missing-user-data')
     if (!this.validate()) return error('error-invalid-credentials')
     log('fetching items...')
-    emit('loading', true)
     const url = await this.airtableUrl('items')
     if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
     const response = await this.fetch(url)
@@ -55,8 +56,6 @@ class ItemsService {
     if (!response.records) return error('error-no-items-found')
     log('found', response.records.length, 'items, here is the first one', response.records[0])
     emit<Item[]>('list-items', response.records.map(record => new Item(record, email)).filter(item => item.status !== ItemStatus.unknown))
-    await sleep(300)
-    return emit('loading', false)
   }
 
   async patch (url: string, data: Record<string, unknown>): Promise<AirtableResponse> {
