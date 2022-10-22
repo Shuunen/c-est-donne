@@ -10,7 +10,8 @@ const enum Theme {
 }
 
 const { t } = useI18n()
-const theme = ref(storage.get<Theme>('theme', Theme.dark))
+const DEFAULT_THEME = Theme.light
+const theme = ref(storage.get<Theme>('theme', DEFAULT_THEME))
 log('theme found in local storage :', theme.value)
 
 const setThemeInDom = (): void => {
