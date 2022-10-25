@@ -5,7 +5,7 @@ specifiers:
   '@auth0/auth0-vue': '1'
   '@intlify/vite-plugin-vue-i18n': '6'
   '@shoelace-style/shoelace': 2.0.0-beta.83
-  '@types/node': '16'
+  '@types/node': '18'
   '@typescript-eslint/eslint-plugin': '5'
   '@typescript-eslint/parser': '5'
   '@vitejs/plugin-vue': '3.1'
@@ -36,7 +36,7 @@ devDependencies:
   '@auth0/auth0-vue': 1.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_b5sy52ifjosgpnelt26ywv3vka
   '@shoelace-style/shoelace': 2.0.0-beta.83
-  '@types/node': 16.11.68
+  '@types/node': 18.11.5
   '@typescript-eslint/eslint-plugin': 5.40.1_c4zyna56jjjrggqkyejnaxjxfu
   '@typescript-eslint/parser': 5.40.1_wyqvi574yv7oiwfeinomdzmc3m
   '@vitejs/plugin-vue': 3.1.2_vite@3.1.8+vue@3.2.41
@@ -410,8 +410,8 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
-  /@types/node/16.11.68:
-    resolution: {integrity: sha512-JkRpuVz3xCNCWaeQ5EHLR/6woMbHZz/jZ7Kmc63AkU+1HxnoUugzSWMck7dsR4DvNYX8jp9wTi9K7WvnxOIQZQ==}
+  /@types/node/18.11.5:
+    resolution: {integrity: sha512-3JRwhbjI+cHLAkUorhf8RnqUbFXajvzX4q6fMn5JwkgtuwfYtRQYI3u4V92vI6NJuTsbBQWWh3RZjFsuevyMGQ==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
