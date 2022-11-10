@@ -19,7 +19,7 @@ specifiers:
   eslint-plugin-vue: '9'
   petite-vue-i18n: '9'
   postcss: '8'
-  repo-check: '1.28'
+  repo-check: '1.29'
   rollup-plugin-visualizer: '5'
   shuutils: '6.3'
   tailwindcss: '3'
@@ -50,7 +50,7 @@ devDependencies:
   eslint-plugin-vue: 9.6.0_eslint@8.27.0
   petite-vue-i18n: 9.2.2_vue@3.2.41
   postcss: 8.4.18
-  repo-check: 1.28.0
+  repo-check: 1.29.0
   rollup-plugin-visualizer: 5.8.3
   shuutils: 6.3.0
   tailwindcss: 3.2.1_postcss@8.4.18
@@ -2618,8 +2618,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /repo-check/1.28.0:
-    resolution: {integrity: sha512-8uOvn6bSAk81TDUWXKZqcqEofrqaCXbUgKR9Qe05sHKvAxg0oZsMLkAh2A4AmmcAIzIV1XNilObDnNOKSd2zTQ==}
+  /repo-check/1.29.0:
+    resolution: {integrity: sha512-byp4NWqqR5R/0mLOSPxcHiXmj5kW+MVGasvLJNWEmqNT1yuV7t5AJ0jen+rQ4Ah5s+aglP3eupgY812rB9uVpA==}
     hasBin: true
     dev: true
 
