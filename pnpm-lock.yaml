@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@angular-eslint/template-parser': '14'
+  '@angular-eslint/template-parser': '15'
   '@auth0/auth0-vue': '1'
   '@intlify/vite-plugin-vue-i18n': '6'
   '@shoelace-style/shoelace': 2.0.0-beta.83
@@ -32,7 +32,7 @@ specifiers:
   watchlist: '0'
 
 devDependencies:
-  '@angular-eslint/template-parser': 14.1.2_hsf322ms6xhhd4b5ne6lb74y4a
+  '@angular-eslint/template-parser': 15.0.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@auth0/auth0-vue': 1.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_xgw4omwphtbabvbpjqlanbzjxi
   '@shoelace-style/shoelace': 2.0.0-beta.83
@@ -64,19 +64,19 @@ devDependencies:
 
 packages:
 
-  /@angular-eslint/bundled-angular-compiler/14.1.2:
-    resolution: {integrity: sha512-d5/jTKXP+t9hNSucj3m8zZYBl62fZ2xFMVNbAOArYAkA7WwwX3D7Gae57BNW54cd2fl2/is7Dn6UgYhu1wqkSQ==}
+  /@angular-eslint/bundled-angular-compiler/15.0.0:
+    resolution: {integrity: sha512-IFJFVCc3t+ujD8J6//RzYrtp7N9wUQhZnRUkd7pI7IpUT1XrQx5uNbDca9OLXM5F+HCHOQPIoaCyg3O/XJcc8Q==}
     dev: true
 
-  /@angular-eslint/template-parser/14.1.2_hsf322ms6xhhd4b5ne6lb74y4a:
-    resolution: {integrity: sha512-bQI+poQDIyR3OU9EQzJeLYRtmsvjFGtV5dc+4XPJ6eIyRAc8baCG/0V/cOrpofIdSf7e/sCV8H7rXcFg6tSdUw==}
+  /@angular-eslint/template-parser/15.0.0_hsf322ms6xhhd4b5ne6lb74y4a:
+    resolution: {integrity: sha512-tidZOhQ9ygXPyUwxXzXbEVJUiHRNF0oFu1Pf+hSlOwgjvRqCqVwXfDxEe6NjFEwRXsp0CtDgyseu7E9+ml+m6A==}
     peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
+      eslint: ^7.20.0 || ^8.0.0
       typescript: '*'
     dependencies:
-      '@angular-eslint/bundled-angular-compiler': 14.1.2
+      '@angular-eslint/bundled-angular-compiler': 15.0.0
       eslint: 8.28.0
-      eslint-scope: 5.1.1
+      eslint-scope: 7.1.1
       typescript: 4.9.3
     dev: true
 
