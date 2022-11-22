@@ -4,7 +4,7 @@ specifiers:
   '@angular-eslint/template-parser': '15'
   '@auth0/auth0-vue': '1'
   '@intlify/vite-plugin-vue-i18n': '6'
-  '@shoelace-style/shoelace': 2.0.0-beta.83
+  '@shoelace-style/shoelace': 2.0.0-beta.84
   '@types/node': '18'
   '@typescript-eslint/eslint-plugin': '5'
   '@typescript-eslint/parser': '5'
@@ -35,7 +35,7 @@ devDependencies:
   '@angular-eslint/template-parser': 15.0.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@auth0/auth0-vue': 1.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_xgw4omwphtbabvbpjqlanbzjxi
-  '@shoelace-style/shoelace': 2.0.0-beta.83
+  '@shoelace-style/shoelace': 2.0.0-beta.84
   '@types/node': 18.11.5
   '@typescript-eslint/eslint-plugin': 5.40.1_5foadabyhuofbj4bdrxjdavre4
   '@typescript-eslint/parser': 5.40.1_hsf322ms6xhhd4b5ne6lb74y4a
@@ -195,14 +195,14 @@ packages:
       - supports-color
     dev: true
 
-  /@floating-ui/core/1.0.1:
-    resolution: {integrity: sha512-bO37brCPfteXQfFY0DyNDGB3+IMe4j150KFQcgJ5aBP295p9nBGeHEs/p0czrRbtlHq4Px/yoPXO/+dOCcF4uA==}
+  /@floating-ui/core/1.0.2:
+    resolution: {integrity: sha512-Skfy0YS3NJ5nV9us0uuPN0HDk1Q4edljaOhRBJGDWs9EBa7ZVMYBHRFlhLvvmwEoaIM9BlH6QJFn9/uZg0bACg==}
     dev: true
 
-  /@floating-ui/dom/1.0.3:
-    resolution: {integrity: sha512-6H1kwjkOZKabApNtXRiYHvMmYJToJ1DV7rQ3xc/WJpOABhQIOJJOdz2AOejj8X+gcybaFmBpisVTZxBZAM3V0w==}
+  /@floating-ui/dom/1.0.6:
+    resolution: {integrity: sha512-kt/tg1oip9OAH1xjCTcx1OpcUpu9rjDw3GKJ/rEhUqhO7QyJWfrHU0DpLTNsH67+JyFL5Kv9X1utsXwKFVtyEQ==}
     dependencies:
-      '@floating-ui/core': 1.0.1
+      '@floating-ui/core': 1.0.2
     dev: true
 
   /@humanwhocodes/config-array/0.11.6:
@@ -237,8 +237,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.8
-      '@intlify/shared': 9.3.0-beta.8
+      '@intlify/message-compiler': 9.3.0-beta.10
+      '@intlify/shared': 9.3.0-beta.10
       jsonc-eslint-parser: 1.4.1
       petite-vue-i18n: 9.2.2_vue@3.2.41
       source-map: 0.6.1
@@ -270,11 +270,11 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /@intlify/message-compiler/9.3.0-beta.8:
-    resolution: {integrity: sha512-iwFqsUonpFBRTlpOoI6xRrE5d0jdR4yudkiu0q5d9T7lKrs6S0nwjQfBkANA8Esz1Wy0cjqWp0Qj0j9YZ75aZQ==}
+  /@intlify/message-compiler/9.3.0-beta.10:
+    resolution: {integrity: sha512-RoOC6yceOykLRhN0NlbkNOBUx1el6iphx3W8NfOx3jHVNtfT1FYokx14/5sU3F1F0uxeG4sp6q+ppKvaF8o+ww==}
     engines: {node: '>= 14'}
     dependencies:
-      '@intlify/shared': 9.3.0-beta.8
+      '@intlify/shared': 9.3.0-beta.10
       source-map: 0.6.1
     dev: true
 
@@ -283,8 +283,8 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /@intlify/shared/9.3.0-beta.8:
-    resolution: {integrity: sha512-hF81ExYPVTYH/5xCZuXjMJb8G5EH1owUfij3oIPydJao5RcLSWlol8jGgR6GZpG1mdYW9rX965pqnyQLkqoV6A==}
+  /@intlify/shared/9.3.0-beta.10:
+    resolution: {integrity: sha512-h93uAanbAt/XgjDHclrVB7xix6r7Uz11wx0iGNOCdHP7aA2LCJjUT3uNbekJjjbo+Fl5jzTSJZdm2SexzoqhRA==}
     engines: {node: '>= 14'}
     dev: true
 
@@ -304,7 +304,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.2.1_petite-vue-i18n@9.2.2
-      '@intlify/shared': 9.3.0-beta.8
+      '@intlify/shared': 9.3.0-beta.10
       '@rollup/pluginutils': 4.2.1
       debug: 4.3.4
       fast-glob: 3.2.12
@@ -344,8 +344,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@lit-labs/react/1.0.9:
-    resolution: {integrity: sha512-yjkdcciypTIJ6vUXzZJHTAwt2fdATUAfZMkHRbLpbgEnr8OwpwVOQ04me1Y7p5Vwtmcd4GWY0/BQ6G8jUgCK1w==}
+  /@lit-labs/react/1.1.0:
+    resolution: {integrity: sha512-uvdOtzACm1WzTySpKnqXth62iPL+4yDow7cSZH7m7jHbDr+tZVXn44DJ5IoJuMjEevORRe57lNrOywFW6d4Fyg==}
     dev: true
 
   /@lit/reactive-element/1.4.1:
@@ -385,20 +385,20 @@ packages:
     resolution: {integrity: sha512-Be+cahtZyI2dPKRm8EZSx3YJQ+jLvEcn3xzRP7tM4tqBnvd/eW/64Xh0iOf0t2w5P8iJKfdBbpVNE9naCaOf2g==}
     dev: true
 
-  /@shoelace-style/localize/3.0.1:
-    resolution: {integrity: sha512-nmv1syJ3ormbGq29GsuxGRK6BFq7Jhx+kVFyuuozz0Pckkvk1SGk2vpZZcdnj2vRZCETvlVB7KYgakUwgGmn+A==}
+  /@shoelace-style/localize/3.0.3:
+    resolution: {integrity: sha512-BVYDsMTpSCjvC8akhTkcnl4WIgAv7AnRq8fSuNhdGDLjkpmN1ARdAXic5luAozoMVjft85ocOmEdT8z7MbXdmQ==}
     dev: true
 
-  /@shoelace-style/shoelace/2.0.0-beta.83:
-    resolution: {integrity: sha512-dHVBtapuqxSRu3klBZhf9/LtEtircaLLnDajNbhuiBiY7PVCxjjf/9Kyd/S/BpbhKwMICqJr+PaKoCTd2iWDJA==}
+  /@shoelace-style/shoelace/2.0.0-beta.84:
+    resolution: {integrity: sha512-DS8jWX7RnoR9HJ1TiX6D6gcLpBAVMMIy54nS4qMbBetBche0Tf9BhDxfhsXLK1EluzWHKjNJs0NjwxFWaYCSxw==}
     engines: {node: '>=14.17.0'}
     dependencies:
-      '@floating-ui/dom': 1.0.3
-      '@lit-labs/react': 1.0.9
+      '@floating-ui/dom': 1.0.6
+      '@lit-labs/react': 1.1.0
       '@shoelace-style/animations': 1.1.0
-      '@shoelace-style/localize': 3.0.1
+      '@shoelace-style/localize': 3.0.3
       color: 4.2.3
-      lit: 2.4.0
+      lit: 2.4.1
       qr-creator: 1.0.0
     dev: true
 
@@ -2218,8 +2218,8 @@ packages:
       '@types/trusted-types': 2.0.2
     dev: true
 
-  /lit/2.4.0:
-    resolution: {integrity: sha512-fdgzxEtLrZFQU/BqTtxFQCLwlZd9bdat+ltzSFjvWkZrs7eBmeX0L5MHUMb3kYIkuS8Xlfnii/iI5klirF8/Xg==}
+  /lit/2.4.1:
+    resolution: {integrity: sha512-qohSgLiyN1cFnJG26dIiY03S4F49857A0AHQfnS0zYtnUVnD2MFvx+UT52rtXsIuNFQrnUupX+zyGSATlk1f/A==}
     dependencies:
       '@lit/reactive-element': 1.4.1
       lit-element: 3.2.2
