@@ -8,6 +8,7 @@ export interface AirtableItemRecord {
   id: string
   createdTime: string
   fields: {
+    /* eslint-disable @typescript-eslint/naming-convention */
     Beneficiary?: string
     Condition?: string
     Images?: AirtableItemRecordImage[]
@@ -16,6 +17,7 @@ export interface AirtableItemRecord {
     Status?: string
     ValueNew?: number
     ValueUsed?: number
+    /* eslint-enable @typescript-eslint/naming-convention */
   }
 }
 
@@ -27,4 +29,9 @@ export interface AirtableResponse {
   }
 }
 
-export const HeadersJson = { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+export const HEADERS_JSON = {
+  /* eslint-disable @typescript-eslint/naming-convention */
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  /* eslint-enable @typescript-eslint/naming-convention */
+}

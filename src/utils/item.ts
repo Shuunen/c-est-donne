@@ -19,21 +19,24 @@ export const enum ItemStatus {
 }
 
 export class Item {
-  id = ''
-  beneficiary = ''
-  images: string[] = []
-  name = ''
-  notes = ''
-  status = ItemStatus.unknown
-  visible = true
 
-  get canBeToggle (): boolean {
-    return [ItemStatus.reservedByMe, ItemStatus.available].includes(this.status)
-  }
+  public readonly beneficiary: string
 
-  constructor (record: AirtableItemRecord, currentUserMail: string) {
-    this.id = record.id
+  public readonly id: string
+
+  public readonly images: string[]
+
+  public readonly name: string
+
+  public readonly notes: string
+
+  public readonly status: ItemStatus
+
+  public visible: boolean
+
+  public constructor (record: AirtableItemRecord, currentUserMail: string) {
     this.beneficiary = record.fields.Beneficiary ?? ''
+    this.id = record.id
     this.images = record.fields.Images?.map(image => image.url) ?? []
     this.name = record.fields.Name
     this.notes = record.fields.Notes ?? ''
@@ -42,12 +45,17 @@ export class Item {
     else if (status === 'reserved') this.status = this.beneficiary === currentUserMail ? ItemStatus.reservedByMe : ItemStatus.reserved
     else if (status === 'gone') this.status = ItemStatus.gone
     else this.status = ItemStatus.unknown
+    this.visible = true
   }
 
-  toggleStatus (): ItemStatus.reserved | ItemStatus.available | undefined {
+  public get canBeToggle (): boolean {
+    return [ItemStatus.reservedByMe, ItemStatus.available].includes(this.status)
+  }
+
+  public toggleStatus (): ItemStatus.available | ItemStatus.reserved | undefined {
     if (!this.canBeToggle) return
     const updatedStatus = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
-    updateItemStatus(this.id, updatedStatus)
+    void updateItemStatus(this.id, updatedStatus)
     return updatedStatus
   }
 }

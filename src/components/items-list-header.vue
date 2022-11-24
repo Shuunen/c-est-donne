@@ -12,6 +12,14 @@ const { t } = useI18n()
 const counts = ref({ [Tabs.available]: 0, [Tabs.reservedByMe]: 0, [Tabs.all]: 0 })
 const filter = ref<Filter>(Tabs.available)
 
+const listSort = (a: Item, b: Item): number => {
+  log('sorting items')
+  // sort by availability
+  if ([Tabs.reservedByMe, Tabs.available].includes(filter.value)) return Number(b.visible) - Number(a.visible)
+  // or by name by default
+  return a.name > b.name ? 1 : -1
+}
+
 const showTab = (name: Tabs): void => {
   log('showing tab', name)
   if ([Tabs.available, Tabs.reservedByMe, Tabs.all].includes(name)) {
@@ -23,14 +31,6 @@ const showTab = (name: Tabs): void => {
   } else if ([Tabs.list, Tabs.cards].includes(name))
     state.display = name as Display
   else error('an-error-occurred', `un-handled tab name "${name}"`)
-}
-
-const listSort = (a: Item, b: Item): number => {
-  log('sorting items')
-  // sort by availability
-  if ([Tabs.reservedByMe, Tabs.available].includes(filter.value)) return Number(b.visible) - Number(a.visible)
-  // or by name by default
-  return a.name > b.name ? 1 : -1
 }
 
 const refreshCounts = (): void => {
@@ -45,7 +45,7 @@ const onItems = (): void => {
   showTab(filter.value)
 }
 
-on('sl-tab-show', ({ name }: { name: Tabs }): void => showTab(name))
+on('sl-tab-show', ({ name }: { name: Tabs }): void => { showTab(name) })
 
 watch(() => state.items, onItems)
 </script>

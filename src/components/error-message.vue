@@ -5,8 +5,8 @@ import { state } from '../state'
 import { getEnvironment, log } from '../utils/logs'
 
 interface SLDialog extends HTMLElement {
-  show (): void
-  hide (): void
+  show: () => void
+  hide: () => void
 }
 
 const { t } = useI18n()
@@ -21,7 +21,7 @@ const mailError = (): void => {
   mail.click()
 }
 
-const onError = (content: string | ErrorEvent): void => {
+const onError = (content: ErrorEvent | string): void => {
   message.value = content instanceof ErrorEvent ? content.message : content
   dialog.value?.show()
 }

@@ -8,37 +8,41 @@ import { log } from '../utils/logs'
 import { firstName } from '../utils/user'
 
 const { t } = useI18n()
+// eslint-disable-next-line @typescript-eslint/unbound-method
 const { loginWithRedirect, logout, user } = useAuth0()
 const hover = ref(false)
 
-const doLogin = (): void => {
+const doLogin = async (): Promise<undefined> => {
   log('login')
-  loginWithRedirect()
+  await loginWithRedirect()
+  return
 }
-const doLogout = (): void => {
+const doLogout = async (): Promise<undefined> => {
   log('logout')
   storage.clear('user')
-  logout({ returnTo: window.location.origin })
+  await logout({ returnTo: window.location.origin })
+  return
 }
-const syncStorage = async (): Promise<void> => {
+const syncStorage = (): undefined => {
   log('sync storage...')
   const actual = state.user
   const expected = copy(actual)
-  expected.name = user.value?.name || expected.name
+  expected.name = user.value.name ?? expected.name
   expected.firstName = firstName(expected.name)
-  expected.picture = user.value?.picture || expected.picture
-  expected.email = user.value?.email || expected.email
-  expected.apiKey = user.value?.['AIRTABLE_API_KEY'] || expected.apiKey
-  expected.apiApp = user.value?.['AIRTABLE_API_APP'] || expected.apiApp
+  expected.picture = user.value.picture ?? expected.picture
+  expected.email = user.value.email ?? expected.email
+  expected.apiKey = user.value['AIRTABLE_API_KEY'] ?? expected.apiKey // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+  expected.apiApp = user.value['AIRTABLE_API_APP'] ?? expected.apiApp // eslint-disable-line @typescript-eslint/no-unsafe-assignment
   expected.isConnected = expected.email.length > 0
   expected.hasAccess = expected.apiKey.length > 0
   const same = JSON.stringify(actual) === JSON.stringify(expected)
   log(`sync storage data ${same ? 'does not need update' : 'are different and will be updated'}`)
   if (!same) storage.set('user', expected)
   state.user = expected
+  return
 }
 const syncStorageDebounced = debounce(syncStorage, 100)
-syncStorageDebounced()
+void syncStorageDebounced()
 watch(user, syncStorageDebounced)
 </script>
 

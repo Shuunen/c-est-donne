@@ -11,7 +11,7 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: tag => tag.indexOf('sl-') === 0,
+          isCustomElement: tag => tag.startsWith('sl-'),
         },
       },
     }),
@@ -22,6 +22,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       '@': fileURLToPath(new URL('src', import.meta.url)),
     },
   },
