@@ -26,3 +26,5 @@ export interface AirtableResponse {
     message: string
   }
 }
+
+export const HeadersJson = { 'Accept': 'application/json', 'Content-Type': 'application/json' }

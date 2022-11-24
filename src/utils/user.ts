@@ -1,19 +1,15 @@
-/* c8 ignore next */
-import { storage } from 'shuutils'
-
 export interface User {
-  name: string
-  firstName: string
-  isConnected: boolean
-  hasAccess: boolean
-  picture: string
+  apiApp: string
+  apiKey: string
   email: string
-  AIRTABLE_API_KEY: string
-  AIRTABLE_API_APP: string
+  firstName: string
+  hasAccess: boolean
+  isConnected: boolean
+  name: string
+  picture: string
 }
 
-/* c8 ignore next */
-export const getUser = (): User => storage.get<User>('user', { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', AIRTABLE_API_KEY: '', AIRTABLE_API_APP: '' })
+export const EmptyUser: User = { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', apiKey: '', apiApp: '' }
 
 export const firstName = (fullName: string): string => {
   const first = fullName.match(/[^\s._-]+/g)

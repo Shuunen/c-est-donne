@@ -3,8 +3,6 @@ import { createApp } from 'vue'
 import App from './app.vue'
 import { i18n } from './plugins/i18n'
 import './plugins/shoelace'
-import './plugins/storage'
-import './services'
 import './style.css'
 
 const app = createApp(App)

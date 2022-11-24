@@ -1,6 +1,6 @@
 /* c8 ignore next */
-import { itemsService } from '../services/items'
 import type { AirtableItemRecord } from './airtable'
+import { updateItemStatus } from './items'
 
 export const enum ItemCondition {
   acceptable = 'acceptable',
@@ -47,7 +47,7 @@ export class Item {
   toggleStatus (): ItemStatus.reserved | ItemStatus.available | undefined {
     if (!this.canBeToggle) return
     const newStatus = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
-    itemsService.updateItemStatus(this.id, newStatus)
+    updateItemStatus(this.id, newStatus)
     return newStatus
   }
 }

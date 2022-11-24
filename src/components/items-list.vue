@@ -1,27 +1,17 @@
-<!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
-import { capitalize, ellipsis, emit, on } from 'shuutils'
-import { ref } from 'vue'
-import { Item, ItemStatus } from '../models/item'
-import { log } from '../utils/logs'
+import { capitalize, ellipsis } from 'shuutils'
+import { state } from '../state'
+import { ItemStatus } from '../utils/item'
 
 const { t } = useI18n()
-const items = ref<Item[]>([])
-
-const onListItems = (list: Item[]): void => {
-  log('updating items list')
-  items.value = list
-}
-
-on('list-items', onListItems)
 </script>
 
 <template>
   <div class="grid gap-6">
-    <items-list--header />
+    <items-list-header />
     <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      <sl-card v-for="item, index in items" :key="item.id" :style="`animation-delay: ${200 * index}ms;`" class="app-item app-fade-in"
+      <sl-card v-for="item, index in state.items" :key="item.id" :style="`animation-delay: ${200 * index}ms;`" class="app-item app-fade-in"
         :class="{ hidden: !item.visible }">
         <img slot="image" class="h-64 bg-white object-contain p-6 dark:brightness-75 dark:saturate-[1.2]" :src="item.images[0] ?? '/no-visual.svg'"
           :alt="item.name + 'image'" />
@@ -47,7 +37,7 @@ on('list-items', onListItems)
         </div>
 
         <div slot="footer" class="flex justify-between">
-          <sl-button variant="neutral" outline pill @click="emit('item-details', item)">{{ t('view-details') }}</sl-button>
+          <sl-button variant="neutral" outline pill @click="state.viewItem = item">{{ t('view-details') }}</sl-button>
           <sl-button v-if="item.canBeToggle" :outline="item.status === ItemStatus.reservedByMe" variant="primary" pill @click="item.toggleStatus()">
             {{ item.status === ItemStatus.reservedByMe ? t('i-wont-take-it') : t('i-take-it') }}
           </sl-button>
