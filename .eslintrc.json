@@ -20,7 +20,7 @@
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:unicorn/recommended",
+        "plugin:unicorn/all",
         "plugin:vue/vue3-recommended",
         "@vue/typescript/recommended"
       ],
@@ -37,13 +37,45 @@
             "allowSingleLine": true
           }
         ],
+        "@typescript-eslint/comma-dangle": [
+          "error",
+          "always-multiline"
+        ],
+        "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/indent": [
+          "error",
+          2
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "none"
+            }
+          }
+        ],
+        "@typescript-eslint/no-magic-numbers": "off",
+        "@typescript-eslint/no-type-alias": "off",
         "@typescript-eslint/no-unused-vars": [
           "error",
           {
             "argsIgnorePattern": "^_",
             "varsIgnorePattern": "^(_|global)"
           }
+        ],
+        "@typescript-eslint/object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "@typescript-eslint/prefer-readonly-parameter-types": "off",
+        "@typescript-eslint/quotes": [
+          "error",
+          "single"
+        ],
+        "@typescript-eslint/semi": [
+          "error",
+          "never"
         ],
         "capitalized-comments": "off",
         "comma-dangle": [
@@ -117,12 +149,6 @@
         "func-names": "off"
       }
     }
-  ],
-  "plugins": [
-    "@typescript-eslint",
-    "vue",
-    "tailwindcss",
-    "unicorn"
   ],
   "settings": {
     "tailwindcss": {
