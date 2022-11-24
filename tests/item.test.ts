@@ -1,18 +1,18 @@
 import { check, checksRun } from 'shuutils'
-import { AirtableItemRecord } from '../src/models/airtable'
-import { Item, ItemStatus } from '../src/models/item'
-import { itemsService } from '../src/services/items'
-import { User } from '../src/utils/user'
+import type { AirtableItemRecord } from '../src/utils/airtable'
+import { Item, ItemStatus } from '../src/utils/item'
+import { airtableUrl, validate } from '../src/utils/items'
+import type { User } from '../src/utils/user'
 
 const userA: User = {
-  name: 'John Doe',
-  firstName: 'John',
-  isConnected: true,
-  hasAccess: true,
-  picture: 'https://example.com/picture.jpg',
+  apiApp: 'app1234567890',
+  apiKey: 'key1234567890',
   email: 'john@gmail.com',
-  AIRTABLE_API_APP: 'app1234567890',
-  AIRTABLE_API_KEY: 'key1234567890',
+  firstName: 'John',
+  hasAccess: true,
+  isConnected: true,
+  name: 'John Doe',
+  picture: 'https://example.com/picture.jpg',
 }
 
 const recordA: AirtableItemRecord = {
@@ -35,7 +35,7 @@ check('item A has the good name', itemA.name, recordA.fields.Name)
 check('item A has the good id', itemA.id, recordA.id)
 check('item A has no beneficiary', itemA.beneficiary, '')
 check('item A has unknown status', itemA.status, ItemStatus.unknown)
-check('item A has one image', itemA.images, [recordA.fields.Images[0].url])
+check('item A has one image', itemA.images, [recordA.fields.Images?.[0]?.url])
 
 const recordB: AirtableItemRecord = {
   id: 'rec456',
@@ -110,26 +110,17 @@ check('item E has the good id', itemE.id, recordE.id)
 check('item E has gone status', itemE.status, ItemStatus.gone)
 check('item E toggle status is blocked', itemE.toggleStatus())
 
-check('items service cannot validate without user', itemsService.validate(), false)
-check('items service cannot build url without user', itemsService.airtableUrl(), false)
+const validApp = 'app12345678900000'
+const invalidApp = 'app1234567890'
+const validKey = 'key12345678900000'
+const invalidKey = 'key123'
 
-itemsService.onUser(userA)
-check('items service has the good user', itemsService.user.email, userA.email)
-check('items service has no valid airtable credentials', itemsService.validate(), false)
+check('validate A without app and without key', validate(), false)
+check('validate B with valid app and without key', validate(validApp), false)
+check('validate C without app and with valid key', validate(undefined, validKey), false)
+check('validate D with valid app and with valid key', validate(validApp, validKey), true)
+check('validate E with invalid app and invalid key', validate(invalidApp, invalidKey), false)
 
-const userB: User = {
-  name: 'Alice Doe',
-  firstName: 'Alice',
-  isConnected: true,
-  hasAccess: true,
-  picture: 'https://example.com/picture.jpg',
-  email: 'alice@aol.com',
-  AIRTABLE_API_APP: 'app12345678901234',
-  AIRTABLE_API_KEY: 'key12345678901234',
-}
-
-itemsService.onUser(userB)
-check('items service has the good user', itemsService.user.email, userB.email)
-check('items service has valid airtable credentials', itemsService.validate(), true)
+check('airtableUrl A with target plop', airtableUrl(validApp, validKey, 'plop'), 'https://api.airtable.com/v0/app12345678900000/plop?api_key=key12345678900000&view=all')
 
 checksRun()

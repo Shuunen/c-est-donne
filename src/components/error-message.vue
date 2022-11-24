@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
-import { on } from 'shuutils'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { state } from '../state'
 import { getEnvironment, log } from '../utils/logs'
-import { getUser } from '../utils/user'
 
 interface SLDialog extends HTMLElement {
   show (): void
@@ -14,18 +13,20 @@ const { t } = useI18n()
 const message = ref('')
 const dialog = ref<SLDialog>()
 
-on('error', (content: string | ErrorEvent) => {
-  message.value = content instanceof ErrorEvent ? content.message : content
-  dialog.value?.show()
-})
-
 const mailError = (): void => {
   log('mailing error to admin')
   const mail = document.createElement('a')
-  const body = t('error-body', { error: message.value, environment: getEnvironment(), user: getUser().firstName })
+  const body = t('error-body', { error: message.value, environment: getEnvironment(), user: state.user.firstName })
   mail.href = `mailto:romain.racamier@gmail.com?subject=${encodeURIComponent(t('error-report-subject'))}&body=${encodeURIComponent(body)}`
   mail.click()
 }
+
+const onError = (content: string | ErrorEvent): void => {
+  message.value = content instanceof ErrorEvent ? content.message : content
+  dialog.value?.show()
+}
+
+watch(() => state.error, onError)
 </script>
 
 <template>

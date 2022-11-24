@@ -2,27 +2,26 @@
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
 import { on } from 'shuutils'
-import { ref } from 'vue'
-import { Item, ItemStatus } from '../models/item'
-import { Display, Filter, Tabs } from '../models/tabs'
+import { ref, watch } from 'vue'
+import { state } from '../state'
+import { ItemStatus, type Item } from '../utils/item'
 import { error, log } from '../utils/logs'
+import { Tabs, type Display, type Filter } from '../utils/tabs'
 
 const { t } = useI18n()
 const counts = ref({ [Tabs.available]: 0, [Tabs.reservedByMe]: 0, [Tabs.all]: 0 })
-const items = ref<Item[]>([])
-const display = ref<Display>(Tabs.list)
 const filter = ref<Filter>(Tabs.available)
 
 const showTab = (name: Tabs): void => {
   log('showing tab', name)
   if ([Tabs.available, Tabs.reservedByMe, Tabs.all].includes(name)) {
     filter.value = name as Filter
-    if (name === Tabs.available) items.value.forEach(item => item.visible = item.status === ItemStatus.available)
-    else if (name === Tabs.reservedByMe) items.value.forEach(item => item.visible = item.status === ItemStatus.reservedByMe)
-    else if (name === Tabs.all) items.value.forEach(item => item.visible = true)
-    items.value = items.value.sort(listSort)
+    if (name === Tabs.available) state.items.forEach(item => item.visible = item.status === ItemStatus.available)
+    else if (name === Tabs.reservedByMe) state.items.forEach(item => item.visible = item.status === ItemStatus.reservedByMe)
+    else if (name === Tabs.all) state.items.forEach(item => item.visible = true)
+    state.items = state.items.sort(listSort)
   } else if ([Tabs.list, Tabs.cards].includes(name))
-    display.value = name as Display
+    state.display = name as Display
   else error('an-error-occurred', `un-handled tab name "${name}"`)
 }
 
@@ -35,20 +34,20 @@ const listSort = (a: Item, b: Item): number => {
 }
 
 const refreshCounts = (): void => {
-  counts.value[Tabs.available] = items.value.filter(item => item.status === ItemStatus.available).length
-  counts.value[Tabs.reservedByMe] = items.value.filter(item => item.status === ItemStatus.reservedByMe).length
-  counts.value[Tabs.all] = items.value.length
+  counts.value[Tabs.available] = state.items.filter(item => item.status === ItemStatus.available).length
+  counts.value[Tabs.reservedByMe] = state.items.filter(item => item.status === ItemStatus.reservedByMe).length
+  counts.value[Tabs.all] = state.items.length
 }
 
-const onListItems = (list: Item[]): void => {
+const onItems = (): void => {
   log('updating items list')
-  items.value = list
   refreshCounts()
   showTab(filter.value)
 }
 
 on('sl-tab-show', ({ name }: { name: Tabs }): void => showTab(name))
-on('list-items', onListItems)
+
+watch(() => state.items, onItems)
 </script>
 
 <template>
