@@ -4,7 +4,7 @@ specifiers:
   '@angular-eslint/template-parser': '15'
   '@auth0/auth0-vue': '1'
   '@intlify/vite-plugin-vue-i18n': '6'
-  '@shoelace-style/shoelace': 2.0.0-beta.84
+  '@shoelace-style/shoelace': 2.0.0-beta.85
   '@types/node': '18'
   '@typescript-eslint/eslint-plugin': '5'
   '@typescript-eslint/parser': '5'
@@ -35,7 +35,7 @@ devDependencies:
   '@angular-eslint/template-parser': 15.0.0_hsf322ms6xhhd4b5ne6lb74y4a
   '@auth0/auth0-vue': 1.0.2
   '@intlify/vite-plugin-vue-i18n': 6.0.3_xgw4omwphtbabvbpjqlanbzjxi
-  '@shoelace-style/shoelace': 2.0.0-beta.84
+  '@shoelace-style/shoelace': 2.0.0-beta.85
   '@types/node': 18.11.5
   '@typescript-eslint/eslint-plugin': 5.40.1_5foadabyhuofbj4bdrxjdavre4
   '@typescript-eslint/parser': 5.40.1_hsf322ms6xhhd4b5ne6lb74y4a
@@ -199,8 +199,8 @@ packages:
     resolution: {integrity: sha512-Skfy0YS3NJ5nV9us0uuPN0HDk1Q4edljaOhRBJGDWs9EBa7ZVMYBHRFlhLvvmwEoaIM9BlH6QJFn9/uZg0bACg==}
     dev: true
 
-  /@floating-ui/dom/1.0.6:
-    resolution: {integrity: sha512-kt/tg1oip9OAH1xjCTcx1OpcUpu9rjDw3GKJ/rEhUqhO7QyJWfrHU0DpLTNsH67+JyFL5Kv9X1utsXwKFVtyEQ==}
+  /@floating-ui/dom/1.0.7:
+    resolution: {integrity: sha512-6RsqvCYe0AYWtsGvuWqCm7mZytnXAZCjWtsWu1Kg8dI3INvj/DbKlDsZO+mKSaQdPT12uxIW9W2dAWJkPx4Y5g==}
     dependencies:
       '@floating-ui/core': 1.0.2
     dev: true
@@ -389,11 +389,11 @@ packages:
     resolution: {integrity: sha512-BVYDsMTpSCjvC8akhTkcnl4WIgAv7AnRq8fSuNhdGDLjkpmN1ARdAXic5luAozoMVjft85ocOmEdT8z7MbXdmQ==}
     dev: true
 
-  /@shoelace-style/shoelace/2.0.0-beta.84:
-    resolution: {integrity: sha512-DS8jWX7RnoR9HJ1TiX6D6gcLpBAVMMIy54nS4qMbBetBche0Tf9BhDxfhsXLK1EluzWHKjNJs0NjwxFWaYCSxw==}
+  /@shoelace-style/shoelace/2.0.0-beta.85:
+    resolution: {integrity: sha512-Kq4BUEtB2tNlBPx97qM1/UQDBFYINMnlL4qNAHs0cCZF6q4J6U1NHot8TzWO83G4ufPHzNtjz9gaJLgzGWnNOA==}
     engines: {node: '>=14.17.0'}
     dependencies:
-      '@floating-ui/dom': 1.0.6
+      '@floating-ui/dom': 1.0.7
       '@lit-labs/react': 1.1.0
       '@shoelace-style/animations': 1.1.0
       '@shoelace-style/localize': 3.0.3
