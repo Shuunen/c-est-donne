@@ -9,7 +9,7 @@ export interface User {
   picture: string
 }
 
-export const EmptyUser: User = { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', apiKey: '', apiApp: '' }
+export const EMPTY_USER: User = { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', apiKey: '', apiApp: '' }
 
 export const firstName = (fullName: string): string => {
   const first = fullName.match(/[^\s._-]+/g)

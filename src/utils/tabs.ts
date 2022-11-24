@@ -6,6 +6,6 @@ export const enum Tabs {
   cards = 'cards',
 }
 
-export type Display = Tabs.list | Tabs.cards
+export type Display = Tabs.cards | Tabs.list
 
-export type Filter = Tabs.available | Tabs.reservedByMe | Tabs.all
+export type Filter = Tabs.all | Tabs.available | Tabs.reservedByMe

@@ -9,8 +9,8 @@ const recordA: AirtableItemRecord = {
   id: 'rec123',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
-    Name: 'super item A',
-    Images: [
+    Name: 'super item A', // eslint-disable-line @typescript-eslint/naming-convention
+    Images: [ // eslint-disable-line @typescript-eslint/naming-convention
       {
         id: 'imageA',
         url: 'https://example.com/image.jpg',
@@ -31,8 +31,8 @@ const recordB: AirtableItemRecord = {
   id: 'rec456',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
-    Name: 'super item B',
-    Status: 'available',
+    Name: 'super item B', // eslint-disable-line @typescript-eslint/naming-convention
+    Status: 'available', // eslint-disable-line @typescript-eslint/naming-convention
   },
 }
 
@@ -49,9 +49,9 @@ const recordC: AirtableItemRecord = {
   id: 'rec789',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
-    Name: 'super item C',
-    Status: 'reserved',
-    Beneficiary: 'mama@gmail.com',
+    Name: 'super item C', // eslint-disable-line @typescript-eslint/naming-convention
+    Status: 'reserved', // eslint-disable-line @typescript-eslint/naming-convention
+    Beneficiary: 'mama@gmail.com', // eslint-disable-line @typescript-eslint/naming-convention
   },
 }
 
@@ -68,9 +68,9 @@ const recordD: AirtableItemRecord = {
   id: 'rec101112',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
-    Name: 'super item D',
-    Status: 'reserved',
-    Beneficiary: emailA,
+    Name: 'super item D', // eslint-disable-line @typescript-eslint/naming-convention
+    Status: 'reserved', // eslint-disable-line @typescript-eslint/naming-convention
+    Beneficiary: emailA, // eslint-disable-line @typescript-eslint/naming-convention
   },
 }
 
@@ -87,8 +87,8 @@ const recordE: AirtableItemRecord = {
   id: 'rec131415',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
-    Name: 'super item E',
-    Status: 'gone',
+    Name: 'super item E', // eslint-disable-line @typescript-eslint/naming-convention
+    Status: 'gone', // eslint-disable-line @typescript-eslint/naming-convention
   },
 }
 

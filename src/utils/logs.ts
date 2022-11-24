@@ -7,8 +7,8 @@ type ErrorKey = keyof typeof messages
 
 export const error = (key: ErrorKey, details?: string): boolean => {
   if (typeof window === 'undefined') return false
-  let message = messages[key] ?? `Un-translated error : ${key}`
-  if (details) message += `. ${details}`
+  let message = messages[key] || `Un-translated error : ${key}`
+  if (details !== undefined) message += `. ${details}`
   console.error(`error triggered : ${message}`)
   return emit('error', message)
 }
