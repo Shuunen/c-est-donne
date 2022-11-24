@@ -39,6 +39,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [ ] add activity monitor to refresh items
 - [ ] add logo
 - [ ] add demo
+- [ ] create an introduction component, displayed when not connected
 
 ## Thanks
 
