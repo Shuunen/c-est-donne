@@ -11,7 +11,7 @@ const showLoading = (): void => { loading.value = true }
 const hideLoadingSync = (): void => { loading.value = false }
 const hideLoading = debounce(hideLoadingSync, 400)
 
-watch(() => state.loading, (newStatus: boolean) => newStatus ? showLoading() : hideLoading())
+watch(() => state.loading, (isLoading: boolean) => isLoading ? showLoading() : hideLoading())
 </script>
 
 <template>

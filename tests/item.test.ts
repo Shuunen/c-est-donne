@@ -2,18 +2,8 @@ import { check, checksRun } from 'shuutils'
 import type { AirtableItemRecord } from '../src/utils/airtable'
 import { Item, ItemStatus } from '../src/utils/item'
 import { airtableUrl, validate } from '../src/utils/items'
-import type { User } from '../src/utils/user'
 
-const userA: User = {
-  apiApp: 'app1234567890',
-  apiKey: 'key1234567890',
-  email: 'john@gmail.com',
-  firstName: 'John',
-  hasAccess: true,
-  isConnected: true,
-  name: 'John Doe',
-  picture: 'https://example.com/picture.jpg',
-}
+const emailA = 'john@gmail.com'
 
 const recordA: AirtableItemRecord = {
   id: 'rec123',
@@ -29,7 +19,7 @@ const recordA: AirtableItemRecord = {
   },
 }
 
-const itemA = new Item(recordA, userA.email)
+const itemA = new Item(recordA, emailA)
 
 check('item A has the good name', itemA.name, recordA.fields.Name)
 check('item A has the good id', itemA.id, recordA.id)
@@ -46,7 +36,7 @@ const recordB: AirtableItemRecord = {
   },
 }
 
-const itemB = new Item(recordB, userA.email)
+const itemB = new Item(recordB, emailA)
 
 check('item B has the good name', itemB.name, recordB.fields.Name)
 check('item B has no images', itemB.images, [])
@@ -65,7 +55,7 @@ const recordC: AirtableItemRecord = {
   },
 }
 
-const itemC = new Item(recordC, userA.email)
+const itemC = new Item(recordC, emailA)
 
 check('item C has the good name', itemC.name, recordC.fields.Name)
 check('item C has no images', itemC.images, [])
@@ -80,17 +70,17 @@ const recordD: AirtableItemRecord = {
   fields: {
     Name: 'super item D',
     Status: 'reserved',
-    Beneficiary: userA.email,
+    Beneficiary: emailA,
   },
 }
 
-const itemD = new Item(recordD, userA.email)
+const itemD = new Item(recordD, emailA)
 
 check('item D has the good name', itemD.name, recordD.fields.Name)
 check('item D has no images', itemD.images, [])
 check('item D has the good id', itemD.id, recordD.id)
 check('item D has reservedByMe status', itemD.status, ItemStatus.reservedByMe)
-check('item D has the good beneficiary', itemD.beneficiary, userA.email)
+check('item D has the good beneficiary', itemD.beneficiary, emailA)
 check('item D toggle status', itemD.toggleStatus(), ItemStatus.available)
 
 const recordE: AirtableItemRecord = {
@@ -102,7 +92,7 @@ const recordE: AirtableItemRecord = {
   },
 }
 
-const itemE = new Item(recordE, userA.email)
+const itemE = new Item(recordE, emailA)
 
 check('item E has the good name', itemE.name, recordE.fields.Name)
 check('item E has no images', itemE.images, [])

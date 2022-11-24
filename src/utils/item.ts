@@ -46,8 +46,8 @@ export class Item {
 
   toggleStatus (): ItemStatus.reserved | ItemStatus.available | undefined {
     if (!this.canBeToggle) return
-    const newStatus = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
-    updateItemStatus(this.id, newStatus)
-    return newStatus
+    const updatedStatus = this.status === ItemStatus.available ? ItemStatus.reserved : ItemStatus.available
+    updateItemStatus(this.id, updatedStatus)
+    return updatedStatus
   }
 }
