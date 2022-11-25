@@ -2,16 +2,17 @@ import vueI18n from '@intlify/vite-plugin-vue-i18n'
 import vue from '@vitejs/plugin-vue'
 import { dirname, resolve } from 'node:path'
 import { visualizer } from 'rollup-plugin-visualizer'
-import { fileURLToPath, URL } from 'url'
+import { fileURLToPath } from 'url'
 import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
+// eslint-disable-next-line import/no-anonymous-default-export, import/no-unused-modules
 export default defineConfig({
   plugins: [
     vue({
       template: {
         compilerOptions: {
-          isCustomElement: tag => tag.startsWith('sl-'),
+          isCustomElement: (tag) => tag.startsWith('sl-'),
         },
       },
     }),

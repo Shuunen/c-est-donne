@@ -6,17 +6,18 @@ import { state } from '../state'
 
 const { t } = useI18n()
 const loading = ref(false)
+const delay = 400
 
-const showLoading = (): void => { loading.value = true }
-const hideLoadingSync = (): void => { loading.value = false }
-const hideLoading = debounce(hideLoadingSync, 400)
+function showLoading (): void { loading.value = true }
+function hideLoadingSync (): void { loading.value = false }
+const hideLoading = debounce(hideLoadingSync, delay)
 
-const onLoading = (isLoading: boolean): void => {
+function onLoading (isLoading: boolean): void {
   if (isLoading) showLoading()
   else void hideLoading()
 }
 
-watch(() => state.loading, (isLoading: boolean) => { onLoading(isLoading) })
+watch(() => state.isLoading, (isLoading: boolean) => { onLoading(isLoading) })
 </script>
 
 <template>

@@ -1,11 +1,11 @@
 /* c8 ignore start */
 /* eslint-disable no-console */
 import { BrowserScout, emit } from 'shuutils'
-import messages from '../locales/en.json'
+import messages from '../locales/en.json' // eslint-disable-line import/extensions
 
 type ErrorKey = keyof typeof messages
 
-export const error = (key: ErrorKey, details?: string): boolean => {
+export function error (key: ErrorKey, details?: string): boolean {
   if (typeof window === 'undefined') return false
   let message = messages[key] || `Un-translated error : ${key}`
   if (details !== undefined) message += `. ${details}`
@@ -13,13 +13,14 @@ export const error = (key: ErrorKey, details?: string): boolean => {
   return emit('error', message)
 }
 
-export const log = (...stuff: unknown[]): void => {
+export function log (...stuff: unknown[]): void {
   if (typeof window === 'undefined') return
   console.log(...stuff)
   emit('log', stuff.join(' '))
 }
 
-export const getEnvironment = (): string => {
+// eslint-disable-next-line import/no-unused-modules
+export function getEnvironment (): string {
   const scout = new BrowserScout()
   return `
 - Browser: ${scout.browser} ${scout.version}
@@ -30,4 +31,5 @@ export const getEnvironment = (): string => {
 - Url : ${window.location.href}
 `
 }
+
 /* c8 ignore stop */

@@ -44,7 +44,9 @@
   "include": [
     "src",
     "tests",
-    "*.ts"
+    "*.ts",
+    "*.js",
+    "*.cjs"
   ],
   "references": [
     {

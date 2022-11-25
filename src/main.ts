@@ -8,18 +8,22 @@ import './style.css'
 const app = createApp(App)
 
 // globally register components, restrict the regex if needed
-const components = import.meta.globEager('./components/*.vue')
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const components = import.meta.glob('./components/*.vue', { eager: true })
 Object.entries(components).forEach(([path, definition]) => {
-  const componentName = path.split('/').pop()?.replace(/\.\w+$/, '')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+  const componentName = path.split('/').pop()?.replace(/\.\w+$/u, '')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/consistent-type-assertions
   if (componentName !== undefined) app.component(componentName, (definition as any).default)
 })
 
 app.use(
   createAuth0({
     domain: 'c-est-donne.eu.auth0.com',
+    // eslint-disable-next-line camelcase
     client_id: 'eIiHJseJCImejDN3lfQWnXp3tznrEQeR', // eslint-disable-line @typescript-eslint/naming-convention
+    // eslint-disable-next-line camelcase
     redirect_uri: window.location.origin, // eslint-disable-line @typescript-eslint/naming-convention
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     useRefreshTokens: true,
     cacheLocation: 'localstorage',
   }),

@@ -4,16 +4,16 @@ import { ref, watch } from 'vue'
 import { state } from '../state'
 import { getEnvironment, log } from '../utils/logs'
 
-interface SLDialog extends HTMLElement {
+interface SlDialog extends HTMLElement {
   show: () => void
   hide: () => void
 }
 
 const { t } = useI18n()
 const message = ref('')
-const dialog = ref<SLDialog>()
+const dialog = ref<SlDialog>()
 
-const mailError = (): void => {
+function mailError (): void {
   log('mailing error to admin')
   const mail = document.createElement('a')
   const body = t('error-body', { error: message.value, environment: getEnvironment(), user: state.user.firstName })
@@ -21,7 +21,7 @@ const mailError = (): void => {
   mail.click()
 }
 
-const onError = (content: ErrorEvent | string): void => {
+function onError (content: ErrorEvent | string): void {
   message.value = content instanceof ErrorEvent ? content.message : content
   dialog.value?.show()
 }
