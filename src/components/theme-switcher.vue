@@ -6,17 +6,17 @@ import { Theme } from '../utils/theme'
 
 const { t } = useI18n()
 
-const setThemeInDom = (): void => {
-  document.body.classList.remove(Theme.dark, Theme.light)
+function setThemeInDom (): void {
+  document.body.classList.remove(Theme.Dark, Theme.Light)
   document.body.classList.add(state.theme)
-  document.documentElement.classList.toggle('dark', state.theme === Theme.dark)
+  document.documentElement.classList.toggle('dark', state.theme === Theme.Dark)
   storage.set('theme', state.theme)
 }
 
 setThemeInDom()
 
-const switchTheme = (): void => {
-  state.theme = state.theme === Theme.dark ? Theme.light : Theme.dark
+function switchTheme (): void {
+  state.theme = state.theme === Theme.Dark ? Theme.Light : Theme.Dark
   setThemeInDom()
 }
 </script>

@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
 import { state } from '../state'
-import { ItemStatus } from '../utils/item'
+import { ItemStatus } from '../utils/items'
 
 const { t } = useI18n()
 </script>
 
 <template>
-  <sl-alert v-if="state.loading" variant="primary" open>
+  <sl-alert v-if="state.isLoading" variant="primary" open>
     <sl-icon slot="icon" name="info-circle"></sl-icon>
     <strong>{{ t('welcome') }}</strong><br />
     {{ t('loading') }}
@@ -25,7 +25,7 @@ const { t } = useI18n()
   <sl-alert v-else-if="state.items.length > 0" variant="primary" open closable>
     <sl-icon slot="icon" name="check2-circle"></sl-icon>
     <strong>{{ t('welcome', { name: state.user.firstName }) }}</strong><br />
-    {{ t('items-remaining', { number: state.items.filter(item => item.status === ItemStatus.available).length }) }}
+    {{ t('items-remaining', { number: state.items.filter(item => item.status === ItemStatus.Available).length }) }}
   </sl-alert>
   <sl-alert v-else-if="state.items.length === 0" variant="primary" open>
     <sl-icon slot="icon" name="info-circle"></sl-icon>

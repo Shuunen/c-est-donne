@@ -1,11 +1,11 @@
-export const enum Tabs {
-  available = 'available',
-  reservedByMe = 'reserved-by-me',
-  all = 'all',
-  list = 'list',
-  cards = 'cards',
+export const enum Tab {
+  Available = 'available',
+  ReservedByMe = 'reserved-by-me',
+  All = 'all',
+  List = 'list',
+  Cards = 'cards',
 }
 
-export type Display = Tabs.cards | Tabs.list
+export type Display = Tab.Cards | Tab.List
 
-export type Filter = Tabs.all | Tabs.available | Tabs.reservedByMe
+export type Filter = Tab.All | Tab.Available | Tab.ReservedByMe

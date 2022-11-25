@@ -4,6 +4,8 @@ interface AirtableItemRecordImage {
   url: string
 }
 
+const airtableApiAppKeyLength = 17
+
 export interface AirtableItemRecord {
   id: string
   createdTime: string
@@ -29,9 +31,19 @@ export interface AirtableResponse {
   }
 }
 
-export const HEADERS_JSON = {
+export const headersJson = {
   /* eslint-disable @typescript-eslint/naming-convention */
   'Accept': 'application/json',
   'Content-Type': 'application/json',
   /* eslint-enable @typescript-eslint/naming-convention */
+}
+
+export function validate (app?: string, key?: string): boolean {
+  const isValidApp = app !== undefined && typeof app === 'string' && app.length === airtableApiAppKeyLength
+  const isValidKey = key !== undefined && typeof key === 'string' && key.length === airtableApiAppKeyLength
+  return isValidApp && isValidKey
+}
+
+export function airtableUrl (app: string, key: string, target = ''): boolean | string {
+  return `https://api.airtable.com/v0/${app}/${target}?api_key=${key}&view=all`
 }

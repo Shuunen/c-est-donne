@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import messages from '@intlify/vite-plugin-vue-i18n/messages'
 import { createI18n } from 'petite-vue-i18n'
 

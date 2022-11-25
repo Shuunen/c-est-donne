@@ -1,3 +1,4 @@
+/* eslint-disable putout/putout, import/unambiguous, import/no-commonjs */
 module.exports = {
-  max_size_ko: 50, // eslint-disable-line camelcase
+  maxSizeKo: 50,
 }
