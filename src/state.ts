@@ -1,5 +1,6 @@
 import { storage } from 'shuutils'
 import { reactive } from 'vue'
+import { Locale } from './plugins/i18n'
 import type { Item } from './utils/items'
 import { log } from './utils/logs'
 import { Tab, type Display, type Filter } from './utils/tabs'
@@ -19,6 +20,7 @@ const media = typeof localStorage === 'undefined' ? {} as Storage : localStorage
 export const state = reactive({
   error: '',
   isLoading: false,
+  locale: storage.get<Locale>('locale', Locale.Fr),
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   items: [] as Item[],
   display: storage.get<Display>('display', Tab.List, media),

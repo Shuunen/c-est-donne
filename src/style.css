@@ -27,3 +27,9 @@ body.sl-theme-light {
   --sl-color-primary-900: hsl(var(--color-primary) / 1);
   --sl-color-primary-950: hsl(var(--color-primary) / 1);
 }
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
