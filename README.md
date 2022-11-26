@@ -32,17 +32,19 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ## Todos
 
-- [ ] add about modal with repo links, etc
-- [ ] add illustrations
-- [ ] add horizontal layout
-- [ ] add details modal
+- [ ] add illustrations presenting the app when not logged in
 - [ ] add activity monitor to refresh items
 - [ ] add logo
 - [ ] add demo
 - [ ] improve uvu & c8 coverage
 - [ ] remove repo-check bs in eslintrc
 - [ ] find a way (again -.-'') to make eslint-plugin-tailwindcss order works in vue file at least (custom class rule works for instance)
-- [ ] create an introduction component, displayed when not connected
+- [ ] transform user-btn into a dropdown menu with these entries :
+  - [ ] switch to light/dark mode
+  - [ ] switch to english/french
+  - [ ] help me
+  - [ ] about the app
+  - [ ] logout
 
 ## Thanks
 

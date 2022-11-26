@@ -15,6 +15,8 @@
   "error-updated-record-not-found": "Updated object was not found",
   "i-take-it": "Take it",
   "i-wont-take-it": "Leave it",
+  "item-added-on": "Item added on {time}",
+  "item-no-notes": "No description was provided",
   "items-remaining": "There are {number} items left to donate, help yourself 👇",
   "loading": "Loading, please wait...",
   "login": "Login",

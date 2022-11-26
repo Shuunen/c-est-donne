@@ -73,6 +73,8 @@ export class Item {
 
   public readonly beneficiary: string
 
+  public readonly createdTime: Date
+
   public readonly id: string
 
   public readonly images: string[]
@@ -87,6 +89,7 @@ export class Item {
 
   public constructor (record: AirtableItemRecord, currentUserMail: string) {
     this.beneficiary = record.fields.Beneficiary ?? ''
+    this.createdTime = new Date(record.createdTime)
     this.id = record.id
     this.images = record.fields.Images?.map(image => image.url) ?? []
     this.name = record.fields.Name
