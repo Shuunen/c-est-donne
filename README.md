@@ -40,9 +40,8 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [ ] add logo
 - [ ] add demo
 - [ ] improve uvu & c8 coverage
-- [ ] remove & fix eslint temporary disabled comments : max-statements, sonarjs/cognitive-complexity
+- [ ] remove & fix eslint temporary disabled comments : max-statements
 - [ ] remove repo-check bs in eslintrc
-- [ ] handle items-list-header on small screens
 - [ ] find a way (again -.-'') to make eslint-plugin-tailwindcss order works in vue file at least (custom class rule works for instance)
 - [ ] create an introduction component, displayed when not connected
 
