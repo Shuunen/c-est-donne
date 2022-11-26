@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
 import { useI18n } from 'petite-vue-i18n'
-import { copy, debounce, storage } from 'shuutils'
+import { debounce, storage } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
 import { log } from '../utils/logs'
-import { firstName } from '../utils/user'
+import { mergeUserData } from '../utils/user'
 
 const { t } = useI18n()
 // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -23,25 +23,11 @@ async function doLogout (): Promise<boolean> {
   await logout({ returnTo: window.location.origin })
   return true
 }
-// eslint-disable-next-line max-statements
 function syncStorage (): boolean {
   log('sync storage...')
-  const actual = state.user
-  const expected = copy(actual)
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, @typescript-eslint/naming-convention
-  const userAuth0 = user.value as { name?: string; picture?: string; email?: string; AIRTABLE_API_KEY?: string; AIRTABLE_API_APP?: string } | undefined
-  expected.name = userAuth0?.name ?? expected.name
-  expected.firstName = firstName(expected.name)
-  expected.picture = userAuth0?.picture ?? expected.picture
-  expected.email = userAuth0?.email ?? expected.email
-  expected.apiKey = userAuth0?.AIRTABLE_API_KEY ?? expected.apiKey
-  expected.apiApp = userAuth0?.AIRTABLE_API_APP ?? expected.apiApp
-  expected.isConnected = expected.email.length > 0
-  expected.hasAccess = expected.apiKey.length > 0
-  const isEqual = JSON.stringify(actual) === JSON.stringify(expected)
-  log(`sync storage data ${isEqual ? 'does not need update' : 'are different and will be updated'}`)
-  if (!isEqual) storage.set('user', expected)
-  state.user = expected
+  const userData = mergeUserData(state.user, user.value)
+  storage.set('user', userData)
+  state.user = userData
   return true
 }
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
