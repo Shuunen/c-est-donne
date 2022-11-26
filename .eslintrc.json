@@ -92,10 +92,12 @@
     "import/order": "off",
     "import/prefer-default-export": "off",
     "indent": "off",
+    "line-comment-position": "off",
     "lines-between-class-members": "off",
     "max-len": "off",
     "max-statements-per-line": "off",
     "no-console": "error",
+    "no-inline-comments": "off",
     "object-curly-spacing": [
       "error",
       "always"
