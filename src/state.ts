@@ -2,12 +2,12 @@ import { storage } from 'shuutils'
 import { reactive } from 'vue'
 import { Locale } from './plugins/i18n'
 import type { Item } from './utils/items'
-import { log } from './utils/logs'
+import { getEnvironment, log } from './utils/logs'
 import { Display, Filter } from './utils/tabs'
 import { Theme } from './utils/theme'
 import { emptyUser, type User } from './utils/user'
 
-log('creating state')
+log('creating state, current environment :', getEnvironment())
 
 storage.prefix = 'c-est-donne_'
 

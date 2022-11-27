@@ -17,7 +17,6 @@ export function log (...stuff: unknown[]): void {
   emit('log', stuff.join(' '))
 }
 
-// eslint-disable-next-line import/no-unused-modules
 export function getEnvironment (): string {
   const scout = new BrowserScout()
   return `
