@@ -12,7 +12,7 @@ const { t } = useI18n()
     <strong>{{ t('welcome') }}</strong><br />
     {{ t('loading') }}
   </sl-alert>
-  <sl-alert v-else-if="!state.user.isConnected" variant="primary" open>
+  <sl-alert v-else-if="!state.user.isConnected" variant="primary" open class="hidden">
     <sl-icon slot="icon" name="info-circle"></sl-icon>
     <strong>{{ t('welcome') }}</strong><br />
     {{ t('please-login') }}
