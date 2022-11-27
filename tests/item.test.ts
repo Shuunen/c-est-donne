@@ -42,7 +42,7 @@ check('item B has no images', itemB.images, [])
 check('item B has the good id', itemB.id, recordB.id)
 check('item B has no beneficiary', itemB.beneficiary, '')
 check('item B has available status', itemB.status, ItemStatus.Available)
-check('item B toggle status', itemB.toggleStatus(), ItemStatus.Reserved)
+check('item B can be toggle', itemB.canBeToggle, true)
 
 const recordC: AirtableItemRecord = {
   id: 'rec789',
@@ -61,7 +61,7 @@ check('item C has no images', itemC.images, [])
 check('item C has the good id', itemC.id, recordC.id)
 check('item C has reserved status', itemC.status, ItemStatus.Reserved)
 check('item C has the good beneficiary', itemC.beneficiary, recordC.fields.Beneficiary)
-check('item C toggle status is blocked', itemC.toggleStatus())
+check('item C cannot be toggle', itemC.canBeToggle, false)
 
 const recordD: AirtableItemRecord = {
   id: 'rec101112',
@@ -80,7 +80,7 @@ check('item D has no images', itemD.images, [])
 check('item D has the good id', itemD.id, recordD.id)
 check('item D has reservedByMe status', itemD.status, ItemStatus.ReservedByMe)
 check('item D has the good beneficiary', itemD.beneficiary, emailA)
-check('item D toggle status', itemD.toggleStatus(), ItemStatus.Available)
+check('item D can be toggle', itemD.canBeToggle, true)
 
 const recordE: AirtableItemRecord = {
   id: 'rec131415',
@@ -97,7 +97,7 @@ check('item E has the good name', itemE.name, recordE.fields.Name)
 check('item E has no images', itemE.images, [])
 check('item E has the good id', itemE.id, recordE.id)
 check('item E has gone status', itemE.status, ItemStatus.Gone)
-check('item E toggle status is blocked', itemE.toggleStatus())
+check('item E cannot be toggle', itemE.canBeToggle, false)
 
 const validApp = 'app12345678900000'
 const invalidApp = 'app1234567890'

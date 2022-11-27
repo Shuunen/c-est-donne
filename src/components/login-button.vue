@@ -4,6 +4,7 @@ import { useI18n } from 'petite-vue-i18n'
 import { debounce, storage } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
+import { fetchItems } from '../utils/api'
 import { log } from '../utils/logs'
 import { mergeUserData } from '../utils/user'
 
@@ -23,11 +24,14 @@ async function doLogout (): Promise<boolean> {
   await logout({ returnTo: window.location.origin })
   return true
 }
-function syncStorage (): boolean {
+async function syncStorage (): Promise<boolean> {
   log('sync storage...')
+  state.isLoading = true
   const userData = mergeUserData(state.user, user.value)
   storage.set('user', userData)
   state.user = userData
+  await fetchItems()
+  state.isLoading = false
   return true
 }
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers

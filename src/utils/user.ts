@@ -1,4 +1,3 @@
-import { copy } from 'shuutils'
 
 export interface User {
   apiApp: string
@@ -24,7 +23,7 @@ export function firstName (fullName: string): string {
 }
 
 export function mergeUserData (userStored: User, userAuth0?: UserAuth0): User {
-  const expected = copy(userStored)
+  const expected = { ...userStored } // eslint-disable-line putout/putout
   expected.name = userAuth0?.name ?? expected.name
   expected.firstName = firstName(expected.name)
   expected.picture = userAuth0?.picture ?? expected.picture

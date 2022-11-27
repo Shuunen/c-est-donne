@@ -24,6 +24,7 @@ const expectedMergeA: User = {
   apiApp: userA.apiApp,
 }
 check('mergeUserData A', mergeUserData(userA, userAuth0Empty), expectedMergeA)
+check('mergeUserData A did not affect param', userA.firstName, '')
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const userAuth0B: UserAuth0 = { name: 'Jane Doe', picture: 'https://example.com/picture.jpg', AIRTABLE_API_KEY: 'key1234567890', AIRTABLE_API_APP: 'app1234567890' }

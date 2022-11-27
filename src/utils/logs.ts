@@ -1,5 +1,3 @@
-/* c8 ignore start */
-/* eslint-disable no-console */
 import { BrowserScout, emit } from 'shuutils'
 import messages from '../locales/en.json' // eslint-disable-line import/extensions
 
@@ -9,13 +7,13 @@ export function error (key: ErrorKey, details?: string): boolean {
   if (typeof window === 'undefined') return false
   let message = messages[key] || `Un-translated error : ${key}`
   if (details !== undefined) message += `. ${details}`
-  console.error(`error triggered : ${message}`)
+  console.error(`error triggered : ${message}`) // eslint-disable-line no-console
   return emit('error', message)
 }
 
 export function log (...stuff: unknown[]): void {
   if (typeof window === 'undefined') return
-  console.log(...stuff)
+  console.log(...stuff) // eslint-disable-line no-console
   emit('log', stuff.join(' '))
 }
 
@@ -31,5 +29,3 @@ export function getEnvironment (): string {
 - Url : ${window.location.href}
 `
 }
-
-/* c8 ignore stop */
