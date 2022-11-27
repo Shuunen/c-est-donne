@@ -2,6 +2,13 @@
   "$schema": "https://json.schemastore.org/nycrc",
   "branches": 90,
   "check-coverage": true,
+  "exclude": [
+    "src/api.ts",
+    "src/logs.ts",
+    "src/plugins/**",
+    "src/state.ts",
+    "tests/**"
+  ],
   "functions": 90,
   "lines": 90,
   "reporter": [
