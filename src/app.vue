@@ -5,6 +5,7 @@
     <loading-bar />
     <error-message />
     <items-list />
+    <intro-slider />
     <footer-bar class="mt-auto" />
   </div>
 </template>

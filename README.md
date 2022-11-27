@@ -19,7 +19,7 @@ This template should help get you started developing with Vue 3 and TypeScript i
 
 ## Recommended IDE Setup
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- [VS Code](https://code.visualstudio.com) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
 ## Type Support For `.vue` Imports in TS
 
@@ -32,13 +32,11 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ## Todos
 
-- [ ] add illustrations presenting the app when not logged in
 - [ ] add activity monitor to refresh items
 - [ ] add logo
 - [ ] add demo
 - [ ] improve uvu & c8 coverage
 - [ ] remove repo-check bs in eslintrc
-- [ ] find a way (again -.-'') to make eslint-plugin-tailwindcss order works in vue file at least (custom class rule works for instance)
 - [ ] transform user-btn into a dropdown menu with these entries :
   - [ ] switch to light/dark mode
   - [ ] switch to english/french
@@ -51,11 +49,13 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [Auth0](https://auth0.com) : for the auth system
 - [BabelEdit](https://www.codeandweb.com/babeledit) : a great tool to translate your app
 - [BlobMaker](https://www.blobmaker.app) : for the blobby shapes
+- [Boxy SVG](https://boxy-svg.com) : for providing a simple & full featured svg editor
 - [C8](https://github.com/bcoe/c8) : simple & effective cli for code coverage
 - [Eslint](https://eslint.org) : super tool to find & fix problems  
 - [Github](https://github.com) : for all their great work year after year, pushing OSS forward  
 - [Jake Dohm](https://dev.to/jakedohm_34/auto-registering-all-your-components-in-vue-3-with-vite-4884) : for his article on global components registration
 - [Petite Vue](https://github.com/intlify/vue-i18n-next/tree/master/packages/petite-vue-i18n) : for the lightweight i18n plugin
+- [Pixel True](https://ui8.net/pixel-true-designs/products/70-beautiful-free-illustrations) : for the nice illustrations on the tutorial
 - [Repo-checker](https://github.com/Shuunen/repo-checker) : eslint cover /src code and this tool the rest ^^  
 - [Shields.io](https://shields.io) : for the nice badges on top of this readme
 - [Shoelace](https://shoelace.style) : for their great web components library <3
@@ -65,4 +65,5 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [UvU](https://github.com/lukeed/uvu) : extremely fast and lightweight test runner for Node.js and the browser
 - [Vite](https://github.com/vitejs/vite) : super fast frontend tooling  
 - [Vue](https://vuejs.org) : when I need a front framework, this is the one I choose <3
+- [Vue3-carousel](https://github.com/ismail9k/vue3-carousel) : nice lightweight carousel component by Abdelrahman Ismail
 - [Watchlist](https://github.com/lukeed/watchlist) : recursively watch a list of directories & run a command on any file system
