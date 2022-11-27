@@ -1,6 +1,7 @@
 {
   "an-error-occurred": "An error occurred",
   "close": "Close",
+  "display": "Display",
   "display-card": "Cards",
   "display-list": "List",
   "error-airtable": "An Airtable error has occurred",
@@ -30,9 +31,9 @@
   "status-reserved-by-me": "You have reserved this object",
   "switch-to-dark-theme": "Use dark theme",
   "switch-to-light-theme": "Use light theme",
-  "tab-all": "All items ({count})",
-  "tab-available": "Items available ({count})",
-  "tab-reserved-by-me": "Items I have reserved ({count})",
+  "tab-all": "all items ({count})",
+  "tab-available": "items available ({count})",
+  "tab-reserved-by-me": "items I have reserved ({count})",
   "view-details": "View details",
   "welcome": "Welcome {name} !"
 }
