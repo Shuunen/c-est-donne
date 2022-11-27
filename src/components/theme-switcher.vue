@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'petite-vue-i18n'
-import { storage } from 'shuutils'
+import { watch } from 'vue'
 import { state } from '../state'
 import { Theme } from '../utils/theme'
 
@@ -10,7 +10,6 @@ function setThemeInDom (): void {
   document.body.classList.remove(Theme.Dark, Theme.Light)
   document.body.classList.add(state.theme)
   document.documentElement.classList.toggle('dark', state.theme === Theme.Dark)
-  storage.set('theme', state.theme)
 }
 
 setThemeInDom()
@@ -19,6 +18,8 @@ function switchTheme (): void {
   state.theme = state.theme === Theme.Dark ? Theme.Light : Theme.Dark
   setThemeInDom()
 }
+
+watch(() => state.theme, setThemeInDom)
 </script>
 
 <template>
