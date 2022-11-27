@@ -47,6 +47,7 @@ function onItems (): void {
   log('updating items list')
   refreshCounts()
   onFilter()
+  onDisplay()
 }
 
 function labelFor (tab: Filter): string {
