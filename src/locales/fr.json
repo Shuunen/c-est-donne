@@ -1,6 +1,7 @@
 {
   "an-error-occurred": "Une erreur est apparue",
   "close": "Fermer",
+  "display": "Afficher",
   "display-card": "Cartes",
   "display-list": "Liste",
   "error-airtable": "Une erreur Airtable s'est produite",
@@ -30,9 +31,9 @@
   "status-reserved-by-me": "Vous avez réservé cet objet",
   "switch-to-dark-theme": "Utiliser le thème sombre",
   "switch-to-light-theme": "Utiliser le thème clair",
-  "tab-all": "Tout les objets ({count})",
-  "tab-available": "Objets disponibles ({count})",
-  "tab-reserved-by-me": "Objets que j'ai réservé ({count})",
+  "tab-all": "tout les objets ({count})",
+  "tab-available": "objets disponibles ({count})",
+  "tab-reserved-by-me": "objets que j'ai réservé ({count})",
   "view-details": "Voir les détails",
   "welcome": "Bienvenue {name} !"
 }

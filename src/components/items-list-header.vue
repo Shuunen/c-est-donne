@@ -2,6 +2,7 @@
 <script setup lang="ts">
 import SlTabGroup from '@shoelace-style/shoelace/dist/components/tab-group/tab-group'
 import { useI18n } from 'petite-vue-i18n'
+import { capitalize } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
 import { ItemStatus, type Item } from '../utils/items'
@@ -63,28 +64,31 @@ watch(() => state.display, onDisplay)
 
 <template>
   <div v-if="state.user.email" class="app-items-list--header sm:flex flex-row flex-wrap justify-end items-end">
-    <sl-dropdown class="sm:hidden ml-auto">
-      <sl-button slot="trigger" caret>
-        <template v-if="state.filter === Filter.Available">{{ labelFor(Filter.Available) }}</template>
-        <template v-else-if="state.filter === Filter.ReservedByMe">{{ labelFor(Filter.ReservedByMe) }}</template>
-        <template v-else-if="state.filter === Filter.All">{{ labelFor(Filter.All) }}</template>
-      </sl-button>
-      <sl-menu>
-        <sl-menu-item v-if="state.filter !== Filter.Available" @click="state.filter = Filter.Available">
-          {{ labelFor(Filter.Available) }}
-        </sl-menu-item>
-        <sl-menu-item v-if="state.filter !== Filter.ReservedByMe" @click="state.filter = Filter.ReservedByMe">
-          {{ labelFor(Filter.ReservedByMe) }}
-        </sl-menu-item>
-        <sl-menu-item v-if="state.filter !== Filter.All" @click="state.filter = Filter.All">
-          {{ labelFor(Filter.All) }}
-        </sl-menu-item>
-      </sl-menu>
-    </sl-dropdown>
+    <div class="flex sm:hidden justify-end gap-3 items-center">
+      <p>{{ t('display') }}</p>
+      <sl-dropdown>
+        <sl-button slot="trigger" caret>
+          <template v-if="state.filter === Filter.Available">{{ labelFor(Filter.Available) }}</template>
+          <template v-else-if="state.filter === Filter.ReservedByMe">{{ labelFor(Filter.ReservedByMe) }}</template>
+          <template v-else-if="state.filter === Filter.All">{{ labelFor(Filter.All) }}</template>
+        </sl-button>
+        <sl-menu>
+          <sl-menu-item v-if="state.filter !== Filter.Available" @click="state.filter = Filter.Available">
+            {{ labelFor(Filter.Available) }}
+          </sl-menu-item>
+          <sl-menu-item v-if="state.filter !== Filter.ReservedByMe" @click="state.filter = Filter.ReservedByMe">
+            {{ labelFor(Filter.ReservedByMe) }}
+          </sl-menu-item>
+          <sl-menu-item v-if="state.filter !== Filter.All" @click="state.filter = Filter.All">
+            {{ labelFor(Filter.All) }}
+          </sl-menu-item>
+        </sl-menu>
+      </sl-dropdown>
+    </div>
     <sl-tab-group ref="filterTabs" class="grow hidden sm:block">
-      <sl-tab slot="nav" panel="available" @click="state.filter = Filter.Available">{{ labelFor(Filter.Available) }}</sl-tab>
-      <sl-tab slot="nav" panel="reserved-by-me" @click="state.filter = Filter.ReservedByMe">{{ labelFor(Filter.ReservedByMe) }}</sl-tab>
-      <sl-tab slot="nav" panel="all" @click="state.filter = Filter.All">{{ labelFor(Filter.All) }}</sl-tab>
+      <sl-tab slot="nav" panel="available" @click="state.filter = Filter.Available">{{ capitalize(labelFor(Filter.Available)) }}</sl-tab>
+      <sl-tab slot="nav" panel="reserved-by-me" @click="state.filter = Filter.ReservedByMe">{{ capitalize(labelFor(Filter.ReservedByMe)) }}</sl-tab>
+      <sl-tab slot="nav" panel="all" @click="state.filter = Filter.All">{{ capitalize(labelFor(Filter.All)) }}</sl-tab>
     </sl-tab-group>
     <sl-tab-group ref="displayTabs" class="hidden sm:block">
       <sl-tab slot="nav" panel="list" @click="state.display = Display.List">
