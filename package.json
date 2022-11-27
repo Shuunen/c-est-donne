@@ -61,5 +61,5 @@
     "test:watch": "watchlist src tests -eager -- npm test"
   },
   "type": "module",
-  "version": "0.0.0"
+  "version": "1.0.0"
 }
