@@ -6,6 +6,8 @@
 
 > Donations between friends and relatives made easy ! Give a second life to your objects :)
 
+![demo](docs/demo.gif)
+
 - [C'est donné](#cest-donné)
   - [Vue 3 + TypeScript + Vite](#vue-3--typescript--vite)
   - [Recommended IDE Setup](#recommended-ide-setup)
@@ -34,7 +36,6 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 - [ ] add activity monitor to refresh items
 - [ ] add logo
-- [ ] add demo
 - [ ] improve uvu & c8 coverage
 - [ ] remove repo-check bs in eslintrc
 - [ ] transform user-btn into a dropdown menu with these entries :
