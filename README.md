@@ -1,8 +1,7 @@
 # C'est donné
 
 [![Project license](https://img.shields.io/github/license/Shuunen/c-est-donne.svg?color=informational)](https://github.com/Shuunen/c-est-donne/blob/master/LICENSE)
-[![Website up](https:/
-/img.shields.io/website/https/my-website.com.svg)](https://my-website.com)
+[![Website up](https://img.shields.io/website/https/my-website.com.svg)](https://c-est-donne.netlify.app)
 
 > Donations between friends and relatives made easy ! Give a second life to your objects :)
 
@@ -55,6 +54,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [Eslint](https://eslint.org) : super tool to find & fix problems  
 - [Github](https://github.com) : for all their great work year after year, pushing OSS forward  
 - [Jake Dohm](https://dev.to/jakedohm_34/auto-registering-all-your-components-in-vue-3-with-vite-4884) : for his article on global components registration
+- [Netlify](https://netlify.com) : awesome company that offers free CI & hosting for OSS projects
 - [Petite Vue](https://github.com/intlify/vue-i18n-next/tree/master/packages/petite-vue-i18n) : for the lightweight i18n plugin
 - [Pixel True](https://ui8.net/pixel-true-designs/products/70-beautiful-free-illustrations) : for the nice illustrations on the tutorial
 - [Repo-checker](https://github.com/Shuunen/repo-checker) : eslint cover /src code and this tool the rest ^^  
