@@ -50,6 +50,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 - [Auth0](https://auth0.com) : for the auth system
 - [BabelEdit](https://www.codeandweb.com/babeledit) : a great tool to translate your app
+- [BlobMaker](https://www.blobmaker.app) : for the blobby shapes
 - [C8](https://github.com/bcoe/c8) : simple & effective cli for code coverage
 - [Eslint](https://eslint.org) : super tool to find & fix problems  
 - [Github](https://github.com) : for all their great work year after year, pushing OSS forward  

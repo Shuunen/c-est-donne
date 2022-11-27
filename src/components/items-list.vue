@@ -4,7 +4,7 @@ import { capitalize } from 'shuutils'
 import { computed } from 'vue'
 import { state } from '../state'
 import { updateItemStatus } from '../utils/api'
-import { type Item, ItemStatus } from '../utils/items'
+import { ItemStatus, type Item } from '../utils/items'
 import { Display } from '../utils/tabs'
 
 const { t } = useI18n()
@@ -64,6 +64,7 @@ function toggleStatus (item: Item): void {
         </div>
       </div>
     </div>
+    <img src="/blob-1.svg" />
   </div>
 </template>
 
