@@ -64,8 +64,8 @@ function toggleStatus (item: Item): void {
         </div>
       </div>
     </div>
-    <img src="/blob-1.svg" />
   </div>
+  <img v-if="state.user.isConnected" class="h-44" src="/blob-1.svg" />
 </template>
 
 <style scoped>
