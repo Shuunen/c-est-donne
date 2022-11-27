@@ -3,7 +3,7 @@ import { reactive } from 'vue'
 import { Locale } from './plugins/i18n'
 import type { Item } from './utils/items'
 import { log } from './utils/logs'
-import { Tab, type Display, type Filter } from './utils/tabs'
+import { Display, Filter } from './utils/tabs'
 import { Theme } from './utils/theme'
 import { emptyUser, type User } from './utils/user'
 
@@ -23,8 +23,8 @@ export const state = reactive({
   locale: storage.get<Locale>('locale', Locale.Fr),
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   items: [] as Item[],
-  display: storage.get<Display>('display', Tab.List, media),
-  filter: storage.get<Filter>('filter', Tab.Available, media),
+  display: storage.get<Display>('display', Display.List, media),
+  filter: storage.get<Filter>('filter', Filter.Available, media),
   theme: storage.get<Theme>('theme', Theme.Light, media),
   user: storage.get<User>('user', emptyUser, media),
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
