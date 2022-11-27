@@ -2,6 +2,7 @@ import { createAuth0 } from '@auth0/auth0-vue'
 import { createApp } from 'vue'
 import App from './app.vue'
 import { i18n } from './plugins/i18n'
+import './plugins/responsive'
 import './plugins/shoelace'
 import './style.css'
 
