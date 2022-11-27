@@ -48,13 +48,18 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 ## Thanks
 
+- [Auth0](https://auth0.com) : for the auth system
+- [BabelEdit](https://www.codeandweb.com/babeledit) : a great tool to translate your app
 - [C8](https://github.com/bcoe/c8) : simple & effective cli for code coverage
 - [Eslint](https://eslint.org) : super tool to find & fix problems  
 - [Github](https://github.com) : for all their great work year after year, pushing OSS forward  
 - [Jake Dohm](https://dev.to/jakedohm_34/auto-registering-all-your-components-in-vue-3-with-vite-4884) : for his article on global components registration
+- [Petite Vue](https://github.com/intlify/vue-i18n-next/tree/master/packages/petite-vue-i18n) : for the lightweight i18n plugin
 - [Repo-checker](https://github.com/Shuunen/repo-checker) : eslint cover /src code and this tool the rest ^^  
 - [Shields.io](https://shields.io) : for the nice badges on top of this readme
+- [Shoelace](https://shoelace.style) : for their great web components library <3
 - [Shuutils](https://github.com/Shuunen/shuutils) : collection of pure JS utils
+- [SvgOmg](https://jakearchibald.github.io/svgomg) : awesome tool to optimize svg files
 - [TailwindCss](https://tailwindcss.com) : awesome lib to produce maintainable style
 - [UvU](https://github.com/lukeed/uvu) : extremely fast and lightweight test runner for Node.js and the browser
 - [Vite](https://github.com/vitejs/vite) : super fast frontend tooling  
