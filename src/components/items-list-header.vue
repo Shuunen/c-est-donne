@@ -1,48 +1,46 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <script setup lang="ts">
+import SlTabGroup from '@shoelace-style/shoelace/dist/components/tab-group/tab-group'
 import { useI18n } from 'petite-vue-i18n'
-import { on } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
 import { ItemStatus, type Item } from '../utils/items'
-import { error, log } from '../utils/logs'
-import { Tab, type Display, type Filter } from '../utils/tabs'
+import { log } from '../utils/logs'
+import { Display, Filter } from '../utils/tabs'
+
 
 const { t } = useI18n()
-const counts = ref({ [Tab.Available]: 0, [Tab.ReservedByMe]: 0, [Tab.All]: 0 })
+const counts = ref({ [Filter.Available]: 0, [Filter.ReservedByMe]: 0, [Filter.All]: 0 })
+const filterTabs = ref<SlTabGroup>()
+const displayTabs = ref<SlTabGroup>()
 
 function listSort (itemA: Item, itemB: Item): number {
   log('sorting items')
   // sort by availability
-  if ([Tab.ReservedByMe, Tab.Available].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
+  if ([Filter.ReservedByMe, Filter.Available].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
   // or by name by default
   return itemA.name > itemB.name ? 1 : -1 // eslint-disable-line @typescript-eslint/no-magic-numbers
 }
 
 function onFilter (): void {
   log('on filter :', state.filter)
-  if (state.filter === Tab.Available) for (const item of state.items) item.isVisible = item.status === ItemStatus.Available
-  else if (state.filter === Tab.ReservedByMe) for (const item of state.items) item.isVisible = item.status === ItemStatus.ReservedByMe
+  if (state.filter === Filter.Available) for (const item of state.items) item.isVisible = item.status === ItemStatus.Available
+  else if (state.filter === Filter.ReservedByMe) for (const item of state.items) item.isVisible = item.status === ItemStatus.ReservedByMe
   else for (const item of state.items) item.isVisible = true
   // eslint-disable-next-line etc/no-assign-mutated-array
   state.items = state.items.sort(listSort)
+  filterTabs.value?.show(state.filter)
 }
 
 function onDisplay (): void {
-  log('on display :', state.display)
-}
-
-function onTab (tab: Tab): void {
-  log('on tab :', tab)
-  if ([Tab.Available, Tab.ReservedByMe, Tab.All].includes(tab)) state.filter = tab as Filter // eslint-disable-line @typescript-eslint/consistent-type-assertions
-  else if ([Tab.List, Tab.Cards].includes(tab)) state.display = tab as Display // eslint-disable-line @typescript-eslint/consistent-type-assertions
-  else error('an-error-occurred', `un-handled tab name "${state.filter}"`)
+  log('on display :', state.display, displayTabs.value)
+  displayTabs.value?.show(state.display)
 }
 
 function refreshCounts (): void {
-  counts.value[Tab.Available] = state.items.filter(item => item.status === ItemStatus.Available).length
-  counts.value[Tab.ReservedByMe] = state.items.filter(item => item.status === ItemStatus.ReservedByMe).length
-  counts.value[Tab.All] = state.items.length
+  counts.value[Filter.Available] = state.items.filter(item => item.status === ItemStatus.Available).length
+  counts.value[Filter.ReservedByMe] = state.items.filter(item => item.status === ItemStatus.ReservedByMe).length
+  counts.value[Filter.All] = state.items.length
 }
 
 function onItems (): void {
@@ -51,15 +49,11 @@ function onItems (): void {
   onFilter()
 }
 
-function labelFor (tab: Tab): string {
-  if (tab === Tab.Available) return t('tab-available', { count: counts.value[Tab.Available] })
-  if (tab === Tab.ReservedByMe) return t('tab-reserved-by-me', { count: counts.value[Tab.ReservedByMe] })
-  if (tab === Tab.All) return t('tab-all', { count: counts.value[Tab.All] })
-  if (tab === Tab.List) return t('display-list')
-  return t('display-card')
+function labelFor (tab: Filter): string {
+  if (tab === Filter.Available) return t('tab-available', { count: counts.value[Filter.Available] })
+  if (tab === Filter.ReservedByMe) return t('tab-reserved-by-me', { count: counts.value[Filter.ReservedByMe] })
+  return t('tab-all', { count: counts.value[Filter.All] })
 }
-
-on('sl-tab-show', ({ name }: { name: Tab }): void => { onTab(name) })
 
 watch(() => state.items, onItems)
 watch(() => state.filter, onFilter)
@@ -70,34 +64,34 @@ watch(() => state.display, onDisplay)
   <div v-if="state.user.email" class="app-items-list--header sm:flex flex-row flex-wrap justify-end items-end">
     <sl-dropdown class="sm:hidden ml-auto">
       <sl-button slot="trigger" caret>
-        <template v-if="state.filter === Tab.Available">{{ labelFor(Tab.Available) }}</template>
-        <template v-else-if="state.filter === Tab.ReservedByMe">{{ labelFor(Tab.ReservedByMe) }}</template>
-        <template v-else-if="state.filter === Tab.All">{{ labelFor(Tab.All) }}</template>
+        <template v-if="state.filter === Filter.Available">{{ labelFor(Filter.Available) }}</template>
+        <template v-else-if="state.filter === Filter.ReservedByMe">{{ labelFor(Filter.ReservedByMe) }}</template>
+        <template v-else-if="state.filter === Filter.All">{{ labelFor(Filter.All) }}</template>
       </sl-button>
       <sl-menu>
-        <sl-menu-item v-if="state.filter !== Tab.Available" @click="state.filter = Tab.Available">
-          {{ labelFor(Tab.Available) }}
+        <sl-menu-item v-if="state.filter !== Filter.Available" @click="state.filter = Filter.Available">
+          {{ labelFor(Filter.Available) }}
         </sl-menu-item>
-        <sl-menu-item v-if="state.filter !== Tab.ReservedByMe" @click="state.filter = Tab.ReservedByMe">
-          {{ labelFor(Tab.ReservedByMe) }}
+        <sl-menu-item v-if="state.filter !== Filter.ReservedByMe" @click="state.filter = Filter.ReservedByMe">
+          {{ labelFor(Filter.ReservedByMe) }}
         </sl-menu-item>
-        <sl-menu-item v-if="state.filter !== Tab.All" @click="state.filter = Tab.All">
-          {{ labelFor(Tab.All) }}
+        <sl-menu-item v-if="state.filter !== Filter.All" @click="state.filter = Filter.All">
+          {{ labelFor(Filter.All) }}
         </sl-menu-item>
       </sl-menu>
     </sl-dropdown>
-    <sl-tab-group class="grow hidden sm:block">
-      <sl-tab slot="nav" panel="available">{{ labelFor(Tab.Available) }}</sl-tab>
-      <sl-tab slot="nav" panel="reserved-by-me">{{ labelFor(Tab.ReservedByMe) }}</sl-tab>
-      <sl-tab slot="nav" panel="all">{{ labelFor(Tab.All) }}</sl-tab>
+    <sl-tab-group ref="filterTabs" class="grow hidden sm:block">
+      <sl-tab slot="nav" panel="available" @click="state.filter = Filter.Available">{{ labelFor(Filter.Available) }}</sl-tab>
+      <sl-tab slot="nav" panel="reserved-by-me" @click="state.filter = Filter.ReservedByMe">{{ labelFor(Filter.ReservedByMe) }}</sl-tab>
+      <sl-tab slot="nav" panel="all" @click="state.filter = Filter.All">{{ labelFor(Filter.All) }}</sl-tab>
     </sl-tab-group>
-    <sl-tab-group class="hidden sm:block">
-      <sl-tab slot="nav" panel="list">
-        {{ labelFor(Tab.List) }}
+    <sl-tab-group ref="displayTabs" class="hidden sm:block">
+      <sl-tab slot="nav" panel="list" @click="state.display = Display.List">
+        {{ t('display-list') }}
         <sl-icon name="list" class="ml-3 mt-1"></sl-icon>
       </sl-tab>
-      <sl-tab slot="nav" panel="cards">
-        {{ labelFor(Tab.Cards) }}
+      <sl-tab slot="nav" panel="cards" @click="state.display = Display.Cards">
+        {{ t('display-card') }}
         <sl-icon name="card-heading" class="ml-3 mt-1"></sl-icon>
       </sl-tab>
     </sl-tab-group>

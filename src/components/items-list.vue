@@ -3,11 +3,10 @@ import { useI18n } from 'petite-vue-i18n'
 import { capitalize } from 'shuutils'
 import { computed } from 'vue'
 import { state } from '../state'
-import { ItemStatus } from '../utils/items'
-import { Tab } from '../utils/tabs'
+import { Display } from '../utils/tabs'
 
 const { t } = useI18n()
-const showCards = computed(() => state.display === Tab.Cards)
+const showCards = computed(() => state.display === Display.Cards)
 </script>
 
 <template>
