@@ -11,22 +11,14 @@ log('creating state')
 
 storage.prefix = 'c-est-donne_'
 
-/* c8 ignore next 4 */
-// eslint-disable-next-line no-warning-comments
-// TODO should not be needed with the next version of shuutils
-// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-const media = typeof localStorage === 'undefined' ? {} as Storage : localStorage
-
 export const state = reactive({
   error: '',
   isLoading: false,
   locale: storage.get<Locale>('locale', Locale.Fr),
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  items: [] as Item[],
-  display: storage.get<Display>('display', Display.List, media),
-  filter: storage.get<Filter>('filter', Filter.Available, media),
-  theme: storage.get<Theme>('theme', Theme.Light, media),
-  user: storage.get<User>('user', emptyUser, media),
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  viewItem: undefined as Item | undefined,
+  items: [] as Item[], // eslint-disable-line @typescript-eslint/consistent-type-assertions
+  display: storage.get<Display>('display', Display.List),
+  filter: storage.get<Filter>('filter', Filter.Available),
+  theme: storage.get<Theme>('theme', Theme.Light),
+  user: storage.get<User>('user', emptyUser),
+  viewItem: undefined as Item | undefined, // eslint-disable-line @typescript-eslint/consistent-type-assertions
 })
