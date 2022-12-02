@@ -17,7 +17,7 @@
     "@vitejs/plugin-vue": "3.2",
     "autoprefixer": "10",
     "c8": "7",
-    "eslint": "8.28",
+    "eslint": "8.29",
     "eslint-config-hardcore": "25",
     "eslint-plugin-tailwindcss": "3",
     "postcss": "8",
