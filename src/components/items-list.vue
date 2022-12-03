@@ -57,7 +57,7 @@ function toggleStatus (item: Item): void {
                 <sl-icon name="bag"></sl-icon>
               </div>
             </div>
-            <sl-button v-if="item.canBeToggle" :outline="item.status === ItemStatus.ReservedByMe" variant="primary" pill @click="toggleStatus(item)">
+            <sl-button v-if="item.canBeToggle" :outline="item.status === ItemStatus.ReservedByMe" variant="primary" pill @click="() => toggleStatus(item)">
               {{ item.status === ItemStatus.ReservedByMe ? t('i-wont-take-it') : t('i-take-it') }}
             </sl-button>
           </div>

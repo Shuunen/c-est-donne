@@ -26,6 +26,10 @@ function onError (content: ErrorEvent | string): void {
   dialog.value?.show()
 }
 
+function closeModal (): void {
+  dialog.value?.hide()
+}
+
 watch(() => state.error, onError)
 </script>
 
@@ -33,7 +37,7 @@ watch(() => state.error, onError)
   <sl-dialog ref="dialog" :label="t('an-error-occurred')">
     {{ message }}<br /><br />
     {{ t('error-report') }} <sl-button id="mail-to" variant="text" size="medium" @click="mailError">{{ t('error-report-mailto') }}</sl-button>.
-    <sl-button slot="footer" variant="primary" @click="dialog?.hide()">{{ t('close') }}</sl-button>
+    <sl-button slot="footer" variant="primary" @click="closeModal">{{ t('close') }}</sl-button>
   </sl-dialog>
 </template>
 

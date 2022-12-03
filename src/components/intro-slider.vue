@@ -32,7 +32,7 @@ const steps = [
     <p class="text-center text-xl">{{ $t('intro-description') }}</p>
     <div class="app-intro-steps">
       <div v-for="step, index in steps" :key="`step-${index}`" class="app-intro-step flex flex-col gap-2" :class="{ active: currentSlide === index }"
-        @click="currentSlide = index">
+        @click="() => currentSlide = index">
         <span class="app-intro-step--number">{{ index + 1 }}</span>
         <h2 class="app-intro-step--title">{{ step.title }}</h2>
         <p class="text-primary text-center text-lg">{{ step.description }}</p>

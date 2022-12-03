@@ -57,6 +57,22 @@ function labelFor (tab: Filter): string {
   return t('tab-all', { count: counts.value[Filter.All] })
 }
 
+function showAll (): void {
+  state.filter = Filter.All
+}
+function showAvailable (): void {
+  state.filter = Filter.Available
+}
+function showReservedByMe (): void {
+  state.filter = Filter.ReservedByMe
+}
+function showList (): void {
+  state.display = Display.List
+}
+function showCards (): void {
+  state.display = Display.Cards
+}
+
 watch(() => state.items, onItems)
 watch(() => state.filter, onFilter)
 watch(() => state.display, onDisplay)
@@ -73,29 +89,29 @@ watch(() => state.display, onDisplay)
           <template v-else-if="state.filter === Filter.All">{{ labelFor(Filter.All) }}</template>
         </sl-button>
         <sl-menu>
-          <sl-menu-item v-if="state.filter !== Filter.Available" @click="state.filter = Filter.Available">
+          <sl-menu-item v-if="state.filter !== Filter.Available" @click="showAvailable">
             {{ labelFor(Filter.Available) }}
           </sl-menu-item>
-          <sl-menu-item v-if="state.filter !== Filter.ReservedByMe" @click="state.filter = Filter.ReservedByMe">
+          <sl-menu-item v-if="state.filter !== Filter.ReservedByMe" @click="showReservedByMe">
             {{ labelFor(Filter.ReservedByMe) }}
           </sl-menu-item>
-          <sl-menu-item v-if="state.filter !== Filter.All" @click="state.filter = Filter.All">
+          <sl-menu-item v-if="state.filter !== Filter.All" @click="showAll">
             {{ labelFor(Filter.All) }}
           </sl-menu-item>
         </sl-menu>
       </sl-dropdown>
     </div>
     <sl-tab-group ref="filterTabs" class="grow hidden sm:block">
-      <sl-tab slot="nav" panel="available" @click="state.filter = Filter.Available">{{ capitalize(labelFor(Filter.Available)) }}</sl-tab>
-      <sl-tab slot="nav" panel="reserved-by-me" @click="state.filter = Filter.ReservedByMe">{{ capitalize(labelFor(Filter.ReservedByMe)) }}</sl-tab>
-      <sl-tab slot="nav" panel="all" @click="state.filter = Filter.All">{{ capitalize(labelFor(Filter.All)) }}</sl-tab>
+      <sl-tab slot="nav" panel="available" @click="showAvailable">{{ capitalize(labelFor(Filter.Available)) }}</sl-tab>
+      <sl-tab slot="nav" panel="reserved-by-me" @click="showReservedByMe">{{ capitalize(labelFor(Filter.ReservedByMe)) }}</sl-tab>
+      <sl-tab slot="nav" panel="all" @click="showAll">{{ capitalize(labelFor(Filter.All)) }}</sl-tab>
     </sl-tab-group>
     <sl-tab-group ref="displayTabs" class="hidden sm:block">
-      <sl-tab slot="nav" panel="list" @click="state.display = Display.List">
+      <sl-tab slot="nav" panel="list" @click="showList">
         {{ t('display-list') }}
         <sl-icon name="list" class="ml-3 mt-1"></sl-icon>
       </sl-tab>
-      <sl-tab slot="nav" panel="cards" @click="state.display = Display.Cards">
+      <sl-tab slot="nav" panel="cards" @click="showCards">
         {{ t('display-card') }}
         <sl-icon name="card-heading" class="ml-3 mt-1"></sl-icon>
       </sl-tab>

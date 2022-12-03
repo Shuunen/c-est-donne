@@ -34,6 +34,12 @@ async function syncStorage (): Promise<boolean> {
   state.isLoading = false
   return true
 }
+function setHoverActive (): void {
+  hover.value = true
+}
+function setHoverInactive (): void {
+  hover.value = false
+}
 // eslint-disable-next-line @typescript-eslint/no-magic-numbers
 const syncStorageDebounced = debounce(syncStorage, 100)
 void syncStorageDebounced()
@@ -42,7 +48,7 @@ watch(user, syncStorageDebounced)
 
 <template>
   <sl-button v-if="!state.user.firstName" :loading="state.isLoading" variant="primary" @click="doLogin">{{ t('login') }}</sl-button>
-  <sl-button v-else variant="default" class="overflow-hidden" @click="doLogout" @mouseenter="hover = true" @mouseleave="hover = false">
+  <sl-button v-else variant="default" class="overflow-hidden" @click="doLogout" @mouseenter="setHoverActive" @mouseleave="setHoverInactive">
     <div class="flex items-center">
       <span class="float-left mr-3">{{ hover ? t('logout') : state.user.firstName }}</span>
       <sl-icon class="text-lg" :name="hover ? 'box-arrow-right' : 'person-circle'"></sl-icon>
