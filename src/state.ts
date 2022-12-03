@@ -11,14 +11,15 @@ log('creating state, current environment :', getEnvironment())
 
 storage.prefix = 'c-est-donne_'
 
+const items: Item[] = []
+
 export const state = reactive({
   error: '',
   isLoading: false,
   locale: storage.get<Locale>('locale', Locale.Fr),
-  items: [] as Item[], // eslint-disable-line @typescript-eslint/consistent-type-assertions
+  items,
   display: storage.get<Display>('display', Display.List),
   filter: storage.get<Filter>('filter', Filter.Available),
   theme: storage.get<Theme>('theme', Theme.Light),
   user: storage.get<User>('user', emptyUser),
-  viewItem: undefined as Item | undefined, // eslint-disable-line @typescript-eslint/consistent-type-assertions
 })
