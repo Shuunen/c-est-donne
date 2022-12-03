@@ -1,7 +1,7 @@
 # C'est donné
 
 [![Project license](https://img.shields.io/github/license/Shuunen/c-est-donne.svg?color=informational)](https://github.com/Shuunen/c-est-donne/blob/master/LICENSE)
-[![Website up](https://img.shields.io/website/https/my-website.com.svg)](https://c-est-donne.netlify.app)
+[![Website up](https://img.shields.io/website/https/c-est-donne.netlify.app)](https://c-est-donne.netlify.app)
 
 > Donations between friends and relatives made easy ! Give a second life to your objects :)
 
@@ -37,6 +37,19 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [ ] add logo
 - [ ] improve uvu & c8 coverage
 - [ ] remove repo-check bs in eslintrc
+- [ ] list header is displayed even if user has no access
+- [ ] photo carousel inside cards
+- [ ] show images count in cards
+- [ ] dont show tutorial below list when connected, put it on a separate page
+- [ ] konami code
+- [ ] favicon
+- [ ] footer card should be equal in height
+- [ ] transform global loading to loading button
+- [ ] hide login ribbon on desktop
+- [ ] set filter all by default
+- [ ] visually show items status
+- [ ] visually show new items
+- [ ] filter given items after one month
 - [ ] transform user-btn into a dropdown menu with these entries :
   - [ ] switch to light/dark mode
   - [ ] switch to english/french
