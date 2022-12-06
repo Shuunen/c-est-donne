@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@auth0/auth0-vue': '1'
   '@intlify/vite-plugin-vue-i18n': '6'
-  '@shoelace-style/shoelace': 2.0.0-beta.85
+  '@shoelace-style/shoelace': 2.0.0-beta.86
   '@types/node': '18'
   '@vitejs/plugin-vue': '3.2'
   autoprefixer: '10'
@@ -28,7 +28,7 @@ specifiers:
 
 dependencies:
   '@auth0/auth0-vue': 1.0.2
-  '@shoelace-style/shoelace': 2.0.0-beta.85
+  '@shoelace-style/shoelace': 2.0.0-beta.86
   petite-vue-i18n: 9.2.2_vue@3.2.41
   shuutils: 6.3.0
   vue: 3.2.41
@@ -2067,8 +2067,8 @@ packages:
     resolution: {integrity: sha512-BVYDsMTpSCjvC8akhTkcnl4WIgAv7AnRq8fSuNhdGDLjkpmN1ARdAXic5luAozoMVjft85ocOmEdT8z7MbXdmQ==}
     dev: false
 
-  /@shoelace-style/shoelace/2.0.0-beta.85:
-    resolution: {integrity: sha512-Kq4BUEtB2tNlBPx97qM1/UQDBFYINMnlL4qNAHs0cCZF6q4J6U1NHot8TzWO83G4ufPHzNtjz9gaJLgzGWnNOA==}
+  /@shoelace-style/shoelace/2.0.0-beta.86:
+    resolution: {integrity: sha512-0/8VcwxLx1KSHtbi0m3pftEYKgV6EuqbeUyezDnR3xx2oNwZ9DO1WEHIv9UOAFchKnunQXock5flHYb6YXofZA==}
     engines: {node: '>=14.17.0'}
     dependencies:
       '@floating-ui/dom': 1.0.7
