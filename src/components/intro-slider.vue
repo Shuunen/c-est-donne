@@ -27,7 +27,7 @@ const steps = [
 </script>
 
 <template>
-  <div class="app-intro flex flex-col gap-8 mt-12">
+  <div class="app-intro mt-12 flex flex-col gap-8">
     <h1 class="text-center text-4xl">{{ $t('intro-title') }}</h1>
     <p class="text-center text-xl">{{ $t('intro-description') }}</p>
     <div class="app-intro-steps">
@@ -36,12 +36,12 @@ const steps = [
         <span class="app-intro-step--number">{{ index + 1 }}</span>
         <h2 class="app-intro-step--title">{{ step.title }}</h2>
         <p class="text-primary text-center text-lg">{{ step.description }}</p>
-        <img class="w-full mt-2 mb-4 sm:hidden" :src="step.image" />
+        <img class="mt-2 mb-4 w-full sm:hidden" :src="step.image" />
       </div>
     </div>
     <carousel v-model="currentSlide" wrap-around>
       <slide v-for="step, index in steps" :key="`slide-${index}`">
-        <img class="min-h-[30rem] max-h-[30vh] w-full" :src="step.image" />
+        <img class="max-h-[30vh] min-h-[30rem] w-full" :src="step.image" />
       </slide>
       <template #addons>
         <navigation />

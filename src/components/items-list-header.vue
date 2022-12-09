@@ -79,8 +79,8 @@ watch(() => state.display, onDisplay)
 </script>
 
 <template>
-  <div v-if="state.user.email" class="app-items-list--header sm:flex flex-row flex-wrap justify-end items-end">
-    <div class="flex sm:hidden justify-end gap-3 items-center">
+  <div v-if="state.user.email" class="app-items-list--header flex-row flex-wrap items-end justify-end sm:flex">
+    <div class="flex items-center justify-end gap-3 sm:hidden">
       <p>{{ t('display') }}</p>
       <sl-dropdown>
         <sl-button slot="trigger" caret>
@@ -101,7 +101,7 @@ watch(() => state.display, onDisplay)
         </sl-menu>
       </sl-dropdown>
     </div>
-    <sl-tab-group ref="filterTabs" class="grow hidden sm:block">
+    <sl-tab-group ref="filterTabs" class="hidden grow sm:block">
       <sl-tab slot="nav" panel="available" @click="showAvailable">{{ capitalize(labelFor(Filter.Available)) }}</sl-tab>
       <sl-tab slot="nav" panel="reserved-by-me" @click="showReservedByMe">{{ capitalize(labelFor(Filter.ReservedByMe)) }}</sl-tab>
       <sl-tab slot="nav" panel="all" @click="showAll">{{ capitalize(labelFor(Filter.All)) }}</sl-tab>

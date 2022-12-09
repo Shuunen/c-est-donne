@@ -21,12 +21,12 @@ function toggleStatus (item: Item): void {
     <items-list-header />
     <div class="grid gap-6" :class="{ 'sm:grid-cols-2 md:grid-cols-3': showCards }">
       <div v-for="item, index in state.items" :key="item.id" :style="`animation-delay: ${200 * index}ms;`"
-        class="app-item app-fade-in border border-neutral-300 dark:border-neutral-700 flex bg-white dark:bg-neutral-800 rounded shadow-md overflow-hidden"
+        class="app-item app-fade-in flex overflow-hidden rounded border border-neutral-300 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800"
         :class="{ hidden: !item.isVisible, 'flex-col': showCards }">
-        <img class=" bg-white object-contain shrink-0 dark:brightness-75 dark:saturate-[1.2]" :src="item.images[0] ?? '/no-visual.svg'"
+        <img class=" shrink-0 bg-white object-contain dark:brightness-75 dark:saturate-[1.2]" :src="item.images[0] ?? '/no-visual.svg'"
           :class="{ 'h-64 p-6': showCards, 'min-h-[3rem] max-h-56 w-1/3 p-4': !showCards }" :alt="`${item.name}image`" />
-        <div class="flex flex-col grow" :class="{ 'w-2/3': !showCards }">
-          <div class="app-item-body p-4 flex flex-col grow gap-2 ">
+        <div class="flex grow flex-col" :class="{ 'w-2/3': !showCards }">
+          <div class="app-item-body flex grow flex-col gap-2 p-4 ">
             <strong :class="{ 'text-xl mt-2': !showCards }" class="ellipsis">{{ item.name }}</strong>
             <p :class="{ ellipsis: showCards }">{{ capitalize(item.notes) || t('item-no-notes') }}</p>
             <p class="text-neutral-500">{{ t('item-added-on', {
@@ -38,7 +38,7 @@ function toggleStatus (item: Item): void {
               })
             }}</p>
           </div>
-          <div class="app-item-footer p-4 border-t dark:border-t-2 border-neutral-200 dark:border-neutral-700 flex gap-3 justify-between mt-auto">
+          <div class="app-item-footer mt-auto flex justify-between gap-3 border-t border-neutral-200 p-4 dark:border-t-2 dark:border-neutral-700">
             <div class="app-item-status flex items-center gap-2">
               <div v-if="item.status === ItemStatus.Available" class="text-green-700 dark:text-green-500">
                 {{ t('status-available') }}
