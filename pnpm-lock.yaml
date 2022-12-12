@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@auth0/auth0-vue': '1'
-  '@intlify/vite-plugin-vue-i18n': '6'
+  '@intlify/unplugin-vue-i18n': '0'
   '@shoelace-style/shoelace': 2.0.0-beta.86
   '@types/node': '18'
   '@vitejs/plugin-vue': '4'
@@ -15,7 +15,7 @@ specifiers:
   postcss: '8'
   repo-check: '1.29'
   rollup-plugin-visualizer: '5'
-  shuutils: '6.3'
+  shuutils: '7.0'
   tailwindcss: '3'
   tsm: '2'
   typescript: '4.9'
@@ -30,12 +30,12 @@ dependencies:
   '@auth0/auth0-vue': 1.0.2
   '@shoelace-style/shoelace': 2.0.0-beta.86
   petite-vue-i18n: 9.2.2_vue@3.2.45
-  shuutils: 6.3.0
+  shuutils: 7.0.0
   vue: 3.2.45
   vue3-carousel: 0.2.8_vue@3.2.45
 
 devDependencies:
-  '@intlify/vite-plugin-vue-i18n': 6.0.3_xuupll7fu5lbiluc6er4v6tpma
+  '@intlify/unplugin-vue-i18n': 0.8.1_petite-vue-i18n@9.2.2
   '@types/node': 18.11.12
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.0+vue@3.2.45
   autoprefixer: 10.4.13_postcss@8.4.19
@@ -786,29 +786,34 @@ packages:
     engines: {node: '>= 14'}
     dev: true
 
-  /@intlify/vite-plugin-vue-i18n/6.0.3_xuupll7fu5lbiluc6er4v6tpma:
-    resolution: {integrity: sha512-6SgNzPAOCR90wvt368lKzi7f/5ZEWJn22UCGvhFsP3XvKqlF3cVzojahgQ6o+LTdCkExeM6wPgd+haFf28E9VQ==}
-    engines: {node: '>= 14.6'}
+  /@intlify/unplugin-vue-i18n/0.8.1_petite-vue-i18n@9.2.2:
+    resolution: {integrity: sha512-BhigujPmP6JL1FSxmpogCaL+REozncHCVkJuUnefz4GWBu3X+pRe5O7PeJn8/g+Iml2ieQJz4ISPMmEbuGQjqQ==}
+    engines: {node: '>= 14.16'}
     peerDependencies:
       petite-vue-i18n: '*'
-      vite: ^2.9.0 || ^3.0.0
       vue-i18n: '*'
+      vue-i18n-bridge: '*'
     peerDependenciesMeta:
       petite-vue-i18n:
         optional: true
-      vite:
-        optional: true
       vue-i18n:
+        optional: true
+      vue-i18n-bridge:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.4.0_petite-vue-i18n@9.2.2
       '@intlify/shared': 9.3.0-beta.10
       '@rollup/pluginutils': 4.2.1
+      '@vue/compiler-sfc': 3.2.45
       debug: 4.3.4
       fast-glob: 3.2.12
+      js-yaml: 4.1.0
+      json5: 2.2.1
+      pathe: 1.0.0
       petite-vue-i18n: 9.2.2_vue@3.2.45
+      picocolors: 1.0.0
       source-map: 0.6.1
-      vite: 4.0.0_@types+node@18.11.12
+      unplugin: 1.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6439,6 +6444,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /pathe/1.0.0:
+    resolution: {integrity: sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg==}
+    dev: true
+
   /petite-vue-i18n/9.2.2_vue@3.2.45:
     resolution: {integrity: sha512-ZZmdDcIBgfgItvN8Rs34YH1F+vRC03KDiOYAVI5ALWKJG7U5NwlmKQrhNYBl6utECzAMJ2rQ4OBTb93O234g9w==}
     engines: {node: '>= 14'}
@@ -7317,8 +7326,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shuutils/6.3.0:
-    resolution: {integrity: sha512-cQa5okCxkfnWBzWY64Zu88XJ4xO6AJyR5YjIZGu/knIu2qyE9WAtd20LlcrY+WBqXzE5VAeekYmiUKtCLO/4MA==}
+  /shuutils/7.0.0:
+    resolution: {integrity: sha512-9D9NmlO5cASNSPP0CLeFd7BNW9pV4q9qN50xgp0PLmTfDZEQI22zpIunLT3KFJ8K+2C4zlPJn7FWG3Xtg6RtwA==}
     hasBin: true
     dependencies:
       tiny-glob: 0.2.9
@@ -7892,6 +7901,15 @@ packages:
       unist-util-visit-parents: 5.1.1
     dev: true
 
+  /unplugin/1.0.1:
+    resolution: {integrity: sha512-aqrHaVBWW1JVKBHmGo33T5TxeL0qWzfvjWokObHA9bYmN7eNDkwOxmLjhioHl9878qDFMAaT51XNroRyuz7WxA==}
+    dependencies:
+      acorn: 8.8.1
+      chokidar: 3.5.3
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.5.0
+    dev: true
+
   /update-browserslist-db/1.0.10_browserslist@4.21.4:
     resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}
     hasBin: true
@@ -8097,6 +8115,15 @@ packages:
     hasBin: true
     dependencies:
       mri: 1.2.0
+    dev: true
+
+  /webpack-sources/3.2.3:
+    resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
+    engines: {node: '>=10.13.0'}
+    dev: true
+
+  /webpack-virtual-modules/0.5.0:
+    resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
     dev: true
 
   /which-boxed-primitive/1.0.2:

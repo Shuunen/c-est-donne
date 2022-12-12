@@ -3,16 +3,16 @@
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "bugs": "https://github.com/Shuunen/c-est-donne/issues",
   "dependencies": {
+    "@intlify/unplugin-vue-i18n": "0",
     "@auth0/auth0-vue": "1",
     "@shoelace-style/shoelace": "2.0.0-beta.86",
     "petite-vue-i18n": "9",
-    "shuutils": "6.3",
+    "shuutils": "7.0",
     "vue": "3.2",
     "vue3-carousel": "0.2"
   },
   "description": "Donations between friends made easy !",
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "6",
     "@types/node": "18",
     "@vitejs/plugin-vue": "4",
     "autoprefixer": "10",
@@ -48,9 +48,10 @@
     "url": "https://github.com/Shuunen/c-est-donne.git"
   },
   "scripts": {
-    "build": "vue-tsc --noEmit && vite build && npm run mark",
+    "build": "vue-tsc --noEmit && vite build && npm run mark && echo build success",
+    "build:watch": "watchlist public src -eager -- npm run build",
     "check": "repo-check",
-    "ci": "npm run build && npm run check && npm run lint && npm run test",
+    "ci": "npm run build && npm run check && npm run lint && npm run test && echo ci success",
     "dev": "vite",
     "lint": "tsc --noEmit && eslint --cache --fix --ignore-path .gitignore --ext .js,.ts,.html,.vue . && echo lint success",
     "lint:watch": "watchlist src tests -eager -- npm run lint",
@@ -58,7 +59,7 @@
     "postversion": "git push && git push --tags",
     "preversion": "npm run ci",
     "preview": "vite preview",
-    "test": "c8 uvu -r tsm tests",
+    "test": "c8 uvu -r tsm tests && echo test success",
     "test:watch": "watchlist src tests -eager -- npm test"
   },
   "type": "module",
