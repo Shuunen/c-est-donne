@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@auth0/auth0-vue': '1'
   '@intlify/unplugin-vue-i18n': '0'
-  '@shoelace-style/shoelace': 2.0.0-beta.86
+  '@shoelace-style/shoelace': 2.0.0-beta.87
   '@types/node': '18'
   '@vitejs/plugin-vue': '4'
   autoprefixer: '10'
@@ -29,7 +29,7 @@ specifiers:
 dependencies:
   '@auth0/auth0-vue': 1.0.2
   '@intlify/unplugin-vue-i18n': 0.8.1_petite-vue-i18n@9.2.2
-  '@shoelace-style/shoelace': 2.0.0-beta.86
+  '@shoelace-style/shoelace': 2.0.0-beta.87
   petite-vue-i18n: 9.2.2_vue@3.2.45
   shuutils: 7.0.0
   vue: 3.2.45
@@ -437,6 +437,11 @@ packages:
       postcss: 8.4.20
       postcss-selector-parser: 6.0.11
     dev: true
+
+  /@ctrl/tinycolor/3.5.0:
+    resolution: {integrity: sha512-tlJpwF40DEQcfR/QF+wNMVyGMaO9FQp6Z1Wahj4Gk3CJQYHwA2xVG7iKDFdW6zuxZY9XWOpGcfNCTsX4McOsOg==}
+    engines: {node: '>=10'}
+    dev: false
 
   /@ember-data/rfc395-data/0.0.4:
     resolution: {integrity: sha512-tGRdvgC9/QMQSuSuJV45xoyhI0Pzjm7A9o/MVVA3HakXIImJbbzx/k/6dO9CUEQXIyS2y0fW6C1XaYOG7rY0FQ==}
@@ -2245,15 +2250,15 @@ packages:
     resolution: {integrity: sha512-BVYDsMTpSCjvC8akhTkcnl4WIgAv7AnRq8fSuNhdGDLjkpmN1ARdAXic5luAozoMVjft85ocOmEdT8z7MbXdmQ==}
     dev: false
 
-  /@shoelace-style/shoelace/2.0.0-beta.86:
-    resolution: {integrity: sha512-0/8VcwxLx1KSHtbi0m3pftEYKgV6EuqbeUyezDnR3xx2oNwZ9DO1WEHIv9UOAFchKnunQXock5flHYb6YXofZA==}
+  /@shoelace-style/shoelace/2.0.0-beta.87:
+    resolution: {integrity: sha512-EeoMVnjkO2BI0fePZsM/x5SJd1GmUHKo8IJTHJM9mH4fqUOtnzLSlv3bHr9YQ8Zl9Wj8/Jj0uvaNdQVm3ND6ig==}
     engines: {node: '>=14.17.0'}
     dependencies:
+      '@ctrl/tinycolor': 3.5.0
       '@floating-ui/dom': 1.0.10
       '@lit-labs/react': 1.1.1
       '@shoelace-style/animations': 1.1.0
       '@shoelace-style/localize': 3.0.3
-      color: 4.2.3
       lit: 2.5.0
       qr-creator: 1.0.0
     dev: false
@@ -3194,6 +3199,7 @@ packages:
     engines: {node: '>=7.0.0'}
     dependencies:
       color-name: 1.1.4
+    dev: true
 
   /color-name/1.1.3:
     resolution: {integrity: sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw==}
@@ -3201,21 +3207,7 @@ packages:
 
   /color-name/1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
-
-  /color-string/1.9.1:
-    resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
-    dependencies:
-      color-name: 1.1.4
-      simple-swizzle: 0.2.2
-    dev: false
-
-  /color/4.2.3:
-    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
-    engines: {node: '>=12.5.0'}
-    dependencies:
-      color-convert: 2.0.1
-      color-string: 1.9.1
-    dev: false
+    dev: true
 
   /colord/2.9.3:
     resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==}
@@ -5234,10 +5226,6 @@ packages:
   /is-arrayish/0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
     dev: true
-
-  /is-arrayish/0.3.2:
-    resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
-    dev: false
 
   /is-bigint/1.0.4:
     resolution: {integrity: sha512-zB9CruMamjym81i2JZ3UMn54PKGsQzsJeo6xvN3HJJ4CAsQNB6iRutp2To77OfCNuoxspsIhzaPoO1zyCEhFOg==}
@@ -7330,12 +7318,6 @@ packages:
       once: 1.4.0
       simple-concat: 1.0.1
     dev: true
-
-  /simple-swizzle/0.2.2:
-    resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
-    dependencies:
-      is-arrayish: 0.3.2
-    dev: false
 
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
