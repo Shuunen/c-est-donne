@@ -1,5 +1,7 @@
-import { BrowserScout, emit } from 'shuutils'
+import { BrowserScout, emit, Logger } from 'shuutils'
 import messages from '../locales/en.json' // eslint-disable-line import/extensions
+
+export const logger = new Logger({ willOutputToConsole: typeof window !== 'undefined' })
 
 type ErrorKey = keyof typeof messages
 
@@ -7,13 +9,13 @@ export function error (key: ErrorKey, details?: string): boolean {
   if (typeof window === 'undefined') return false
   let message = messages[key] || `Un-translated error : ${key}`
   if (details !== undefined) message += `. ${details}`
-  console.error(`error triggered : ${message}`) // eslint-disable-line no-console
+  logger.error(`error triggered : ${message}`)
   return emit('error', message)
 }
 
 export function log (...stuff: unknown[]): void {
   if (typeof window === 'undefined') return
-  console.log(...stuff) // eslint-disable-line no-console
+  logger.info(...stuff)
   emit('log', stuff.join(' '))
 }
 
