@@ -15,7 +15,7 @@ specifiers:
   postcss: '8'
   repo-check: '1.29'
   rollup-plugin-visualizer: '5'
-  shuutils: '7.1'
+  shuutils: '7.2'
   tailwindcss: '3'
   tsm: '2'
   typescript: '4.9'
@@ -31,7 +31,7 @@ dependencies:
   '@intlify/unplugin-vue-i18n': 0.8.1_petite-vue-i18n@9.2.2
   '@shoelace-style/shoelace': 2.0.0-beta.87
   petite-vue-i18n: 9.2.2_vue@3.2.45
-  shuutils: 7.1.0
+  shuutils: 7.2.0
   vue: 3.2.45
   vue3-carousel: 0.2.9_vue@3.2.45
 
@@ -746,8 +746,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.11
-      '@intlify/shared': 9.3.0-beta.11
+      '@intlify/message-compiler': 9.3.0-beta.16
+      '@intlify/shared': 9.3.0-beta.16
       jsonc-eslint-parser: 1.4.1
       petite-vue-i18n: 9.2.2_vue@3.2.45
       source-map: 0.6.1
@@ -779,11 +779,11 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /@intlify/message-compiler/9.3.0-beta.11:
-    resolution: {integrity: sha512-gGGfBGzM7JBXp1Q9gbDAy5jELz9ho3ILqnpxp2yp64+gkqohrqc2YXIvCdwZoc6AtKIh/Zmv4sWVqxkvMsBWtQ==}
+  /@intlify/message-compiler/9.3.0-beta.16:
+    resolution: {integrity: sha512-CGQI3xRcs1ET75eDQ0DUy3MRYOqTauRIIgaMoISKiF83gqRWg93FqN8lGMKcpBqaF4tI0JhsfosCaGiBL9+dnw==}
     engines: {node: '>= 14'}
     dependencies:
-      '@intlify/shared': 9.3.0-beta.11
+      '@intlify/shared': 9.3.0-beta.16
       source-map: 0.6.1
     dev: false
 
@@ -792,8 +792,8 @@ packages:
     engines: {node: '>= 14'}
     dev: false
 
-  /@intlify/shared/9.3.0-beta.11:
-    resolution: {integrity: sha512-CtbotesxTRiC3bRyXyv1NG39fkqJ790f8z8xFaeIXSZpOdiyxoh5BIyypCzSFQZDGLwz0Q9gyWbW1XpxQJm68Q==}
+  /@intlify/shared/9.3.0-beta.16:
+    resolution: {integrity: sha512-kXbm4svALe3lX+EjdJxfnabOphqS4yQ1Ge/iIlR8tvUiYRCoNz3hig1M4336iY++Dfx5ytEQJPNjIcknNIuvig==}
     engines: {node: '>= 14'}
     dev: false
 
@@ -813,7 +813,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.4.0_petite-vue-i18n@9.2.2
-      '@intlify/shared': 9.3.0-beta.11
+      '@intlify/shared': 9.3.0-beta.16
       '@rollup/pluginutils': 4.2.1
       '@vue/compiler-sfc': 3.2.45
       debug: 4.3.4
@@ -7324,8 +7324,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shuutils/7.1.0:
-    resolution: {integrity: sha512-CYsVwn8EggWsF+oYIbB480zahvowxR8rTHHpKPogMKa/VyJ4Hjj7+Wbw1HsCHvLtY3yGKLuINwOSbbTNdPOLMg==}
+  /shuutils/7.2.0:
+    resolution: {integrity: sha512-iJ8BPnmJrujHO5bfreBg2V71KjKnvM+NXibKXM3f3MizRM9sofLntCGgKoUU7XmGXVZuu9oUsA5Y4F21oLxDhg==}
     hasBin: true
     dependencies:
       tiny-glob: 0.2.9

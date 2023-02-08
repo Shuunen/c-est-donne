@@ -7,7 +7,7 @@
     "@auth0/auth0-vue": "1",
     "@shoelace-style/shoelace": "2.0.0-beta.87",
     "petite-vue-i18n": "9",
-    "shuutils": "7.1",
+    "shuutils": "7.2",
     "vue": "3.2",
     "vue3-carousel": "0.2"
   },
