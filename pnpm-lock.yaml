@@ -18,7 +18,7 @@ specifiers:
   shuutils: '7.1'
   tailwindcss: '3'
   tsm: '2'
-  typescript: '4.9'
+  typescript: '5.0'
   uvu: '0'
   vite: '4'
   vue: '3.2'
@@ -48,10 +48,10 @@ devDependencies:
   rollup-plugin-visualizer: 5.8.3
   tailwindcss: 3.2.4_postcss@8.4.20
   tsm: 2.3.0
-  typescript: 4.9.4
+  typescript: 5.0.2
   uvu: 0.5.6
   vite: 4.0.3_@types+node@18.11.17
-  vue-tsc: 1.0.16_typescript@4.9.4
+  vue-tsc: 1.0.16_typescript@5.0.2
   watchlist: 0.3.1
 
 packages:
@@ -746,8 +746,8 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/message-compiler': 9.3.0-beta.11
-      '@intlify/shared': 9.3.0-beta.11
+      '@intlify/message-compiler': 9.3.0-beta.16
+      '@intlify/shared': 9.3.0-beta.16
       jsonc-eslint-parser: 1.4.1
       petite-vue-i18n: 9.2.2_vue@3.2.45
       source-map: 0.6.1
@@ -779,11 +779,11 @@ packages:
       source-map: 0.6.1
     dev: false
 
-  /@intlify/message-compiler/9.3.0-beta.11:
-    resolution: {integrity: sha512-gGGfBGzM7JBXp1Q9gbDAy5jELz9ho3ILqnpxp2yp64+gkqohrqc2YXIvCdwZoc6AtKIh/Zmv4sWVqxkvMsBWtQ==}
+  /@intlify/message-compiler/9.3.0-beta.16:
+    resolution: {integrity: sha512-CGQI3xRcs1ET75eDQ0DUy3MRYOqTauRIIgaMoISKiF83gqRWg93FqN8lGMKcpBqaF4tI0JhsfosCaGiBL9+dnw==}
     engines: {node: '>= 14'}
     dependencies:
-      '@intlify/shared': 9.3.0-beta.11
+      '@intlify/shared': 9.3.0-beta.16
       source-map: 0.6.1
     dev: false
 
@@ -792,8 +792,8 @@ packages:
     engines: {node: '>= 14'}
     dev: false
 
-  /@intlify/shared/9.3.0-beta.11:
-    resolution: {integrity: sha512-CtbotesxTRiC3bRyXyv1NG39fkqJ790f8z8xFaeIXSZpOdiyxoh5BIyypCzSFQZDGLwz0Q9gyWbW1XpxQJm68Q==}
+  /@intlify/shared/9.3.0-beta.16:
+    resolution: {integrity: sha512-kXbm4svALe3lX+EjdJxfnabOphqS4yQ1Ge/iIlR8tvUiYRCoNz3hig1M4336iY++Dfx5ytEQJPNjIcknNIuvig==}
     engines: {node: '>= 14'}
     dev: false
 
@@ -813,7 +813,7 @@ packages:
         optional: true
     dependencies:
       '@intlify/bundle-utils': 3.4.0_petite-vue-i18n@9.2.2
-      '@intlify/shared': 9.3.0-beta.11
+      '@intlify/shared': 9.3.0-beta.16
       '@rollup/pluginutils': 4.2.1
       '@vue/compiler-sfc': 3.2.45
       debug: 4.3.4
@@ -7792,6 +7792,12 @@ packages:
     hasBin: true
     dev: true
 
+  /typescript/5.0.2:
+    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+    engines: {node: '>=12.20'}
+    hasBin: true
+    dev: true
+
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
     dependencies:
@@ -8082,7 +8088,7 @@ packages:
       he: 1.2.0
     dev: true
 
-  /vue-tsc/1.0.16_typescript@4.9.4:
+  /vue-tsc/1.0.16_typescript@5.0.2:
     resolution: {integrity: sha512-yZaiJBbcKR1rSLhiF9KryAFH7R63po+N/invr2EAHGXxMzZksE5j1zyQKvrYiqK47ZHLAlCR+re/PHqWp/UzTg==}
     hasBin: true
     peerDependencies:
@@ -8090,7 +8096,7 @@ packages:
     dependencies:
       '@volar/vue-language-core': 1.0.16
       '@volar/vue-typescript': 1.0.16
-      typescript: 4.9.4
+      typescript: 5.0.2
     dev: true
 
   /vue/3.2.45:
