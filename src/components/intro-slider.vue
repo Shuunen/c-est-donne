@@ -31,17 +31,18 @@ const steps = [
     <h1 class="text-center text-4xl">{{ $t('intro-title') }}</h1>
     <p class="text-center text-xl">{{ $t('intro-description') }}</p>
     <div class="app-intro-steps">
+      <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events, vuejs-accessibility/no-static-element-interactions -->
       <div v-for="step, index in steps" :key="`step-${index}`" class="app-intro-step flex flex-col gap-2" :class="{ active: currentSlide === index }"
         @click="() => currentSlide = index">
         <span class="app-intro-step--number">{{ index + 1 }}</span>
         <h2 class="app-intro-step--title">{{ step.title }}</h2>
         <p class="text-primary text-center text-lg">{{ step.description }}</p>
-        <img class="mt-2 mb-4 w-full sm:hidden" :src="step.image" />
+        <img class="mb-4 mt-2 w-full sm:hidden" :src="step.image" :alt="`step ${index + 1}`" />
       </div>
     </div>
     <carousel v-model="currentSlide" wrap-around>
       <slide v-for="step, index in steps" :key="`slide-${index}`">
-        <img class="max-h-[30vh] min-h-[30rem] w-full" :src="step.image" />
+        <img class="max-h-[30vh] min-h-[30rem] w-full" :src="step.image" :alt="`slide ${index + 1}`" />
       </slide>
       <template #addons>
         <navigation />
@@ -53,16 +54,17 @@ const steps = [
       <strong>{{ t('intro-login') }}</strong><br />
       {{ t('please-login') }}
     </sl-alert>
-    <img v-if="state.user.isConnected" class="h-44" src="/blob-2.svg" />
+    <img v-if="state.user.isConnected" class="h-44" src="/blob-2.svg" alt="blob" />
     <div v-else class="mx-auto">
       <login-button />
     </div>
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url("vue3-carousel/dist/carousel.css");
 
+/* eslint-disable vue-scoped-css/require-selector-used-inside */
 .carousel {
   --vc-nav-width: 4rem;
   --vc-nav-height: 4rem;

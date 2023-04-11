@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// eslint-disable-next-line import/extensions
 import pkg from '../../package.json'
 </script>
 

@@ -7,6 +7,7 @@ import './plugins/shoelace'
 import './plugins/storage'
 import './style.css'
 
+// eslint-disable-next-line total-functions/no-unsafe-readonly-mutable-assignment
 const app = createApp(App)
 
 // globally register components, restrict the regex if needed

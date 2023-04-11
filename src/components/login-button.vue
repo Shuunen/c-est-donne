@@ -48,6 +48,7 @@ watch(user, syncStorageDebounced)
 
 <template>
   <sl-button v-if="!state.user.firstName" :loading="state.isLoading" variant="primary" @click="doLogin">{{ t('login') }}</sl-button>
+  <!-- eslint-disable-next-line vuejs-accessibility/mouse-events-have-key-events -->
   <sl-button v-else variant="default" class="overflow-hidden" @click="doLogout" @mouseenter="setHoverActive" @mouseleave="setHoverInactive">
     <div class="flex items-center">
       <span class="float-left mr-3">{{ hover ? t('logout') : state.user.firstName }}</span>

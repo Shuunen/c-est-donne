@@ -1,9 +1,9 @@
 import { BrowserScout, emit, Logger } from 'shuutils'
-import messages from '../locales/en.json' // eslint-disable-line import/extensions
-
-export const logger = new Logger({ willOutputToConsole: typeof window !== 'undefined' })
+import messages from '../locales/en.json'
 
 type ErrorKey = keyof typeof messages
+
+export const logger = new Logger({ willOutputToConsole: typeof window !== 'undefined' })
 
 export function error (key: ErrorKey, details?: string): boolean {
   if (typeof window === 'undefined') return false

@@ -12,6 +12,9 @@
     "hardcore/ts",
     "hardcore/vue"
   ],
+  "ignorePatterns": [
+    "stats.html"
+  ],
   "parserOptions": {
     "project": "tsconfig.json"
   },
@@ -27,12 +30,14 @@
       "error",
       "always-multiline"
     ],
+    "@typescript-eslint/consistent-indexed-object-style": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/indent": [
       "error",
       2
     ],
+    "@typescript-eslint/lines-around-comment": "off",
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
@@ -74,6 +79,7 @@
     "eslint-comments/no-use": "off",
     "etc/no-const-enum": "off",
     "etc/no-enum": "off",
+    "etc/prefer-interface": "off",
     "ext/lines-between-object-properties": "off",
     "func-names": [
       "error",
@@ -88,12 +94,16 @@
         "min": 2
       }
     ],
+    "import/extensions": "off",
+    "import/newline-after-import": "off",
     "import/no-unassigned-import": "off",
     "import/order": "off",
     "import/prefer-default-export": "off",
     "indent": "off",
     "line-comment-position": "off",
+    "lines-around-comment": "off",
     "lines-between-class-members": "off",
+    "logical-assignment-operators": "off",
     "max-len": "off",
     "max-statements-per-line": "off",
     "no-console": "error",
@@ -123,10 +133,12 @@
       "error",
       "always"
     ],
+    "total-functions/no-partial-division": "off",
     "unicorn/no-array-for-each": "off",
     "unicorn/no-process-exit": "off",
     "unicorn/prefer-module": "off",
     "unicorn/prefer-node-protocol": "off",
+    "unicorn/prefer-string-replace-all": "off",
     "unicorn/prefer-switch": "off",
     "unicorn/prevent-abbreviations": [
       "error",
@@ -152,10 +164,6 @@
     "vue/singleline-html-element-content-newline": "off"
   },
   "settings": {
-    "repo-check": {
-      "me-too": "@vue/typescript/recommended",
-      "remove-me": "plugin:vue/vue3-recommended"
-    },
     "tailwindcss": {
       "callees": [
         "tw"
