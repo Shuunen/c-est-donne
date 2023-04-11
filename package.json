@@ -53,7 +53,7 @@
     "check": "repo-check && echo check success",
     "ci": "npm run build && npm run check && npm run lint && npm run test && echo ci success",
     "dev": "vite",
-    "lint": "tsc --noEmit && eslint --cache --fix --ignore-path .gitignore --ext .js,.ts,.html,.vue . && echo lint success",
+    "lint": "tsc --noEmit && eslint --cache --fix --ext .js,.ts,.html,.vue . && echo lint success",
     "lint:watch": "watchlist src tests -eager -- npm run lint",
     "mark": "unique-mark dist/**/*.{html,js}",
     "postversion": "git push && git push --tags",
