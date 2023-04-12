@@ -50,7 +50,7 @@
   "scripts": {
     "build": "vue-tsc --noEmit && vite build && npm run mark && echo build success",
     "build:watch": "watchlist public src -eager -- npm run build",
-    "check": "npm run build && repo-check && npm run lint && npm run test && echo ci success",
+    "check": "npm run build && repo-check && npm run lint && npm run test && echo check success",
     "dev": "vite",
     "lint": "tsc --noEmit && eslint --cache --fix --ext .js,.ts,.html,.vue . && echo lint success",
     "lint:watch": "watchlist src tests -eager -- npm run lint",
