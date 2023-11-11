@@ -3,7 +3,7 @@
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "bugs": "https://github.com/Shuunen/c-est-donne/issues",
   "dependencies": {
-    "@intlify/unplugin-vue-i18n": "0",
+    "@intlify/unplugin-vue-i18n": "1",
     "@auth0/auth0-vue": "1",
     "@shoelace-style/shoelace": "2.3",
     "petite-vue-i18n": "9",
