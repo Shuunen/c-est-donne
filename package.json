@@ -5,7 +5,7 @@
   "dependencies": {
     "@intlify/unplugin-vue-i18n": "0",
     "@auth0/auth0-vue": "1",
-    "@shoelace-style/shoelace": "2.3",
+    "@shoelace-style/shoelace": "2.12",
     "petite-vue-i18n": "9",
     "shuutils": "7.2",
     "vue": "3.2",
