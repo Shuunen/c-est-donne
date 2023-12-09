@@ -18,6 +18,7 @@
   "parserOptions": {
     "project": "tsconfig.json"
   },
+  "root": true,
   "rules": {
     "@typescript-eslint/brace-style": [
       "error",
@@ -32,6 +33,13 @@
     ],
     "@typescript-eslint/consistent-indexed-object-style": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "fixStyle": "inline-type-imports",
+        "prefer": "type-imports"
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/indent": [
       "error",
@@ -58,6 +66,7 @@
       "error",
       "always"
     ],
+    "@typescript-eslint/prefer-destructuring": "off",
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
     "@typescript-eslint/quotes": [
       "error",
@@ -72,13 +81,16 @@
       "error",
       "always-multiline"
     ],
+    "compat/compat": "off",
     "curly": [
       "error",
       "multi"
     ],
     "eslint-comments/no-use": "off",
     "etc/no-const-enum": "off",
+    "etc/no-deprecated": "off",
     "etc/no-enum": "off",
+    "etc/no-internal": "off",
     "etc/prefer-interface": "off",
     "ext/lines-between-object-properties": "off",
     "func-names": [
@@ -94,9 +106,31 @@
         "min": 2
       }
     ],
+    "import/export": "off",
     "import/extensions": "off",
+    "import/first": "off",
+    "import/named": "off",
+    "import/namespace": "off",
     "import/newline-after-import": "off",
+    "import/no-absolute-path": "off",
+    "import/no-amd": "off",
+    "import/no-cycle": "off",
+    "import/no-deprecated": "off",
+    "import/no-duplicates": "off",
+    "import/no-dynamic-require:": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-import-module-exports": "off",
+    "import/no-mutable-exports": "off",
+    "import/no-named-as-default": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-named-default": "off",
+    "import/no-relative-packages": "off",
+    "import/no-self-import": "off",
     "import/no-unassigned-import": "off",
+    "import/no-unresolved": "off",
+    "import/no-unused-modules": "off",
+    "import/no-useless-path-segments": "off",
+    "import/no-webpack-loader-syntax": "off",
     "import/order": "off",
     "import/prefer-default-export": "off",
     "indent": "off",
@@ -114,6 +148,7 @@
     ],
     "padding-line-between-statements": "off",
     "prettier/prettier": "off",
+    "putout/putout": "off",
     "quote-props": [
       "error",
       "consistent-as-needed"
@@ -129,15 +164,18 @@
       "error",
       "never"
     ],
+    "simple-import-sort/imports": "off",
     "space-before-function-paren": [
       "error",
       "always"
     ],
     "total-functions/no-partial-division": "off",
+    "total-functions/no-unsafe-readonly-mutable-assignment": "off",
     "unicorn/no-array-for-each": "off",
     "unicorn/no-process-exit": "off",
     "unicorn/prefer-module": "off",
     "unicorn/prefer-node-protocol": "off",
+    "unicorn/prefer-spread": "off",
     "unicorn/prefer-string-replace-all": "off",
     "unicorn/prefer-switch": "off",
     "unicorn/prevent-abbreviations": [
@@ -154,14 +192,19 @@
       "error",
       "kebab-case"
     ],
+    "regexp/require-unicode-sets-regexp": "off",
     "vue/first-attribute-linebreak": "off",
     "vue/html-closing-bracket-newline": "off",
     "vue/html-indent": "off",
     "vue/html-self-closing": "off",
     "vue/max-attributes-per-line": "off",
+    "vue/new-line-between-multi-line-property": "off",
     "vue/no-deprecated-slot-attribute": "off",
     "vue/no-multiple-template-root": "off",
-    "vue/singleline-html-element-content-newline": "off"
+    "vue/padding-lines-in-component-definition": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/static-class-names-order": "off",
+    "vuejs-accessibility/no-autofocus": "off"
   },
   "settings": {
     "tailwindcss": {

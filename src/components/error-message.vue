@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { useI18n } from 'petite-vue-i18n'
 import { ref, watch } from 'vue'
 import { state } from '../state'
-import { getEnvironment, log } from '../utils/logs'
+import { getEnvironment } from '../utils/browser.utils'
+import { log } from '../utils/logger.utils'
+import { $t } from '../utils/translate.utils'
 
 interface SlDialog extends HTMLElement {
-  show: () => void
   hide: () => void
+  show: () => void
 }
 
-const { t } = useI18n()
 const message = ref('')
 const dialog = ref<SlDialog>()
 
 function mailError (): void {
   log('mailing error to admin')
   const mail = document.createElement('a')
-  const body = t('error-body', { error: message.value, environment: getEnvironment(), user: state.user.firstName })
-  mail.href = `mailto:romain.racamier@gmail.com?subject=${encodeURIComponent(t('error-report-subject'))}&body=${encodeURIComponent(body)}`
+  const body = $t('error-body', { error: message.value, environment: getEnvironment(), user: state.user.firstName })
+  mail.href = `mailto:romain.racamier@gmail.com?subject=${encodeURIComponent($t('error-report-subject'))}&body=${encodeURIComponent(body)}`
   mail.click()
 }
 
@@ -34,10 +34,10 @@ watch(() => state.error, onError)
 </script>
 
 <template>
-  <sl-dialog ref="dialog" :label="t('an-error-occurred')">
+  <sl-dialog ref="dialog" :label="$t('an-error-occurred')">
     {{ message }}<br /><br />
-    {{ t('error-report') }} <sl-button id="mail-to" variant="text" size="medium" @click="mailError">{{ t('error-report-mailto') }}</sl-button>.
-    <sl-button slot="footer" variant="primary" @click="closeModal">{{ t('close') }}</sl-button>
+    {{ $t('error-report') }} <sl-button id="mail-to" size="medium" variant="text" @click="mailError">{{ $t('error-report-mailto') }}</sl-button>.
+    <sl-button slot="footer" variant="primary" @click="closeModal">{{ $t('close') }}</sl-button>
   </sl-dialog>
 </template>
 

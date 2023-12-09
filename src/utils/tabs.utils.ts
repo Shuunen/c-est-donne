@@ -1,10 +1,10 @@
 export const enum Filter {
+  All = 'all',
   Available = 'available',
   ReservedByMe = 'reserved-by-me',
-  All = 'all',
 }
 
 export const enum Display {
-  List = 'list',
   Cards = 'cards',
+  List = 'list',
 }

@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { useI18n } from 'petite-vue-i18n'
 import { debounce } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
+import { $t } from '../utils/translate.utils'
 
-const { t } = useI18n()
 const loading = ref(false)
 const delay = 400
 
@@ -23,7 +22,7 @@ watch(() => state.isLoading, (isLoading: boolean) => { onLoading(isLoading) })
 <template>
   <Transition>
     <div v-if="loading" class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/70 pt-6">
-      <p class="text-xl text-white">{{ t('loading') }}</p>
+      <p class="text-xl text-white">{{ $t('loading') }}</p>
       <sl-spinner></sl-spinner>
     </div>
   </Transition>

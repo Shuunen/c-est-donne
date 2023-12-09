@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { useI18n } from 'petite-vue-i18n'
 import { watch } from 'vue'
 import { state } from '../state'
-import { Theme } from '../utils/theme'
-
-const { t } = useI18n()
+import { Theme } from '../utils/theme.utils'
+import { $t } from '../utils/translate.utils'
 
 function setThemeInDom (): void {
   document.body.classList.remove(Theme.Dark, Theme.Light)
@@ -23,7 +21,7 @@ watch(() => state.theme, setThemeInDom)
 </script>
 
 <template>
-  <sl-button variant="default" size="medium" circle :title="t(`switch-to-${state.theme.includes('dark') ? 'light' : 'dark'}-theme`)"
+  <sl-button circle size="medium" :title="$t(`switch-to-${state.theme.includes('dark') ? 'light' : 'dark'}-theme`)" variant="default"
     @click="switchTheme">
     <sl-icon :name="state.theme.includes('dark') ? 'lightbulb' : 'lightbulb-off'"></sl-icon>
   </sl-button>

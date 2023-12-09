@@ -1,16 +1,14 @@
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <script setup lang="ts">
 import SlTabGroup from '@shoelace-style/shoelace/dist/components/tab-group/tab-group'
-import { useI18n } from 'petite-vue-i18n'
 import { capitalize } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
-import { ItemStatus, type Item } from '../utils/items'
-import { log } from '../utils/logs'
-import { Display, Filter } from '../utils/tabs'
+import { ItemStatus, type Item } from '../utils/items.utils'
+import { log } from '../utils/logger.utils'
+import { Display, Filter } from '../utils/tabs.utils'
+import { $t } from '../utils/translate.utils'
 
-
-const { t } = useI18n()
 const counts = ref({ [Filter.Available]: 0, [Filter.ReservedByMe]: 0, [Filter.All]: 0 })
 const filterTabs = ref<SlTabGroup>()
 const displayTabs = ref<SlTabGroup>()
@@ -18,7 +16,7 @@ const displayTabs = ref<SlTabGroup>()
 function listSort (itemA: Item, itemB: Item): number {
   log('sorting items')
   // sort by availability
-  if ([Filter.ReservedByMe, Filter.Available].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
+  if ([Filter.Available, Filter.ReservedByMe].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
   // or by name by default
   return itemA.name > itemB.name ? 1 : -1 // eslint-disable-line @typescript-eslint/no-magic-numbers
 }
@@ -52,9 +50,9 @@ function onItems (): void {
 }
 
 function labelFor (tab: Filter): string {
-  if (tab === Filter.Available) return t('tab-available', { count: counts.value[Filter.Available] })
-  if (tab === Filter.ReservedByMe) return t('tab-reserved-by-me', { count: counts.value[Filter.ReservedByMe] })
-  return t('tab-all', { count: counts.value[Filter.All] })
+  if (tab === Filter.Available) return $t('tab-available', { count: counts.value[Filter.Available] })
+  if (tab === Filter.ReservedByMe) return $t('tab-reserved-by-me', { count: counts.value[Filter.ReservedByMe] })
+  return $t('tab-all', { count: counts.value[Filter.All] })
 }
 
 function showAll (): void {
@@ -81,7 +79,7 @@ watch(() => state.display, onDisplay)
 <template>
   <div v-if="state.user.email" class="app-items-list--header flex-row flex-wrap items-end justify-end sm:flex">
     <div class="flex items-center justify-end gap-3 sm:hidden">
-      <p>{{ t('display') }}</p>
+      <p>{{ $t('display') }}</p>
       <sl-dropdown>
         <sl-button slot="trigger" caret>
           <template v-if="state.filter === Filter.Available">{{ labelFor(Filter.Available) }}</template>
@@ -108,13 +106,14 @@ watch(() => state.display, onDisplay)
     </sl-tab-group>
     <sl-tab-group ref="displayTabs" class="hidden sm:block">
       <sl-tab slot="nav" panel="list" @click="showList">
-        {{ t('display-list') }}
-        <sl-icon name="list" class="ml-3 mt-1"></sl-icon>
+        {{ $t('display-list') }}
+        <sl-icon class="ml-3 mt-1" name="list"></sl-icon>
       </sl-tab>
       <sl-tab slot="nav" panel="cards" @click="showCards">
-        {{ t('display-card') }}
-        <sl-icon name="card-heading" class="ml-3 mt-1"></sl-icon>
+        {{ $t('display-card') }}
+        <sl-icon class="ml-3 mt-1" name="card-heading"></sl-icon>
       </sl-tab>
     </sl-tab-group>
   </div>
+  <div v-else></div>
 </template>

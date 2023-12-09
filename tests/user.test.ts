@@ -1,5 +1,5 @@
-import { check, checksRun } from 'shuutils'
-import { firstName, mergeUserData, type User, type UserAuth0 } from '../src/utils/user'
+import { expect, it } from 'vitest'
+import { firstName, mergeUserData, type User, type UserAuth0 } from '../src/utils/user.utils'
 
 const userA: User = {
   name: 'John Doe',
@@ -23,8 +23,9 @@ const expectedMergeA: User = {
   apiKey: userA.apiKey,
   apiApp: userA.apiApp,
 }
-check('mergeUserData A', mergeUserData(userA, userAuth0Empty), expectedMergeA)
-check('mergeUserData A did not affect param', userA.firstName, '')
+
+it('mergeUserData A', () => { expect(mergeUserData(userA, userAuth0Empty)).toStrictEqual(expectedMergeA) })
+it('mergeUserData A did not affect param', () => { expect(userA.firstName).toBe('') })
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const userAuth0B: UserAuth0 = { name: 'Jane Doe', picture: 'https://example.com/picture.jpg', AIRTABLE_API_KEY: 'key1234567890', AIRTABLE_API_APP: 'app1234567890' }
@@ -38,12 +39,11 @@ const expectedMergeB: User = {
   apiKey: String(userAuth0B.AIRTABLE_API_KEY), // auth0 apiKey overrides user apiKey
   apiApp: String(userAuth0B.AIRTABLE_API_APP), // auth0 apiApp overrides user apiApp
 }
-check('mergeUserData B', mergeUserData(userA, userAuth0B), expectedMergeB)
 
-check('user fistName A', firstName('John Doe'), 'John')
-check('user fistName B', firstName('John'), 'John')
-check('user fistName C', firstName('John Doe Doe'), 'John')
-check('user fistName D', firstName('zoe.doe'), 'zoe')
-check('user fistName E', firstName(''), '')
+it('mergeUserData B', () => { expect(mergeUserData(userA, userAuth0B)).toStrictEqual(expectedMergeB) })
 
-checksRun()
+it('user fistName A', () => { expect(firstName('John Doe')).toBe('John') })
+it('user fistName B', () => { expect(firstName('John')).toBe('John') })
+it('user fistName C', () => { expect(firstName('John Doe Doe')).toBe('John') })
+it('user fistName D', () => { expect(firstName('zoe.doe')).toBe('zoe') })
+it('user fistName E', () => { expect(firstName('')).toBe('') })

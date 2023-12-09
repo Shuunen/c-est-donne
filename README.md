@@ -1,6 +1,7 @@
 # C'est donné
 
 [![Project license](https://img.shields.io/github/license/Shuunen/c-est-donne.svg?color=informational)](https://github.com/Shuunen/c-est-donne/blob/master/LICENSE)
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/Shuunen/c-est-donne?style=flat)](https://codeclimate.com/github/Shuunen/c-est-donne)
 [![Website up](https://img.shields.io/website/https/c-est-donne.netlify.app)](https://c-est-donne.netlify.app)
 
 > Donations between friends and relatives made easy ! Give a second life to your objects :)
@@ -41,7 +42,7 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [ ] photo carousel inside cards
 - [ ] show images count in cards
 - [ ] dont show tutorial below list when connected, put it on a separate page
-- [ ] konami code
+- [ ] Konami code
 - [ ] favicon
 - [ ] footer card should be equal in height
 - [ ] transform global loading to loading button
@@ -63,12 +64,10 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [BabelEdit](https://www.codeandweb.com/babeledit) : a great tool to translate your app
 - [BlobMaker](https://www.blobmaker.app) : for the blobby shapes
 - [Boxy SVG](https://boxy-svg.com) : for providing a simple & full featured svg editor
-- [C8](https://github.com/bcoe/c8) : simple & effective cli for code coverage
 - [Eslint](https://eslint.org) : super tool to find & fix problems  
 - [Github](https://github.com) : for all their great work year after year, pushing OSS forward  
 - [Jake Dohm](https://dev.to/jakedohm_34/auto-registering-all-your-components-in-vue-3-with-vite-4884) : for his article on global components registration
 - [Netlify](https://netlify.com) : awesome company that offers free CI & hosting for OSS projects
-- [Petite Vue](https://github.com/intlify/vue-i18n-next/tree/master/packages/petite-vue-i18n) : for the lightweight i18n plugin
 - [Pixel True](https://ui8.net/pixel-true-designs/products/70-beautiful-free-illustrations) : for the nice illustrations on the tutorial
 - [Repo-checker](https://github.com/Shuunen/repo-checker) : eslint cover /src code and this tool the rest ^^  
 - [Shields.io](https://shields.io) : for the nice badges on top of this readme
@@ -76,8 +75,8 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 - [Shuutils](https://github.com/Shuunen/shuutils) : collection of pure JS utils
 - [SvgOmg](https://jakearchibald.github.io/svgomg) : awesome tool to optimize svg files
 - [TailwindCss](https://tailwindcss.com) : awesome lib to produce maintainable style
-- [UvU](https://github.com/lukeed/uvu) : extremely fast and lightweight test runner for Node.js and the browser
+- [V8](https://github.com/demurgos/v8-coverage) : simple & effective cli for code coverage
 - [Vite](https://github.com/vitejs/vite) : super fast frontend tooling  
+- [Vitest](https://github.com/vitest-dev/vitest) : super fast vite-native testing framework
 - [Vue](https://vuejs.org) : when I need a front framework, this is the one I choose <3
 - [Vue3-carousel](https://github.com/ismail9k/vue3-carousel) : nice lightweight carousel component by Abdelrahman Ismail
-- [Watchlist](https://github.com/lukeed/watchlist) : recursively watch a list of directories & run a command on any file system

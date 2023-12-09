@@ -1,7 +1,7 @@
 import { debounce, on } from 'shuutils'
 import { state } from '../state'
-import { log } from '../utils/logs'
-import { Display } from '../utils/tabs'
+import { log } from '../utils/logger.utils'
+import { Display } from '../utils/tabs.utils'
 
 const showListUnder = 700
 

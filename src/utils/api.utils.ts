@@ -1,9 +1,10 @@
 import { state } from '../state'
-import { airtableUrl, headersJson, validate, type AirtableResponse } from './airtable'
-import { Item, ItemStatus } from './items'
-import { error, log } from './logs'
+import { airtableUrl, headersJson, validate, type AirtableResponse } from './airtable.utils'
+import { Item, ItemStatus } from './items.utils'
+import { error, log } from './logger.utils'
 
 async function myFetch (url: string, options?: RequestInit): Promise<AirtableResponse> {
+  /* c8 ignore next 5 */
   if (typeof window === 'undefined') return { error: { message: 'window is undefined', type: 'error' } }
   const response = await fetch(url, options)
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -23,6 +24,7 @@ export async function fetchItems (): Promise<boolean> {
   if (!validate(apiApp, apiKey)) return error('error-invalid-credentials')
   log('fetching items...')
   const url = airtableUrl(apiApp, apiKey, 'items')
+  /* c8 ignore next 8 */
   if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
   const response = await myFetch(url)
   if (response.error) return error('error-airtable', response.error.message)
@@ -35,10 +37,11 @@ export async function fetchItems (): Promise<boolean> {
 export async function updateItemStatus (id: Item['id'], status: ItemStatus): Promise<boolean> {
   state.isLoading = true
   const url = airtableUrl(state.user.apiApp, state.user.apiKey, `items/${id}`)
-  if (typeof url !== 'string') return error('error-failed-to-build-airtable-url')
+  if (/* c8 ignore next */ typeof url !== 'string') return error('error-failed-to-build-airtable-url')
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const data = { fields: { Status: status, Beneficiary: state.user.email } }
   const response = await patch(url, data)
+  /* c8 ignore next 6 */
   if (response.error) return error('error-airtable', response.error.message)
   log('updated item', id, 'status to', status)
   await fetchItems()

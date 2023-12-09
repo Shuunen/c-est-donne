@@ -1,11 +1,12 @@
 import { storage } from 'shuutils'
 import { reactive } from 'vue'
-import { Locale } from './plugins/i18n'
-import type { Item } from './utils/items'
-import { getEnvironment, log } from './utils/logs'
-import { Display, Filter } from './utils/tabs'
-import { Theme } from './utils/theme'
-import { emptyUser, type User } from './utils/user'
+import { getEnvironment } from './utils/browser.utils'
+import type { Item } from './utils/items.utils'
+import { log } from './utils/logger.utils'
+import { Display, Filter } from './utils/tabs.utils'
+import { Theme } from './utils/theme.utils'
+import { defaultLang, type Lang } from './utils/translate.utils'
+import { emptyUser, type User } from './utils/user.utils'
 
 log('creating state, current environment :', getEnvironment())
 
@@ -16,7 +17,7 @@ const items: Item[] = []
 export const state = reactive({
   error: '',
   isLoading: false,
-  locale: storage.get<Locale>('locale', Locale.Fr),
+  locale: storage.get<Lang>('locale', defaultLang),
   items,
   display: storage.get<Display>('display', Display.List),
   filter: storage.get<Filter>('filter', Filter.Available),

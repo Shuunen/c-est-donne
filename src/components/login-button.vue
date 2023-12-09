@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
-import { useI18n } from 'petite-vue-i18n'
 import { debounce, storage } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
-import { fetchItems } from '../utils/api'
-import { log } from '../utils/logs'
-import { mergeUserData } from '../utils/user'
+import { fetchItems } from '../utils/api.utils'
+import { log } from '../utils/logger.utils'
+import { $t } from '../utils/translate.utils'
+import { mergeUserData } from '../utils/user.utils'
 
-const { t } = useI18n()
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const { loginWithRedirect, logout, user } = useAuth0()
 const hover = ref(false)
@@ -47,11 +46,11 @@ watch(user, syncStorageDebounced)
 </script>
 
 <template>
-  <sl-button v-if="!state.user.firstName" :loading="state.isLoading" variant="primary" @click="doLogin">{{ t('login') }}</sl-button>
+  <sl-button v-if="!state.user.firstName" :loading="state.isLoading" variant="primary" @click="doLogin">{{ $t('login') }}</sl-button>
   <!-- eslint-disable-next-line vuejs-accessibility/mouse-events-have-key-events -->
-  <sl-button v-else variant="default" class="overflow-hidden" @click="doLogout" @mouseenter="setHoverActive" @mouseleave="setHoverInactive">
+  <sl-button v-else class="overflow-hidden" variant="default" @click="doLogout" @mouseenter="setHoverActive" @mouseleave="setHoverInactive">
     <div class="flex items-center">
-      <span class="float-left mr-3">{{ hover ? t('logout') : state.user.firstName }}</span>
+      <span class="float-left mr-3">{{ hover ? $t('logout') : state.user.firstName }}</span>
       <sl-icon class="text-lg" :name="hover ? 'box-arrow-right' : 'person-circle'"></sl-icon>
     </div>
   </sl-button>

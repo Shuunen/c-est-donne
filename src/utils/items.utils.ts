@@ -1,11 +1,11 @@
-import type { AirtableItemRecord } from './airtable'
+import type { AirtableItemRecord } from './airtable.utils'
 
 export const enum ItemStatus {
   Available = 'available',
   Gone = 'gone',
   Reserved = 'reserved',
-  Unknown = 'unknown',
   ReservedByMe = 'reserved-by-me',
+  Unknown = 'unknown',
 }
 
 export class Item {
@@ -41,6 +41,6 @@ export class Item {
   }
 
   public get canBeToggle (): boolean {
-    return [ItemStatus.ReservedByMe, ItemStatus.Available].includes(this.status)
+    return [ItemStatus.Available, ItemStatus.ReservedByMe].includes(this.status)
   }
 }

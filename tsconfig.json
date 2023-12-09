@@ -32,8 +32,11 @@
     "sourceMap": true,
     "strict": true,
     "target": "ESNext",
-    "types": [],
-    "useDefineForClassFields": true
+    "types": [
+      "node/fs/promises"
+    ],
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": true
   },
   "exclude": [
     "node_modules"

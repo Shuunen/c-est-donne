@@ -11,8 +11,8 @@ export interface User {
 }
 
 export interface UserAuth0 extends Partial<Pick<User, 'email' | 'name' | 'picture'>> {
-  AIRTABLE_API_KEY?: string // eslint-disable-line @typescript-eslint/naming-convention
   AIRTABLE_API_APP?: string // eslint-disable-line @typescript-eslint/naming-convention
+  AIRTABLE_API_KEY?: string // eslint-disable-line @typescript-eslint/naming-convention
 }
 
 export const emptyUser: User = { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', apiKey: '', apiApp: '' }

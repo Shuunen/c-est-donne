@@ -1,26 +1,25 @@
 <script setup lang="ts">
-import { useI18n } from 'petite-vue-i18n'
 import { ref } from 'vue'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import { state } from '../state'
+import { $t } from '../utils/translate.utils'
 
 const currentSlide = ref(0)
-const { t } = useI18n()
 
 const steps = [
   {
-    title: t('step-1-title'),
-    description: t('step-1-description'),
+    title: $t('step-1-title'),
+    description: $t('step-1-description'),
     image: '/step-1-choose.svg',
   },
   {
-    title: t('step-2-title'),
-    description: t('step-2-description'),
+    title: $t('step-2-title'),
+    description: $t('step-2-description'),
     image: '/step-2-contact-me.svg',
   },
   {
-    title: t('step-3-title'),
-    description: t('step-3-description'),
+    title: $t('step-3-title'),
+    description: $t('step-3-description'),
     image: '/step-3-profits.svg',
   },
 ]
@@ -36,25 +35,25 @@ const steps = [
         @click="() => currentSlide = index">
         <span class="app-intro-step--number">{{ index + 1 }}</span>
         <h2 class="app-intro-step--title">{{ step.title }}</h2>
-        <p class="text-primary text-center text-lg">{{ step.description }}</p>
-        <img class="mb-4 mt-2 w-full sm:hidden" :src="step.image" :alt="`step ${index + 1}`" />
+        <p class="text-center text-lg text-primary">{{ step.description }}</p>
+        <img :alt="`step ${index + 1}`" class="mb-4 mt-2 w-full sm:hidden" :src="step.image" />
       </div>
     </div>
     <carousel v-model="currentSlide" wrap-around>
       <slide v-for="step, index in steps" :key="`slide-${index}`">
-        <img class="max-h-[30vh] min-h-[30rem] w-full" :src="step.image" :alt="`slide ${index + 1}`" />
+        <img :alt="`slide ${index + 1}`" class="max-h-[30vh] min-h-[30rem] w-full" :src="step.image" />
       </slide>
       <template #addons>
         <navigation />
         <pagination />
       </template>
     </carousel>
-    <sl-alert v-if="!state.user.isConnected" variant="primary" open>
+    <sl-alert v-if="!state.user.isConnected" open variant="primary">
       <sl-icon slot="icon" name="info-circle"></sl-icon>
-      <strong>{{ t('intro-login') }}</strong><br />
-      {{ t('please-login') }}
+      <strong>{{ $t('intro-login') }}</strong><br />
+      {{ $t('please-login') }}
     </sl-alert>
-    <img v-if="state.user.isConnected" class="h-44" src="/blob-2.svg" alt="blob" />
+    <img v-if="state.user.isConnected" alt="blob" class="h-44" src="/blob-2.svg" />
     <div v-else class="mx-auto">
       <login-button />
     </div>

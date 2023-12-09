@@ -1,13 +1,11 @@
 import { createAuth0 } from '@auth0/auth0-vue'
 import { createApp } from 'vue'
 import App from './app.vue'
-import { i18n } from './plugins/i18n'
-import './plugins/responsive'
-import './plugins/shoelace'
-import './plugins/storage'
+import './plugins/responsive.plugin'
+import './plugins/shoelace.plugin'
+import './plugins/storage.plugin'
 import './style.css'
 
-// eslint-disable-next-line total-functions/no-unsafe-readonly-mutable-assignment
 const app = createApp(App)
 
 // globally register components, restrict the regex if needed
@@ -31,7 +29,5 @@ app.use(
     cacheLocation: 'localstorage',
   }),
 )
-
-app.use(i18n)
 
 app.mount('#app')

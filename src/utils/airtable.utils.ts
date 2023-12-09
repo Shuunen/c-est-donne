@@ -7,7 +7,6 @@ interface AirtableItemRecordImage {
 const airtableApiAppKeyLength = 17
 
 export interface AirtableItemRecord {
-  id: string
   createdTime: string
   fields: {
     /* eslint-disable @typescript-eslint/naming-convention */
@@ -21,14 +20,15 @@ export interface AirtableItemRecord {
     ValueUsed?: number
     /* eslint-enable @typescript-eslint/naming-convention */
   }
+  id: string
 }
 
 export interface AirtableResponse {
-  records?: AirtableItemRecord[]
   error?: {
-    type: string
     message: string
+    type: string
   }
+  records?: AirtableItemRecord[]
 }
 
 export const headersJson = {
