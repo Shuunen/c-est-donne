@@ -21,6 +21,6 @@ export const state = reactive({
   items,
   display: storage.get<Display>('display', Display.List),
   filter: storage.get<Filter>('filter', Filter.Available),
-  theme: storage.get<Theme>('theme', Theme.Light),
+  theme: storage.get<Theme>('theme', typeof window !== 'undefined' && /* c8 ignore next */ window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light),
   user: storage.get<User>('user', emptyUser),
 })
