@@ -20,13 +20,12 @@ Object.entries(components).forEach(([path, definition]) => {
 app.use(
   createAuth0({
     domain: 'c-est-donne.eu.auth0.com',
-    // eslint-disable-next-line camelcase
-    client_id: 'eIiHJseJCImejDN3lfQWnXp3tznrEQeR', // eslint-disable-line @typescript-eslint/naming-convention
-    // eslint-disable-next-line camelcase
-    redirect_uri: window.location.origin, // eslint-disable-line @typescript-eslint/naming-convention
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    useRefreshTokens: true,
+    clientId: 'eIiHJseJCImejDN3lfQWnXp3tznrEQeR',
+    useRefreshTokens: true, // eslint-disable-line @typescript-eslint/naming-convention
     cacheLocation: 'localstorage',
+    authorizationParams: {
+      redirect_uri: window.location.origin, // eslint-disable-line @typescript-eslint/naming-convention, camelcase
+    },
   }),
 )
 

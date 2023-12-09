@@ -20,7 +20,7 @@ async function doLogin (): Promise<boolean> {
 async function doLogout (): Promise<boolean> {
   log('logout')
   storage.clear('user')
-  await logout({ returnTo: window.location.origin })
+  await logout({ logoutParams: { returnTo: window.location.origin } })
   return true
 }
 async function syncStorage (): Promise<boolean> {
