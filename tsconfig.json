@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
@@ -13,7 +15,8 @@
     "jsx": "preserve",
     "lib": [
       "ESNext",
-      "DOM"
+      "DOM",
+      "DOM.Iterable"
     ],
     "module": "ESNext",
     "moduleResolution": "node",
@@ -31,6 +34,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
+    "strictNullChecks": true,
     "target": "ESNext",
     "types": [
       "node/fs/promises"
