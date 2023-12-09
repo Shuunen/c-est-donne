@@ -48,7 +48,7 @@
     "build:watch": "watchlist public src -eager -- pnpm build",
     "check": "pnpm install && echo install success && pnpm build && repo-check && pnpm lint && pnpm test && echo check success",
     "dev": "vite",
-    "lint": "tsc --noEmit && echo tsc success && eslint --cache --fix --ext .js,.ts,.html,.vue . && echo lint success",
+    "lint": "tsc --noEmit && echo tsc success && eslint --cache --fix --ext .cjs,.js,.ts,.html,.vue . && echo lint success",
     "lint:watch": "watchlist src tests -eager -- pnpm lint",
     "mark": "unique-mark dist/**/*.{html,js}",
     "postversion": "git push && git push --tags",
