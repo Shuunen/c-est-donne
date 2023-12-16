@@ -15,7 +15,7 @@
     "@vitejs/plugin-vue": "4",
     "@vitest/coverage-v8": "1.0",
     "autoprefixer": "10",
-    "eslint": "8.55",
+    "eslint": "8.56",
     "eslint-config-hardcore": "45",
     "eslint-plugin-tailwindcss": "3",
     "postcss": "8",
