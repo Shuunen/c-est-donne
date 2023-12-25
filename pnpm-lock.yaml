@@ -42,7 +42,7 @@ devDependencies:
     version: 45.0.0(@babel/core@7.23.5)(@babel/eslint-parser@7.23.3)(eslint@8.56.0)(prettier@3.1.0)(typescript@5.3.3)(vue-eslint-parser@9.3.2)
   eslint-plugin-tailwindcss:
     specifier: '3'
-    version: 3.13.0(tailwindcss@3.3.6)
+    version: 3.13.0(tailwindcss@3.4.0)
   postcss:
     specifier: '8'
     version: 8.4.32
@@ -53,8 +53,8 @@ devDependencies:
     specifier: '5.11'
     version: 5.11.0
   tailwindcss:
-    specifier: '3.3'
-    version: 3.3.6
+    specifier: '3.4'
+    version: 3.4.0
   typescript:
     specifier: '5.3'
     version: 5.3.3
@@ -4794,7 +4794,7 @@ packages:
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.56.0)
     dev: true
 
-  /eslint-plugin-tailwindcss@3.13.0(tailwindcss@3.3.6):
+  /eslint-plugin-tailwindcss@3.13.0(tailwindcss@3.4.0):
     resolution: {integrity: sha512-Fcep4KDRLWaK3KmkQbdyKHG0P4GdXFmXdDaweTIPcgOP60OOuWFbh1++dufRT28Q4zpKTKaHwTsXPJ4O/EjU2Q==}
     engines: {node: '>=12.13.0'}
     peerDependencies:
@@ -4802,7 +4802,7 @@ packages:
     dependencies:
       fast-glob: 3.3.2
       postcss: 8.4.32
-      tailwindcss: 3.3.6
+      tailwindcss: 3.4.0
     dev: true
 
   /eslint-plugin-testing-library@6.2.0(eslint@8.56.0)(typescript@5.3.3):
@@ -8363,8 +8363,8 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
-  /tailwindcss@3.3.6:
-    resolution: {integrity: sha512-AKjF7qbbLvLaPieoKeTjG1+FyNZT6KaJMJPFeQyLfIp7l82ggH1fbHJSsYIvnbTFQOlkh+gBYpyby5GT1LIdLw==}
+  /tailwindcss@3.4.0:
+    resolution: {integrity: sha512-VigzymniH77knD1dryXbyxR+ePHihHociZbXnLZHUyzf2MMs2ZVqlUrZ3FvpXP8pno9JzmILt1sZPD19M3IxtA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
