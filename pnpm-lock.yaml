@@ -50,8 +50,8 @@ devDependencies:
     specifier: '1.34'
     version: 1.34.0
   rollup-plugin-visualizer:
-    specifier: '5.11'
-    version: 5.11.0
+    specifier: '5.12'
+    version: 5.12.0
   tailwindcss:
     specifier: '3.4'
     version: 3.4.0
@@ -7833,8 +7833,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup-plugin-visualizer@5.11.0:
-    resolution: {integrity: sha512-exM0Ms2SN3AgTzMeW7y46neZQcyLY7eKwWAop1ZoRTCZwyrIRdMMJ6JjToAJbML77X/9N8ZEpmXG4Z/Clb9k8g==}
+  /rollup-plugin-visualizer@5.12.0:
+    resolution: {integrity: sha512-8/NU9jXcHRs7Nnj07PF2o4gjxmm9lXIrZ8r175bT9dK8qoLlvKTwRMArRCMgpMGlq8CTLugRvEmyMeMXIU2pNQ==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
