@@ -6,7 +6,7 @@
     "@auth0/auth0-vue": "2.3",
     "@shoelace-style/shoelace": "2.12",
     "shuutils": "7.4",
-    "vue": "3.3",
+    "vue": "3.4",
     "vue3-carousel": "0.3"
   },
   "description": "Donations between friends made easy !",
