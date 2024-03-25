@@ -9,8 +9,8 @@ dependencies:
     specifier: '2.3'
     version: 2.3.2(typescript@5.4.2)
   '@shoelace-style/shoelace':
-    specifier: '2.14'
-    version: 2.14.0(@types/react@18.2.43)
+    specifier: '2.15'
+    version: 2.15.0(@types/react@18.2.43)
   shuutils:
     specifier: '7.7'
     version: 7.7.0
@@ -2304,8 +2304,8 @@ packages:
     resolution: {integrity: sha512-Hf45HeO+vdQblabpyZOTxJ4ZeZsmIUYXXPmoYrrR4OJ5OKxL+bhMz5mK8JXgl7HsoEowfz7+e248UGi861de9Q==}
     dev: false
 
-  /@shoelace-style/shoelace@2.14.0(@types/react@18.2.43):
-    resolution: {integrity: sha512-b8HXsSMvKX/9D5yCygnCkAuwZfxYof1+owJx9fYggq/bOAQ8WQcZzMBPTI4amgfwEnFzhRF8ETT+V8w+sptlww==}
+  /@shoelace-style/shoelace@2.15.0(@types/react@18.2.43):
+    resolution: {integrity: sha512-Lcg938Y8U2VsHqIYewzlt+H1rbrXC4GRSUkTJgXyF8/0YAOlI+srd5OSfIw+/LYmwLP2Peyh398Kae/6tg4PDA==}
     engines: {node: '>=14.17.0'}
     dependencies:
       '@ctrl/tinycolor': 4.0.2
