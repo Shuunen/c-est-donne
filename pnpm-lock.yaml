@@ -12,8 +12,8 @@ dependencies:
     specifier: '2.15'
     version: 2.15.0(@types/react@18.2.43)
   shuutils:
-    specifier: '7.7'
-    version: 7.7.0
+    specifier: '8.0'
+    version: 8.0.0
   vue:
     specifier: '3.4'
     version: 3.4.0(typescript@5.4.2)
@@ -8037,6 +8037,14 @@ packages:
     hasBin: true
     dependencies:
       tiny-glob: 0.2.9
+    dev: true
+
+  /shuutils@8.0.0:
+    resolution: {integrity: sha512-dXfLqTOxYh1eugoidZ/5TyuDWqd7pfPaUFV1WzPvDs53UPya9BYifN8lc2YaDRzOXAcGMeMjpivOy4czUNduJw==}
+    hasBin: true
+    dependencies:
+      tiny-glob: 0.2.9
+    dev: false
 
   /side-channel@1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
