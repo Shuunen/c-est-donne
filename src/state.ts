@@ -1,6 +1,5 @@
-import { storage } from 'shuutils'
+import { browserContext, browserReport, storage } from 'shuutils'
 import { reactive } from 'vue'
-import { getEnvironment } from './utils/browser.utils'
 import type { Item } from './utils/items.utils'
 import { log } from './utils/logger.utils'
 import { Display, Filter } from './utils/tabs.utils'
@@ -8,7 +7,7 @@ import { Theme } from './utils/theme.utils'
 import { defaultLang, type Lang } from './utils/translate.utils'
 import { emptyUser, type User } from './utils/user.utils'
 
-log('creating state, current environment :', getEnvironment())
+log('creating state, current environment :', browserReport(browserContext()))
 
 storage.prefix = 'c-est-donne_'
 

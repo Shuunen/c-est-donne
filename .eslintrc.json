@@ -20,12 +20,51 @@
   },
   "root": true,
   "rules": {
-    "@typescript-eslint/brace-style": [
+    "@stylistic/array-element-newline": "off",
+    "@stylistic/arrow-parens": "off",
+    "@stylistic/brace-style": "off",
+    "@stylistic/comma-dangle": [
       "error",
-      "1tbs",
+      "always-multiline"
+    ],
+    "@stylistic/dot-location": "off",
+    "@stylistic/function-call-argument-newline": "off",
+    "@stylistic/indent": [
+      "error",
+      2
+    ],
+    "@stylistic/lines-around-comment": "off",
+    "@stylistic/lines-between-class-members": "off",
+    "@stylistic/max-len": "off",
+    "@stylistic/member-delimiter-style": [
+      "error",
       {
-        "allowSingleLine": true
+        "multiline": {
+          "delimiter": "none"
+        }
       }
+    ],
+    "@stylistic/multiline-comment-style": "off",
+    "@stylistic/multiline-ternary": "off",
+    "@stylistic/no-extra-parens": "off",
+    "@stylistic/object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "@stylistic/object-property-newline": "off",
+    "@stylistic/padded-blocks": "off",
+    "@stylistic/padding-line-between-statements": "off",
+    "@stylistic/quote-props": [
+      "error",
+      "consistent-as-needed"
+    ],
+    "@stylistic/quotes": [
+      "error",
+      "single"
+    ],
+    "@stylistic/semi": [
+      "error",
+      "never"
     ],
     "@typescript-eslint/comma-dangle": [
       "error",
@@ -41,10 +80,6 @@
       }
     ],
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/indent": [
-      "error",
-      2
-    ],
     "@typescript-eslint/lines-around-comment": "off",
     "@typescript-eslint/member-delimiter-style": [
       "error",
@@ -62,16 +97,8 @@
         "varsIgnorePattern": "^(_|global)"
       }
     ],
-    "@typescript-eslint/object-curly-spacing": [
-      "error",
-      "always"
-    ],
     "@typescript-eslint/prefer-destructuring": "off",
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
-    "@typescript-eslint/quotes": [
-      "error",
-      "single"
-    ],
     "@typescript-eslint/semi": [
       "error",
       "never"

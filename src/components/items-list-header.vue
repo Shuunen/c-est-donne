@@ -18,6 +18,7 @@ function listSort (itemA: Item, itemB: Item): number {
   // sort by availability
   if ([Filter.Available, Filter.ReservedByMe].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
   // or by name by default
+  // eslint-disable-next-line sonar/strings-comparison
   return itemA.name > itemB.name ? 1 : -1 // eslint-disable-line @typescript-eslint/no-magic-numbers
 }
 

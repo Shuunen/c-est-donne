@@ -38,12 +38,12 @@ export const headersJson = {
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 
-export function validate (app?: string, key?: string): boolean {
+export function validate (app?: string, key?: string) {
   const isValidApp = app !== undefined && typeof app === 'string' && app.length === airtableApiAppKeyLength
   const isValidKey = key !== undefined && typeof key === 'string' && key.length === airtableApiAppKeyLength
   return isValidApp && isValidKey
 }
 
-export function airtableUrl (app: string, key: string, target = ''): boolean | string {
+export function airtableUrl (app: string, key: string, target = '') {
   return `https://api.airtable.com/v0/${app}/${target}?api_key=${key}&view=all`
 }

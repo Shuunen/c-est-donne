@@ -5,7 +5,7 @@
   "dependencies": {
     "@auth0/auth0-vue": "2.3",
     "@shoelace-style/shoelace": "2.15",
-    "shuutils": "7.7",
+    "shuutils": "8.0",
     "vue": "3.4",
     "vue3-carousel": "0.3"
   },
@@ -16,7 +16,7 @@
     "@vitest/coverage-v8": "1.6",
     "autoprefixer": "10",
     "eslint": "8.57",
-    "eslint-config-hardcore": "45",
+    "eslint-config-hardcore": "46",
     "eslint-plugin-tailwindcss": "3",
     "postcss": "8",
     "repo-check": "1.35",

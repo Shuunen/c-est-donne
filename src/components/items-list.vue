@@ -31,7 +31,7 @@ function addedOnTime (item: Item): string {
         class="app-item app-fade-in flex overflow-hidden rounded border border-neutral-300 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800"
         :class="{ hidden: !item.isVisible, 'flex-col': showCards }" :style="`animation-delay: ${200 * index}ms;`">
         <img :alt="`${item.name} image`" class=" shrink-0 bg-white object-contain dark:brightness-75 dark:saturate-[1.2]"
-          :class="{ 'h-64 p-6': showCards, 'max-h-56 min-h-[3rem] w-1/3 p-4': !showCards }" :src="item.images[0] ?? '/no-visual.svg'" />
+          :class="{ 'h-64 p-6': showCards, 'max-h-56 min-h-12 w-1/3 p-4': !showCards }" :src="item.images[0] ?? '/no-visual.svg'" />
         <div class="flex grow flex-col" :class="{ 'w-2/3': !showCards }">
           <div class="app-item-body flex grow flex-col gap-2 p-4 ">
             <strong class="ellipsis" :class="{ 'mt-2 text-xl': !showCards }">{{ item.name }}</strong>

@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { getEnvironment, getPage, getPath, isBrowser } from '../src/utils/browser.utils'
+import { getPage, getPath, isBrowser } from '../src/utils/browser.utils'
 
 it('getPath A', () => { expect(getPath('')).toMatchInlineSnapshot('""') })
 it('getPath B', () => { expect(getPath('/')).toMatchInlineSnapshot('"/"') })
@@ -16,16 +16,3 @@ it('getPage B', () => { expect(getPage('//contact')).toMatchInlineSnapshot('"con
 it('getPage C', () => { expect(getPage('/en/contact')).toMatchInlineSnapshot('"contact"') })
 it('getPage D', () => { expect(getPage('/fr/contact/top')).toMatchInlineSnapshot('"contact/top"') })
 it('getPage E', () => { expect(getPage('/fr/contact/top.html')).toMatchInlineSnapshot('"contact/top"') })
-
-it('getEnvironment A', () => {
-  expect(getEnvironment()).toMatchInlineSnapshot(`
-    "
-    - Browser: Unknown browser Unknown version
-    - Language: Unknown language
-    - OS: Unknown OS
-    - Platform: Unknown platform
-    - Screen : 0x0
-    - Url : Unknown url
-    "
-  `)
-})

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { state } from '../state'
-import { getEnvironment } from '../utils/browser.utils'
 import { log } from '../utils/logger.utils'
+import { browserContext, browserReport } from 'shuutils'
 import { $t } from '../utils/translate.utils'
 
 interface SlDialog extends HTMLElement {
@@ -16,7 +16,7 @@ const dialog = ref<SlDialog>()
 function mailError (): void {
   log('mailing error to admin')
   const mail = document.createElement('a')
-  const body = $t('error-body', { error: message.value, environment: getEnvironment(), user: state.user.firstName })
+  const body = $t('error-body', { error: message.value, environment: browserReport(browserContext()), user: state.user.firstName })
   mail.href = `mailto:romain.racamier@gmail.com?subject=${encodeURIComponent($t('error-report-subject'))}&body=${encodeURIComponent(body)}`
   mail.click()
 }

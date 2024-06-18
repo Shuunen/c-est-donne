@@ -1,5 +1,3 @@
-import { BrowserScout } from 'shuutils'
-
 function removeExtraSlashes (url: string) {
   return url.replace(/\/{2,}/gu, '/')
 }
@@ -18,16 +16,4 @@ export function getPage (url = '') {
   const path = getPath(url).slice(1)
   if (path === '') return 'index'
   return path.split('.')[0] /* c8 ignore next */ ?? ''
-}
-
-export function getEnvironment () {
-  const scout = new BrowserScout()
-  return `
-- Browser: ${scout.browser} ${scout.version}
-- Language: ${scout.language}
-- OS: ${scout.os}
-- Platform: ${scout.platform}
-- Screen : ${scout.screenWidth}x${scout.screenHeight}
-- Url : ${scout.url}
-`
 }
