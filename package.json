@@ -16,7 +16,7 @@
     "@vitest/coverage-v8": "1.6",
     "autoprefixer": "10",
     "eslint": "8.57",
-    "eslint-config-hardcore": "46",
+    "eslint-config-hardcore": "47",
     "eslint-plugin-tailwindcss": "3",
     "postcss": "8",
     "repo-check": "1.36",
