@@ -24,6 +24,8 @@
   "items-remaining": "Il reste {number} objets à donner 😊",
   "loading": "Chargement en cours, merci de patienter...",
   "login": "Se connecter",
+  "isMaxChar": "Le champ {fieldName} doit contenir au plus un caractère | Le champ {fieldName} doit contenir au plus {count} caractères",
+  "isMinChar": "Le champ {fieldName} doit contenir au moins un caractère | Le champ {fieldName} doit contenir plus d'un caractère | Le champ {fieldName} doit contenir au moins {count} caractères",
   "logout": "Déconnexion",
   "no-access": "Ce site est uniquement accessible aux utilisateur autorisés, si vous souhaitez avoir accès, contactez Romain.\nSi vous avez reçu le mail d'invitation, utilisez le compte Google associé.",
   "no-items-remaining": "Il ne reste malheureusement plus d'objets à donner, essayes de repasser plus tard",

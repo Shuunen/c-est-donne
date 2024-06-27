@@ -15,6 +15,13 @@ it('$t B nested non-existing translation key', () => { expect($t('general.switch
 it('$t C nested non-existing translation key with data', () => { expect($t('general.switch-lang', { lang: 'en' })).toMatchInlineSnapshot('"general.switch-lang"') })
 it('$t D root existing translation key', () => { expect($t('login')).toMatchInlineSnapshot('"Se connecter"') })
 it('$t E root existing translation key with data', () => { expect($t('item-added-on', { time: 'jour de la baguette' })).toMatchInlineSnapshot('"Objet ajouté le jour de la baguette"') })
+it('$t F singular / plural : singular', () => { expect($t('isMaxChar', { fieldName: 'name', count: 1 })).toMatchInlineSnapshot('"Le champ name doit contenir au plus un caractère"') })
+it('$t G singular / plural : plural', () => { expect($t('isMaxChar', { fieldName: 'name', count: 12 })).toMatchInlineSnapshot('"Le champ name doit contenir au plus 12 caractères"') })
+it('$t H none / singular / plural : none', () => { expect($t('isMinChar', { fieldName: 'name', count: 0 })).toMatchInlineSnapshot('"Le champ name doit contenir au moins un caractère"') })
+it('$t I none / singular / plural : singular', () => { expect($t('isMinChar', { fieldName: 'name', count: 1 })).toMatchInlineSnapshot('"Le champ name doit contenir plus d\'un caractère"') })
+it('$t J none / singular / plural : plural', () => { expect($t('isMinChar', { fieldName: 'name', count: 12 })).toMatchInlineSnapshot('"Le champ name doit contenir au moins 12 caractères"') })
+it('$t K missing data for pluralization', () => { expect(() => $t('isMinChar')).toThrowErrorMatchingInlineSnapshot('[Error: missing data for a pluralized traduction]') })
+it('$t L missing count in data for pluralization', () => { expect(() => $t('isMinChar', { fieldName: 'name' })).toThrowErrorMatchingInlineSnapshot('[Error: missing "count" in data for a pluralized traduction]') })
 
 it('getLangFromPath A', () => { expect(getLangFromPath('')).toMatchInlineSnapshot('"fr"') })
 it('getLangFromPath B', () => { expect(getLangFromPath('/')).toMatchInlineSnapshot('"fr"') })
