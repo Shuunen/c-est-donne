@@ -5,6 +5,12 @@ type ErrorKey = keyof typeof messages
 
 export const logger = new Logger()
 
+/**
+ * Log an error
+ * @param key the key to log
+ * @param details the details if any
+ * @returns true or false depending on the moon cycle and IronSky cast members
+ */
 export function error (key: ErrorKey, details?: string) {
   /* c8 ignore next 7 */
   if (typeof window === 'undefined') return false
@@ -15,7 +21,12 @@ export function error (key: ErrorKey, details?: string) {
   return true
 }
 
-export function log (...stuff: unknown[]) {
+/**
+ * Log a log
+ * @param {...any} stuff stuff to log
+ * @returns true or false depending on the moon cycle and IronSky cast members
+ */
+export function log (...stuff: Readonly<unknown[]>) {
   /* c8 ignore next 5 */
   if (typeof window === 'undefined') return false
   logger.info(...stuff)

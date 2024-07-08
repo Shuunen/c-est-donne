@@ -4,71 +4,72 @@ import SlTabGroup from '@shoelace-style/shoelace/dist/components/tab-group/tab-g
 import { capitalize } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
-import { ItemStatus, type Item } from '../utils/items.utils'
+import { type Item, ItemStatus } from '../utils/items.utils'
 import { log } from '../utils/logger.utils'
 import { Display, Filter } from '../utils/tabs.utils'
 import { $t } from '../utils/translate.utils'
 
-const counts = ref({ [Filter.Available]: 0, [Filter.ReservedByMe]: 0, [Filter.All]: 0 })
+const counts = ref({ [Filter.All]: 0, [Filter.Available]: 0, [Filter.ReservedByMe]: 0 })
 const filterTabs = ref<SlTabGroup>()
 const displayTabs = ref<SlTabGroup>()
 
-function listSort (itemA: Item, itemB: Item): number {
+// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+function listSort (itemA: Item, itemB: Item) {
   log('sorting items')
   // sort by availability
   if ([Filter.Available, Filter.ReservedByMe].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
   // or by name by default
-  // eslint-disable-next-line sonar/strings-comparison
-  return itemA.name > itemB.name ? 1 : -1 // eslint-disable-line @typescript-eslint/no-magic-numbers
+  return itemA.name > itemB.name ? 1 : -1
 }
 
-function onFilter (): void {
+function onFilter () {
   log('on filter :', state.filter)
   if (state.filter === Filter.Available) for (const item of state.items) item.isVisible = item.status === ItemStatus.Available
   else if (state.filter === Filter.ReservedByMe) for (const item of state.items) item.isVisible = item.status === ItemStatus.ReservedByMe
   else for (const item of state.items) item.isVisible = true
-  // eslint-disable-next-line etc/no-assign-mutated-array
   state.items = state.items.sort(listSort)
   filterTabs.value?.show(state.filter)
 }
 
-function onDisplay (): void {
+function onDisplay () {
   log('on display :', state.display, displayTabs.value)
   displayTabs.value?.show(state.display)
 }
 
-function refreshCounts (): void {
+function refreshCounts () {
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   counts.value[Filter.Available] = state.items.filter(item => item.status === ItemStatus.Available).length
+  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   counts.value[Filter.ReservedByMe] = state.items.filter(item => item.status === ItemStatus.ReservedByMe).length
   counts.value[Filter.All] = state.items.length
 }
 
-function onItems (): void {
+function onItems () {
   log('updating items list')
   refreshCounts()
   onFilter()
   onDisplay()
 }
 
-function labelFor (tab: Filter): string {
+function labelFor (tab: Filter) {
   if (tab === Filter.Available) return $t('tab-available', { count: counts.value[Filter.Available] })
   if (tab === Filter.ReservedByMe) return $t('tab-reserved-by-me', { count: counts.value[Filter.ReservedByMe] })
   return $t('tab-all', { count: counts.value[Filter.All] })
 }
 
-function showAll (): void {
+function showAll () {
   state.filter = Filter.All
 }
-function showAvailable (): void {
+function showAvailable () {
   state.filter = Filter.Available
 }
-function showReservedByMe (): void {
+function showReservedByMe () {
   state.filter = Filter.ReservedByMe
 }
-function showList (): void {
+function showList () {
   state.display = Display.List
 }
-function showCards (): void {
+function showCards () {
   state.display = Display.Cards
 }
 
@@ -78,43 +79,43 @@ watch(() => state.display, onDisplay)
 </script>
 
 <template>
-  <div v-if="state.user.email" class="app-items-list--header flex-row flex-wrap items-end justify-end sm:flex">
+  <div class="app-items-list--header flex-row flex-wrap items-end justify-end sm:flex" v-if="state.user.email">
     <div class="flex items-center justify-end gap-3 sm:hidden">
       <p>{{ $t('display') }}</p>
       <sl-dropdown>
-        <sl-button slot="trigger" caret>
+        <sl-button caret slot="trigger">
           <template v-if="state.filter === Filter.Available">{{ labelFor(Filter.Available) }}</template>
           <template v-else-if="state.filter === Filter.ReservedByMe">{{ labelFor(Filter.ReservedByMe) }}</template>
           <template v-else-if="state.filter === Filter.All">{{ labelFor(Filter.All) }}</template>
         </sl-button>
         <sl-menu>
-          <sl-menu-item v-if="state.filter !== Filter.Available" @click="showAvailable">
+          <sl-menu-item @click="showAvailable" v-if="state.filter !== Filter.Available">
             {{ labelFor(Filter.Available) }}
           </sl-menu-item>
-          <sl-menu-item v-if="state.filter !== Filter.ReservedByMe" @click="showReservedByMe">
+          <sl-menu-item @click="showReservedByMe" v-if="state.filter !== Filter.ReservedByMe">
             {{ labelFor(Filter.ReservedByMe) }}
           </sl-menu-item>
-          <sl-menu-item v-if="state.filter !== Filter.All" @click="showAll">
+          <sl-menu-item @click="showAll" v-if="state.filter !== Filter.All">
             {{ labelFor(Filter.All) }}
           </sl-menu-item>
         </sl-menu>
       </sl-dropdown>
     </div>
-    <sl-tab-group ref="filterTabs" class="hidden grow sm:block">
-      <sl-tab slot="nav" panel="available" @click="showAvailable">{{ capitalize(labelFor(Filter.Available)) }}</sl-tab>
-      <sl-tab slot="nav" panel="reserved-by-me" @click="showReservedByMe">{{ capitalize(labelFor(Filter.ReservedByMe)) }}</sl-tab>
-      <sl-tab slot="nav" panel="all" @click="showAll">{{ capitalize(labelFor(Filter.All)) }}</sl-tab>
+    <sl-tab-group class="hidden grow sm:block" ref="filterTabs">
+      <sl-tab @click="showAvailable" panel="available" slot="nav">{{ capitalize(labelFor(Filter.Available)) }}</sl-tab>
+      <sl-tab @click="showReservedByMe" panel="reserved-by-me" slot="nav">{{ capitalize(labelFor(Filter.ReservedByMe)) }}</sl-tab>
+      <sl-tab @click="showAll" panel="all" slot="nav">{{ capitalize(labelFor(Filter.All)) }}</sl-tab>
     </sl-tab-group>
-    <sl-tab-group ref="displayTabs" class="hidden sm:block">
-      <sl-tab slot="nav" panel="list" @click="showList">
+    <sl-tab-group class="hidden sm:block" ref="displayTabs">
+      <sl-tab @click="showList" panel="list" slot="nav">
         {{ $t('display-list') }}
-        <sl-icon class="ml-3 mt-1" name="list"></sl-icon>
+        <sl-icon class="ml-3 mt-1" name="list" />
       </sl-tab>
-      <sl-tab slot="nav" panel="cards" @click="showCards">
+      <sl-tab @click="showCards" panel="cards" slot="nav">
         {{ $t('display-card') }}
-        <sl-icon class="ml-3 mt-1" name="card-heading"></sl-icon>
+        <sl-icon class="ml-3 mt-1" name="card-heading" />
       </sl-tab>
     </sl-tab-group>
   </div>
-  <div v-else></div>
+  <div v-else />
 </template>

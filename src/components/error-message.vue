@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { browserContext, browserReport } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
 import { log } from '../utils/logger.utils'
-import { browserContext, browserReport } from 'shuutils'
 import { $t } from '../utils/translate.utils'
 
 interface SlDialog extends HTMLElement {
@@ -13,20 +13,21 @@ interface SlDialog extends HTMLElement {
 const message = ref('')
 const dialog = ref<SlDialog>()
 
-function mailError (): void {
+function mailError () {
   log('mailing error to admin')
   const mail = document.createElement('a')
-  const body = $t('error-body', { error: message.value, environment: browserReport(browserContext()), user: state.user.firstName })
+  const body = $t('error-body', { environment: browserReport(browserContext()), error: message.value, user: state.user.firstName })
   mail.href = `mailto:romain.racamier@gmail.com?subject=${encodeURIComponent($t('error-report-subject'))}&body=${encodeURIComponent(body)}`
   mail.click()
 }
 
-function onError (content: ErrorEvent | string): void {
+// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
+function onError (content: ErrorEvent | string) {
   message.value = content instanceof ErrorEvent ? content.message : content
   dialog.value?.show()
 }
 
-function closeModal (): void {
+function closeModal () {
   dialog.value?.hide()
 }
 
@@ -34,10 +35,10 @@ watch(() => state.error, onError)
 </script>
 
 <template>
-  <sl-dialog ref="dialog" :label="$t('an-error-occurred')">
-    {{ message }}<br /><br />
-    {{ $t('error-report') }} <sl-button id="mail-to" size="medium" variant="text" @click="mailError">{{ $t('error-report-mailto') }}</sl-button>.
-    <sl-button slot="footer" variant="primary" @click="closeModal">{{ $t('close') }}</sl-button>
+  <sl-dialog :label="$t('an-error-occurred')" ref="dialog">
+    {{ message }}<br><br>
+    {{ $t('error-report') }} <sl-button @click="mailError" id="mail-to" size="medium" variant="text">{{ $t('error-report-mailto') }}</sl-button>.
+    <sl-button @click="closeModal" slot="footer" variant="primary">{{ $t('close') }}</sl-button>
   </sl-dialog>
 </template>
 

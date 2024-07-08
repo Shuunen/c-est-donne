@@ -3,7 +3,7 @@
     <a class="flex items-center gap-4" href="/">
       <h1 class="text-2xl font-extrabold tracking-tight">C'est donné <span class="text-accent">!</span></h1>
     </a>
-    <div class="ml-auto"></div>
+    <div class="ml-auto" />
     <theme-switcher />
     <login-button />
   </div>

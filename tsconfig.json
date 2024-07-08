@@ -48,7 +48,6 @@
   "include": [
     "src",
     "tests",
-    "*.ts",
     "*.js",
     "*.cjs"
   ],

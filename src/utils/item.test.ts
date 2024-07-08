@@ -1,21 +1,21 @@
 import { expect, it } from 'vitest'
-import { airtableUrl, validate, type AirtableItemRecord } from '../src/utils/airtable.utils'
-import { Item, ItemStatus } from '../src/utils/items.utils'
+import { type AirtableItemRecord, airtableUrl, validate } from './airtable.utils'
+import { Item, ItemStatus } from './items.utils'
 
 const emailA = 'john@gmail.com'
 
 const recordA: AirtableItemRecord = {
-  id: 'rec123',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
-    Name: 'super item A', // eslint-disable-line @typescript-eslint/naming-convention
     Images: [ // eslint-disable-line @typescript-eslint/naming-convention
       {
         id: 'imageA',
         url: 'https://example.com/image.jpg',
       },
     ],
+    Name: 'super item A', // eslint-disable-line @typescript-eslint/naming-convention
   },
+  id: 'rec123',
 }
 
 const itemA = new Item(recordA, emailA)
@@ -27,12 +27,12 @@ it('item A has unknown status', () => { expect(itemA.status).toBe(ItemStatus.Unk
 it('item A has one image', () => { expect(itemA.images).toStrictEqual([recordA.fields.Images?.[0]?.url]) })
 
 const recordB: AirtableItemRecord = {
-  id: 'rec456',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
     Name: 'super item B', // eslint-disable-line @typescript-eslint/naming-convention
     Status: 'available', // eslint-disable-line @typescript-eslint/naming-convention
   },
+  id: 'rec456',
 }
 
 const itemB = new Item(recordB, emailA)
@@ -45,13 +45,13 @@ it('item B has available status', () => { expect(itemB.status).toBe(ItemStatus.A
 it('item B can be toggle', () => { expect(itemB.canBeToggle).toBe(true) })
 
 const recordC: AirtableItemRecord = {
-  id: 'rec789',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
+    Beneficiary: 'mama@gmail.com', // eslint-disable-line @typescript-eslint/naming-convention
     Name: 'super item C', // eslint-disable-line @typescript-eslint/naming-convention
     Status: 'reserved', // eslint-disable-line @typescript-eslint/naming-convention
-    Beneficiary: 'mama@gmail.com', // eslint-disable-line @typescript-eslint/naming-convention
   },
+  id: 'rec789',
 }
 
 const itemC = new Item(recordC, emailA)
@@ -64,13 +64,13 @@ it('item C has the good beneficiary', () => { expect(itemC.beneficiary).toBe(rec
 it('item C cannot be toggle', () => { expect(itemC.canBeToggle).toBe(false) })
 
 const recordD: AirtableItemRecord = {
-  id: 'rec101112',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
+    Beneficiary: emailA, // eslint-disable-line @typescript-eslint/naming-convention
     Name: 'super item D', // eslint-disable-line @typescript-eslint/naming-convention
     Status: 'reserved', // eslint-disable-line @typescript-eslint/naming-convention
-    Beneficiary: emailA, // eslint-disable-line @typescript-eslint/naming-convention
   },
+  id: 'rec101112',
 }
 
 const itemD = new Item(recordD, emailA)
@@ -83,12 +83,12 @@ it('item D has the good beneficiary', () => { expect(itemD.beneficiary).toBe(ema
 it('item D can be toggle', () => { expect(itemD.canBeToggle).toBe(true) })
 
 const recordE: AirtableItemRecord = {
-  id: 'rec131415',
   createdTime: '2021-01-01T00:00:00.000Z',
   fields: {
     Name: 'super item E', // eslint-disable-line @typescript-eslint/naming-convention
     Status: 'gone', // eslint-disable-line @typescript-eslint/naming-convention
   },
+  id: 'rec131415',
 }
 
 const itemE = new Item(recordE, emailA)

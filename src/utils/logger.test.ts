@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { error, log } from '../src/utils/logger.utils'
+import { error, log } from './logger.utils'
 
 it('error A', () => {
   expect(error('an-error-occurred')).toMatchInlineSnapshot('false')

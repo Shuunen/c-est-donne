@@ -1,5 +1,5 @@
 
-export interface User {
+export type User = {
   apiApp: string
   apiKey: string
   email: string
@@ -10,19 +10,31 @@ export interface User {
   picture: string
 }
 
-export interface UserAuth0 extends Partial<Pick<User, 'email' | 'name' | 'picture'>> {
+export type UserAuth0 = Readonly<{
   AIRTABLE_API_APP?: string // eslint-disable-line @typescript-eslint/naming-convention
   AIRTABLE_API_KEY?: string // eslint-disable-line @typescript-eslint/naming-convention
-}
+} & Partial<Pick<User, 'email' | 'name' | 'picture'>>>
 
-export const emptyUser: User = { name: '', firstName: '', isConnected: false, hasAccess: false, picture: '', email: '', apiKey: '', apiApp: '' }
+export const emptyUser: User = { apiApp: '', apiKey: '', email: '', firstName: '', hasAccess: false, isConnected: false, name: '', picture: '' }
 
-export function firstName (fullName: string): string {
+/**
+ * Get the firstname from a full name
+ * @param fullName the full name to use
+ * @returns the firstname
+ */
+export function firstName (fullName: string) {
   const first = fullName.match(/[^\s._-]+/gu)
   return first?.[0] ?? fullName
 }
 
-export function mergeUserData (userStored: User, userAuth0?: UserAuth0): User {
+/**
+ * Merge user data
+ * @param userStored the stored user
+ * @param userAuth0 the data from auth0
+ * @returns the merged data
+ */
+// eslint-disable-next-line complexity, @typescript-eslint/prefer-readonly-parameter-types
+export function mergeUserData (userStored: User, userAuth0?: UserAuth0) {
   const expected = { ...userStored }
   expected.name = userAuth0?.name ?? expected.name
   expected.firstName = firstName(expected.name)

@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { fillTemplate, flatten } from 'shuutils'
 import { ref } from 'vue'
 import en from '../locales/en.json'
@@ -5,7 +6,7 @@ import fr from '../locales/fr.json'
 import { getPath, isBrowser } from './browser.utils'
 import { logger } from './logger.utils'
 
-const translations = { fr: flatten(fr), en: flatten(en) }
+const translations = { en: flatten(en), fr: flatten(fr) }
 
 export type Lang = keyof typeof translations
 
@@ -22,7 +23,8 @@ export function localePath (path: string, targetLang = lang.value) {
   return getPath(path, targetLang === defaultLang ? '' : targetLang)
 }
 
-export function handlePlural (translated: string, data?: Record<string, unknown>) {
+// eslint-disable-next-line complexity
+export function handlePlural (translated: string, data?: Readonly<Record<string, unknown>>) {
   if (!translated.includes('|')) return fillTemplate(translated, data)
   if (data === undefined) throw new Error('missing data for a pluralized traduction')
   if (!('count' in data)) throw new Error('missing "count" in data for a pluralized traduction')
@@ -33,7 +35,7 @@ export function handlePlural (translated: string, data?: Record<string, unknown>
   return fillTemplate(a, data)
 }
 
-export function $t (key: string, data?: Record<string, unknown>) {
+export function $t (key: string, data?: Readonly<Record<string, unknown>>) {
   const translated = translations[lang.value][key]
   if (translated !== undefined) return handlePlural(String(translated), data)
   if (/* c8 ignore next */isBrowser) logger.warn(`Translation not found for key "${key}"`)

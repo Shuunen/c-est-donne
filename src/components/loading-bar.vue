@@ -7,11 +7,11 @@ import { $t } from '../utils/translate.utils'
 const loading = ref(false)
 const delay = 400
 
-function showLoading (): void { loading.value = true }
-function hideLoadingSync (): void { loading.value = false }
+function showLoading () { loading.value = true }
+function hideLoadingSync () { loading.value = false }
 const hideLoading = debounce(hideLoadingSync, delay)
 
-function onLoading (isLoading: boolean): void {
+function onLoading (isLoading: boolean) {
   if (isLoading) showLoading()
   else void hideLoading()
 }
@@ -21,9 +21,9 @@ watch(() => state.isLoading, (isLoading: boolean) => { onLoading(isLoading) })
 
 <template>
   <Transition>
-    <div v-if="loading" class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/70 pt-6">
+    <div class="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-black/70 pt-6" v-if="loading">
       <p class="text-xl text-white">{{ $t('loading') }}</p>
-      <sl-spinner></sl-spinner>
+      <sl-spinner />
     </div>
   </Transition>
 </template>

@@ -1,7 +1,7 @@
 import { expect, it } from 'vitest'
-import { state } from '../src/state'
-import { fetchItems, updateItemStatus } from '../src/utils/api.utils'
-import { ItemStatus } from '../src/utils/items.utils'
+import { state } from '../state'
+import { fetchItems, updateItemStatus } from './api.utils'
+import { ItemStatus } from './items.utils'
 
 it('fetchItems A default', async () => {
   expect(await fetchItems()).toMatchInlineSnapshot('false')

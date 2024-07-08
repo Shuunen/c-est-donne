@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { getPage, getPath, isBrowser } from '../src/utils/browser.utils'
+import { getPage, getPath, isBrowser } from './browser.utils'
 
 it('getPath A', () => { expect(getPath('')).toMatchInlineSnapshot('""') })
 it('getPath B', () => { expect(getPath('/')).toMatchInlineSnapshot('"/"') })

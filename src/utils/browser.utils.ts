@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/require-jsdoc */
+
 function removeExtraSlashes (url: string) {
   return url.replace(/\/{2,}/gu, '/')
 }

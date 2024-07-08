@@ -5,23 +5,25 @@ import 'vue3-carousel/dist/carousel.css'
 import { state } from '../state'
 import { $t } from '../utils/translate.utils'
 
+// eslint-disable-next-line no-useless-assignment
 const currentSlide = ref(0)
 
+// eslint-disable-next-line no-useless-assignment
 const steps = [
   {
-    title: $t('step-1-title'),
     description: $t('step-1-description'),
     image: '/step-1-choose.svg',
+    title: $t('step-1-title'),
   },
   {
-    title: $t('step-2-title'),
     description: $t('step-2-description'),
     image: '/step-2-contact-me.svg',
+    title: $t('step-2-title'),
   },
   {
-    title: $t('step-3-title'),
     description: $t('step-3-description'),
     image: '/step-3-profits.svg',
+    title: $t('step-3-title'),
   },
 ]
 </script>
@@ -32,30 +34,30 @@ const steps = [
     <p class="text-center text-xl">{{ $t('intro-description') }}</p>
     <div class="app-intro-steps">
       <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events, vuejs-accessibility/no-static-element-interactions -->
-      <div v-for="step, index in steps" :key="`step-${index}`" class="app-intro-step flex flex-col gap-2" :class="{ active: currentSlide === index }"
-        @click="() => currentSlide = index">
+      <div :class="{ active: currentSlide === index }" :key="`step-${index}`" @click="() => currentSlide = index"
+        class="app-intro-step flex flex-col gap-2" v-for="step, index in steps">
         <span class="app-intro-step--number">{{ index + 1 }}</span>
         <h2 class="app-intro-step--title">{{ step.title }}</h2>
         <p class="text-center text-lg text-primary">{{ step.description }}</p>
-        <img :alt="`step ${index + 1}`" class="mb-4 mt-2 w-full sm:hidden" :src="step.image" />
+        <img :alt="`step ${index + 1}`" :src="step.image" class="mb-4 mt-2 w-full sm:hidden">
       </div>
     </div>
     <carousel v-model="currentSlide" wrap-around>
-      <slide v-for="step, index in steps" :key="`slide-${index}`">
-        <img :alt="`slide ${index + 1}`" class="max-h-[30vh] min-h-[30rem] w-full" :src="step.image" />
+      <slide :key="`slide-${index}`" v-for="step, index in steps">
+        <img :alt="`slide ${index + 1}`" :src="step.image" class="max-h-[30vh] min-h-[30rem] w-full">
       </slide>
       <template #addons>
         <navigation />
         <pagination />
       </template>
     </carousel>
-    <sl-alert v-if="!state.user.isConnected" open variant="primary">
-      <sl-icon slot="icon" name="info-circle"></sl-icon>
-      <strong>{{ $t('intro-login') }}</strong><br />
+    <sl-alert open v-if="!state.user.isConnected" variant="primary">
+      <sl-icon name="info-circle" slot="icon" />
+      <strong>{{ $t('intro-login') }}</strong><br>
       {{ $t('please-login') }}
     </sl-alert>
-    <img v-if="state.user.isConnected" alt="blob" class="h-44" src="/blob-2.svg" />
-    <div v-else class="mx-auto">
+    <img alt="blob" class="h-44" src="/blob-2.svg" v-if="state.user.isConnected">
+    <div class="mx-auto" v-else>
       <login-button />
     </div>
   </div>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// eslint-disable-next-line unicorn/prevent-abbreviations
 import pkg from '../../package.json'
 </script>
 

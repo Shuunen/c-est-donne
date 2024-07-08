@@ -1,3 +1,4 @@
+import type { DeepReadonly } from 'vue'
 import type { AirtableItemRecord } from './airtable.utils'
 
 export const enum ItemStatus {
@@ -8,6 +9,7 @@ export const enum ItemStatus {
   Unknown = 'unknown',
 }
 
+// eslint-disable-next-line no-restricted-syntax, jsdoc/require-jsdoc
 export class Item {
 
   public readonly beneficiary: string
@@ -18,15 +20,20 @@ export class Item {
 
   public readonly images: string[]
 
+  public isVisible = true
+
   public readonly name: string
 
   public readonly notes: string
 
   public readonly status: ItemStatus
 
-  public isVisible = true
-
-  public constructor (record: AirtableItemRecord, currentUserMail: string) {
+  /**
+   * Item constructor
+   * @param record the record data
+   * @param currentUserMail the current user mail
+   */
+  public constructor (record: DeepReadonly<AirtableItemRecord>, currentUserMail: string) {
     this.beneficiary = record.fields.Beneficiary ?? ''
     this.createdTime = new Date(record.createdTime)
     this.id = record.id
@@ -40,7 +47,11 @@ export class Item {
     else this.status = ItemStatus.Unknown
   }
 
-  public get canBeToggle (): boolean {
+  /**
+   * Check if can be toggled
+   * @returns true if it can
+   */
+  public get canBeToggle () {
     return [ItemStatus.Available, ItemStatus.ReservedByMe].includes(this.status)
   }
 }

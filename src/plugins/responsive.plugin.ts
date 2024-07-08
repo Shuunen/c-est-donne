@@ -5,7 +5,10 @@ import { Display } from '../utils/tabs.utils'
 
 const showListUnder = 700
 
-function onResizeSync (): void {
+/**
+ * Callback called on resize
+ */
+function onResizeSync () {
   log('on resize, window.innerWidth', window.innerWidth)
   if (window.innerWidth <= showListUnder)
     state.display = Display.Cards
