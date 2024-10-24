@@ -4,7 +4,7 @@
   "bugs": "https://github.com/Shuunen/c-est-donne/issues",
   "dependencies": {
     "@auth0/auth0-vue": "2.3",
-    "@shoelace-style/shoelace": "2.17",
+    "@shoelace-style/shoelace": "2.18",
     "shuutils": "9.1",
     "vue": "3.4",
     "vue3-carousel": "0.4"
