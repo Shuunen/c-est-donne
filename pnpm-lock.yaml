@@ -12,8 +12,8 @@ dependencies:
     specifier: '2.18'
     version: 2.18.0(@types/react@18.3.3)
   shuutils:
-    specifier: '9.1'
-    version: 9.1.0
+    specifier: '10.0'
+    version: 10.0.0
   vue:
     specifier: '3.4'
     version: 3.4.31(typescript@5.6.2)
@@ -2827,11 +2827,19 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /shuutils@10.0.0:
+    resolution: {integrity: sha512-A5/PcShJU4VsJ2l6CIFNRz6INFWMeBZDd0memALTy5LY4RUyNlhZIIzyi5yl7Pjk5uyQG5SIbycvAj546YNonQ==}
+    hasBin: true
+    dependencies:
+      tiny-glob: 0.2.9
+    dev: false
+
   /shuutils@9.1.0:
     resolution: {integrity: sha512-tPvbm0in2AXSkvem2Nt/l+/exocBh/EtnKahE2r9BkOVe4JDFVppfQ2tYsQBAvnjN3KsyjeB1MiKoHAXvcIZww==}
     hasBin: true
     dependencies:
       tiny-glob: 0.2.9
+    dev: true
 
   /siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}
