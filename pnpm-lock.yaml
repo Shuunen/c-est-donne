@@ -18,8 +18,8 @@ dependencies:
     specifier: '3.4'
     version: 3.4.31(typescript@5.6.2)
   vue3-carousel:
-    specifier: '0.4'
-    version: 0.4.0(vue@3.4.31)
+    specifier: '0.5'
+    version: 0.5.0(vue@3.4.31)
 
 devDependencies:
   '@types/node':
@@ -3334,8 +3334,8 @@ packages:
       typescript: 5.6.2
     dev: true
 
-  /vue3-carousel@0.4.0(vue@3.4.31):
-    resolution: {integrity: sha512-S8amVc3CiYb5SFHvSzSZ5vXDClL5H717847FcCQ0+iKYF9iTcPEAWoHcqSy2kU/rZ3HTq7IcmZl9R0wcKVnguQ==}
+  /vue3-carousel@0.5.0(vue@3.4.31):
+    resolution: {integrity: sha512-D8ZFHDc3oLhytAn4wTF319jEjFc+M2Kkx/EkllwbK8r/siC8vSggNg/cKTqsSn0m0R/wKX01RJY1EEl2dVSftw==}
     peerDependencies:
       vue: ^3.2.0
     dependencies:
