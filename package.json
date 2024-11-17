@@ -7,7 +7,7 @@
     "@shoelace-style/shoelace": "2.18",
     "shuutils": "10.1",
     "vue": "3.4",
-    "vue3-carousel": "0.6"
+    "vue3-carousel": "0.7"
   },
   "description": "Donations between friends made easy !",
   "devDependencies": {
