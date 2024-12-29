@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuth0 } from '@auth0/auth0-vue'
-import { debounce, storage } from 'shuutils'
+import { debounce, nbHueMax, storage } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
 import { fetchItems } from '../utils/api.utils'
@@ -8,7 +8,6 @@ import { log } from '../utils/logger.utils'
 import { $t } from '../utils/translate.utils'
 import { mergeUserData } from '../utils/user.utils'
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
 const { loginWithRedirect, logout, user } = useAuth0()
 const hover = ref(false)
 
@@ -20,7 +19,7 @@ async function doLogin () {
 async function doLogout () {
   log('logout')
   storage.clear('user')
-  await logout({ logoutParams: { returnTo: window.location.origin } })
+  await logout({ logoutParams: { returnTo: globalThis.location.origin } })
   return true
 }
 async function syncStorage () {
@@ -40,8 +39,7 @@ function setHoverActive () {
 function setHoverInactive () {
   hover.value = false
 }
-// eslint-disable-next-line @typescript-eslint/no-magic-numbers
-const syncStorageDebounced = debounce(syncStorage, 100)
+const syncStorageDebounced = debounce(syncStorage, nbHueMax)
 void syncStorageDebounced()
 watch(user, syncStorageDebounced)
 </script>

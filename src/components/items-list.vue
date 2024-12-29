@@ -1,23 +1,28 @@
-<script setup lang="ts">
+<script setup>
 import { capitalize } from 'shuutils'
 import { computed } from 'vue'
 import { state } from '../state'
 import { updateItemStatus } from '../utils/api.utils'
-import { type Item, ItemStatus } from '../utils/items.utils'
+import { Item, ItemStatus } from '../utils/items.utils'
 import { Display } from '../utils/tabs.utils'
 import { $t } from '../utils/translate.utils'
 
 // eslint-disable-next-line no-useless-assignment
 const showCards = computed(() => state.display === Display.Cards)
 
-// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-function toggleStatus (item: Item) {
+/**
+ * @param {Item} item the item to toggle
+ */
+function toggleStatus (item) {
   const updatedStatus = item.status === ItemStatus.Available ? ItemStatus.Reserved : ItemStatus.Available
   void updateItemStatus(item.id, updatedStatus)
 }
 
-// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-function addedOnTime (item: Item) {
+/**
+ * @param {Item} item the item to display
+ * @returns {string} the formatted date
+ */
+function addedOnTime (item) {
   return item.createdTime.toLocaleDateString(state.locale, {
     day: 'numeric',
     month: 'long',

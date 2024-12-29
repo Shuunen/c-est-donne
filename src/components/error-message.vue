@@ -1,17 +1,12 @@
-<script setup lang="ts">
+<script setup>
 import { browserContext, browserReport } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
 import { log } from '../utils/logger.utils'
 import { $t } from '../utils/translate.utils'
 
-interface SlDialog extends HTMLElement {
-  hide: () => void
-  show: () => void
-}
-
 const message = ref('')
-const dialog = ref<SlDialog>()
+const dialog = ref()
 
 function mailError () {
   log('mailing error to admin')
@@ -21,8 +16,10 @@ function mailError () {
   mail.click()
 }
 
-// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-function onError (content: ErrorEvent | string) {
+/**
+ * @param {ErrorEvent|string} content the error message
+ */
+function onError (content) {
   message.value = content instanceof ErrorEvent ? content.message : content
   dialog.value?.show()
 }

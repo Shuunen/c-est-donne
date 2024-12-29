@@ -16,7 +16,7 @@
     "@vitest/coverage-v8": "2.1",
     "autoprefixer": "10",
     "eslint": "*",
-    "eslint-plugin-shuunen": "0.2",
+    "eslint-plugin-shuunen": "0.4",
     "postcss": "8",
     "repo-check": "1.40",
     "rollup-plugin-visualizer": "5.13",

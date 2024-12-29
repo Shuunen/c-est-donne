@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/prefer-readonly-parameter-types */
 /* eslint-disable jsdoc/require-jsdoc */
+import { isBrowserEnvironment } from 'shuutils'
 import { state } from '../state'
 import { type AirtableResponse, airtableUrl, headersJson, validate } from './airtable.utils'
 import { Item, ItemStatus } from './items.utils'
@@ -7,9 +8,9 @@ import { error, log } from './logger.utils'
 
 async function myFetch (url: string, options?: RequestInit) {
   /* c8 ignore next 5 */
-  if (typeof window === 'undefined') return { error: { message: 'window is undefined', type: 'error' } }
+  if (!isBrowserEnvironment()) return { error: { message: 'window is undefined', type: 'error' } }
   const response = await fetch(url, options)
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, @typescript-eslint/no-unsafe-type-assertion
   return await response.json() as AirtableResponse
 }
 

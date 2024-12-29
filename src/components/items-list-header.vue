@@ -1,24 +1,27 @@
-<!-- eslint-disable vue/no-deprecated-slot-attribute -->
-<script setup lang="ts">
+<script setup>
 import SlTabGroup from '@shoelace-style/shoelace/dist/components/tab-group/tab-group'
 import { capitalize } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
-import { type Item, ItemStatus } from '../utils/items.utils'
+import { Item, ItemStatus } from '../utils/items.utils'
 import { log } from '../utils/logger.utils'
 import { Display, Filter } from '../utils/tabs.utils'
 import { $t } from '../utils/translate.utils'
 
 const counts = ref({ [Filter.All]: 0, [Filter.Available]: 0, [Filter.ReservedByMe]: 0 })
-const filterTabs = ref<SlTabGroup>()
-const displayTabs = ref<SlTabGroup>()
+const filterTabs = ref()
+const displayTabs = ref()
 
-// eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
-function listSort (itemA: Item, itemB: Item) {
+/**
+ * @param {Item} itemA the first item to compare
+ * @param {Item} itemB the second item to compare
+ * @returns {number} the sorting order
+ */
+function listSort (itemA, itemB) {
   log('sorting items')
-  // sort by availability
+  // sort by availability if filter is set
   if ([Filter.Available, Filter.ReservedByMe].includes(state.filter)) return Number(itemB.isVisible) - Number(itemA.isVisible)
-  // or by name by default
+  // else by name
   return itemA.name > itemB.name ? 1 : -1
 }
 
@@ -37,9 +40,7 @@ function onDisplay () {
 }
 
 function refreshCounts () {
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   counts.value[Filter.Available] = state.items.filter(item => item.status === ItemStatus.Available).length
-  // eslint-disable-next-line @typescript-eslint/prefer-readonly-parameter-types
   counts.value[Filter.ReservedByMe] = state.items.filter(item => item.status === ItemStatus.ReservedByMe).length
   counts.value[Filter.All] = state.items.length
 }
@@ -51,7 +52,11 @@ function onItems () {
   onDisplay()
 }
 
-function labelFor (tab: Filter) {
+/**
+ * @param {Filter} tab the tab to get the label for
+ * @returns {string} the label for the tab
+ */
+function labelFor (tab) {
   if (tab === Filter.Available) return $t('tab-available', { count: counts.value[Filter.Available] })
   if (tab === Filter.ReservedByMe) return $t('tab-reserved-by-me', { count: counts.value[Filter.ReservedByMe] })
   return $t('tab-all', { count: counts.value[Filter.All] })

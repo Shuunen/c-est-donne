@@ -1,11 +1,6 @@
 {
-  "html.customData": [
-    "./node_modules/@shoelace-style/shoelace/dist/vscode.html-custom-data.json"
-  ],
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#421b00",
-    "titleBar.activeBackground": "#532d14",
-    "titleBar.activeForeground": "#FDFCFE"
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
   },
   "cSpell.words": [
     "Abdelrahman",
@@ -17,5 +12,17 @@
     "sonarjs",
     "tznr",
     "unplugin"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "html.customData": [
+    "./node_modules/@shoelace-style/shoelace/dist/vscode.html-custom-data.json"
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#421b00",
+    "titleBar.activeBackground": "#532d14",
+    "titleBar.activeForeground": "#FDFCFE"
+  }
 }

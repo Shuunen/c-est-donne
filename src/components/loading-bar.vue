@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { debounce } from 'shuutils'
 import { ref, watch } from 'vue'
 import { state } from '../state'
@@ -11,12 +11,15 @@ function showLoading () { loading.value = true }
 function hideLoadingSync () { loading.value = false }
 const hideLoading = debounce(hideLoadingSync, delay)
 
-function onLoading (isLoading: boolean) {
+/**
+ * @param {boolean} isLoading whether the app is loading
+ */
+function onLoading (isLoading) {
   if (isLoading) showLoading()
   else void hideLoading()
 }
 
-watch(() => state.isLoading, (isLoading: boolean) => { onLoading(isLoading) })
+watch(() => state.isLoading, (isLoading) => { onLoading(isLoading) })
 </script>
 
 <template>

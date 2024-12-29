@@ -10,10 +10,10 @@ export type User = {
   picture: string
 }
 
-export type UserAuth0 = Readonly<{
+export type UserAuth0 = Readonly<Partial<Pick<User, 'email' | 'name' | 'picture'>> & {
   AIRTABLE_API_APP?: string // eslint-disable-line @typescript-eslint/naming-convention
   AIRTABLE_API_KEY?: string // eslint-disable-line @typescript-eslint/naming-convention
-} & Partial<Pick<User, 'email' | 'name' | 'picture'>>>
+}>
 
 export const emptyUser: User = { apiApp: '', apiKey: '', email: '', firstName: '', hasAccess: false, isConnected: false, name: '', picture: '' }
 

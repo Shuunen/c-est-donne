@@ -1,4 +1,4 @@
-import { browserContext, browserReport, storage } from 'shuutils'
+import { browserContext, browserReport, isBrowserEnvironment, storage } from 'shuutils'
 import { reactive } from 'vue'
 import type { Item } from './utils/items.utils'
 import { log } from './utils/logger.utils'
@@ -20,6 +20,6 @@ export const state = reactive({
   isLoading: false,
   items,
   locale: storage.get<Lang>('locale', defaultLang),
-  theme: storage.get<Theme>('theme', typeof window !== 'undefined' && /* c8 ignore next */ window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light),
+  theme: storage.get<Theme>('theme', isBrowserEnvironment() && /* c8 ignore next */ globalThis.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.Dark : Theme.Light),
   user: storage.get<User>('user', emptyUser),
 })

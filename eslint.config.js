@@ -7,7 +7,7 @@ export default [
   ...shuunen.configs.base,
   ...shuunen.configs.browser,
   ...shuunen.configs.typescript,
-  shuunen.configs.vue,
+  ...shuunen.configs.vue,
   {
     name: 'project-overrides',
     rules: {
