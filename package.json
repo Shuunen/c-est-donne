@@ -13,7 +13,7 @@
   "devDependencies": {
     "@types/node": "22",
     "@vitejs/plugin-vue": "5",
-    "@vitest/coverage-v8": "2.1",
+    "@vitest/coverage-v8": "3.0",
     "autoprefixer": "10",
     "eslint": "*",
     "eslint-plugin-shuunen": "0.4",
@@ -23,7 +23,7 @@
     "tailwindcss": "3.4",
     "typescript": "5.7",
     "vite": "6.0",
-    "vitest": "2.1",
+    "vitest": "3.0",
     "vue-tsc": "2.2"
   },
   "files": [
