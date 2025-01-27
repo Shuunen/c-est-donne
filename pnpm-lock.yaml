@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@auth0/auth0-vue':
-        specifier: '2.3'
-        version: 2.3.3(typescript@5.7.2)
+        specifier: '2.4'
+        version: 2.4.0(typescript@5.7.2)
       '@shoelace-style/shoelace':
         specifier: '2.19'
         version: 2.19.1(@floating-ui/utils@0.2.8)(@types/react@18.3.3)
@@ -80,8 +80,8 @@ packages:
   '@auth0/auth0-spa-js@2.1.3':
     resolution: {integrity: sha512-NMTBNuuG4g3rame1aCnNS5qFYIzsTUV5qTFPRfTyYFS1feS6jsCBR+eTq9YkxCp1yuoM2UIcjunPaoPl77U9xQ==}
 
-  '@auth0/auth0-vue@2.3.3':
-    resolution: {integrity: sha512-xL6R2nriWynA4Cp75NqtGjSWNx+JbhPMMffSsfDxf/glYfj7Q9kn1DIqnTp+ZrjzyV3kcUj7x0yCYW0yi3t+rg==}
+  '@auth0/auth0-vue@2.4.0':
+    resolution: {integrity: sha512-12iLvojP8Pvxqu2Abxzksp0HqlSovGiAUhWrppnOaJP02MZEBQo+c/IwM6VbM0edNk+eqqjX5u96iw5peaCPSg==}
     peerDependencies:
       vue-router: ^4.0.12
     peerDependenciesMeta:
@@ -1966,7 +1966,7 @@ snapshots:
 
   '@auth0/auth0-spa-js@2.1.3': {}
 
-  '@auth0/auth0-vue@2.3.3(typescript@5.7.2)':
+  '@auth0/auth0-vue@2.4.0(typescript@5.7.2)':
     dependencies:
       '@auth0/auth0-spa-js': 2.1.3
       vue: 3.5.13(typescript@5.7.2)
