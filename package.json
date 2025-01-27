@@ -3,7 +3,7 @@
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "bugs": "https://github.com/Shuunen/c-est-donne/issues",
   "dependencies": {
-    "@auth0/auth0-vue": "2.3",
+    "@auth0/auth0-vue": "2.4",
     "@shoelace-style/shoelace": "2.19",
     "shuutils": "10.2",
     "vue": "3.5",
