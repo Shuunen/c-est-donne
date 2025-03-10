@@ -5,7 +5,7 @@
   "dependencies": {
     "@auth0/auth0-vue": "2.4",
     "@shoelace-style/shoelace": "2.20",
-    "shuutils": "10.5",
+    "shuutils": "10.6",
     "vue": "3.5",
     "vue3-carousel": "0.14"
   },
