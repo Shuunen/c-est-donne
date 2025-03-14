@@ -21,8 +21,8 @@ importers:
         specifier: '3.5'
         version: 3.5.13(typescript@5.8.2)
       vue3-carousel:
-        specifier: '0.14'
-        version: 0.14.0(vue@3.5.13(typescript@5.8.2))
+        specifier: '0.15'
+        version: 0.15.0(vue@3.5.13(typescript@5.8.2))
     devDependencies:
       '@types/node':
         specifier: '22'
@@ -1899,8 +1899,8 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
-  vue3-carousel@0.14.0:
-    resolution: {integrity: sha512-YR3eEPKlcdUqAJmv41iVqbHhabz9AwFJqtgJgxQdtcYqDizUhHbC+aJbYvbG66FTViP+5lEqDmRQyn1IM8mXxQ==}
+  vue3-carousel@0.15.0:
+    resolution: {integrity: sha512-yYBBEdmvsMNlgKivVHiFMKV7TlWDoMEiVLA+Vb31t1JEQILAQYADMDYYuE9mp6OSGEQpCBgt8e/EpO2MZlQhcw==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -3784,7 +3784,7 @@ snapshots:
       '@vue/language-core': 2.2.0(typescript@5.8.2)
       typescript: 5.8.2
 
-  vue3-carousel@0.14.0(vue@3.5.13(typescript@5.8.2)):
+  vue3-carousel@0.15.0(vue@3.5.13(typescript@5.8.2)):
     dependencies:
       vue: 3.5.13(typescript@5.8.2)
 
