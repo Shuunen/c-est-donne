@@ -22,7 +22,7 @@
     "rollup-plugin-visualizer": "5.14",
     "tailwindcss": "4.1",
     "typescript": "5.8",
-    "vite": "6.2",
+    "vite": "6.3",
     "vitest": "3.0",
     "vue-tsc": "2.2"
   },
