@@ -26,7 +26,9 @@ export function localePath (path: string, targetLang = lang.value) {
 // eslint-disable-next-line complexity
 export function handlePlural (translated: string, data?: Readonly<Record<string, unknown>>) {
   if (!translated.includes('|')) return fillTemplate(translated, data)
+  // eslint-disable-next-line no-restricted-syntax
   if (data === undefined) throw new Error('missing data for a pluralized traduction')
+  // eslint-disable-next-line no-restricted-syntax
   if (!('count' in data)) throw new Error('missing "count" in data for a pluralized traduction')
   const count = Number.parseInt(String(data.count), 10)
   const [a = '', b = '', c = ''] = translated.split(' | ') // eslint-disable-line id-length
@@ -37,6 +39,7 @@ export function handlePlural (translated: string, data?: Readonly<Record<string,
 
 export function $t (key: string, data?: Readonly<Record<string, unknown>>) {
   const translated = translations[lang.value][key]
+  // eslint-disable-next-line @typescript-eslint/no-base-to-string
   if (translated !== undefined) return handlePlural(String(translated), data)
   if (/* c8 ignore next */isBrowser) logger.warn(`Translation not found for key "${key}"`)
   return key

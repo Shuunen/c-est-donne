@@ -36,7 +36,7 @@ function addedOnTime (item) {
     <items-list-header />
     <div :class="{ 'sm:grid-cols-2 md:grid-cols-3': showCards }" class="grid gap-6">
       <div :class="{ hidden: !item.isVisible, 'flex-col': showCards }" :key="item.id" :style="`animation-delay: ${200 * index}ms;`"
-        class="app-item app-fade-in flex overflow-hidden rounded border border-neutral-300 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800"
+        class="app-item app-fade-in flex overflow-hidden rounded-sm border border-neutral-300 bg-white shadow-md dark:border-neutral-700 dark:bg-neutral-800"
         v-for="item, index in state.items">
         <img :alt="`${item.name} image`" :class="{ 'h-64 p-6': showCards, 'max-h-56 min-h-12 w-1/3 p-4': !showCards }"
           :src="item.images[0] ?? '/no-visual.svg'" class=" shrink-0 bg-white object-contain dark:brightness-75 dark:saturate-[1.2]">

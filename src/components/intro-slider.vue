@@ -38,7 +38,7 @@ const steps = [
         class="app-intro-step flex flex-col gap-2" v-for="step, index in steps">
         <span class="app-intro-step--number">{{ index + 1 }}</span>
         <h2 class="app-intro-step--title">{{ step.title }}</h2>
-        <p class="text-center text-lg text-primary">{{ step.description }}</p>
+        <p class="text-center text-lg text-purple-100">{{ step.description }}</p>
         <img :alt="`step ${index + 1}`" :src="step.image" class="mb-4 mt-2 w-full sm:hidden">
       </div>
     </div>
@@ -65,6 +65,7 @@ const steps = [
 
 <style scoped>
 @import url("vue3-carousel/dist/carousel.css");
+@reference "tailwindcss";
 
 /* eslint-disable vue-scoped-css/require-selector-used-inside */
 .carousel {
@@ -80,11 +81,11 @@ const steps = [
 }
 
 button.carousel__pagination-button {
-  @apply rounded-full w-3 h-3 bg-primary;
+  @apply rounded-full w-3 h-3;
 }
 
 button.carousel__pagination-button--active {
-  @apply bg-accent;
+  background-color: hsl(var(--color-accent));
 }
 
 .carousel__pagination-button::after {
@@ -100,7 +101,8 @@ button.carousel__pagination-button--active {
 }
 
 .app-intro-step.active {
-  @apply opacity-100 text-accent;
+  @apply opacity-100;
+  color: hsl(var(--color-accent));
 }
 
 .app-intro-step--title {
@@ -109,7 +111,7 @@ button.carousel__pagination-button--active {
 
 .app-intro-step.active .app-intro-step--title,
 .app-intro-step.active .app-intro-step--number {
-  @apply text-accent;
+  color: hsl(var(--color-accent));
 }
 
 .app-intro-step--number {
@@ -118,6 +120,6 @@ button.carousel__pagination-button--active {
 
 .app-intro-step--title,
 .app-intro-step--number {
-  @apply text-accent sm:text-primary;
+  color: hsl(var(--color-accent));
 }
 </style>

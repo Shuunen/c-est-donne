@@ -20,6 +20,8 @@
   "html.customData": [
     "./node_modules/@shoelace-style/shoelace/dist/vscode.html-custom-data.json"
   ],
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
   "workbench.colorCustomizations": {
     "activityBar.background": "#421b00",
     "titleBar.activeBackground": "#532d14",

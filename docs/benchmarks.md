@@ -7,6 +7,7 @@
 |     date     | delay | node  |      machine      | comment                    |
 | :----------: | :---: | :---: | :---------------: | -------------------------- |
 | 2024-06-08#1 | 5.8s  | 20.15 | romain gram zorin | with eslint-plugin-shuunen |
+| 2025-05-05#1 | 5.1s  | 22.15 |  romain duc w11   | eslint-plugin-shuunen 1.3  |
 
 Note 1 : to show time taken by rules : `TIMING=1 npx eslint src`
 

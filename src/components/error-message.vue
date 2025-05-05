@@ -40,6 +40,8 @@ watch(() => state.error, onError)
 </template>
 
 <style scoped>
+@reference "tailwindcss";
+
 #mail-to::part(label) {
   @apply p-0 leading-8 text-base;
 }

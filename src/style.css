@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-accent: hsl(var(--color-accent));
+  --color-primary: hsl(var(--color-primary));
+}
 
 @layer base {
   :root {
