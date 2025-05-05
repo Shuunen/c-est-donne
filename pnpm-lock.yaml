@@ -46,8 +46,8 @@ importers:
         specifier: '1.3'
         version: 1.3.0(eslint@9.17.0(jiti@2.4.2))(tailwindcss@4.1.5)(typescript@5.8.2)(vue-eslint-parser@9.4.3(eslint@9.17.0(jiti@2.4.2)))
       repo-check:
-        specifier: '1.42'
-        version: 1.42.0
+        specifier: '1.43'
+        version: 1.43.0
       rollup-plugin-visualizer:
         specifier: '5.14'
         version: 5.14.0(rollup@4.34.3)
@@ -1542,8 +1542,8 @@ packages:
     resolution: {integrity: sha512-cnE+y8bz4NhMjISKbgeVJtqNbtf5QpjZP+Bslo+UqkIt9QPnX9q095eiRRASJG1/tz6dlNr6Z5NsBiWYokp6EQ==}
     hasBin: true
 
-  repo-check@1.42.0:
-    resolution: {integrity: sha512-AsmKM/MNM26fjJPqob8oMw+7m28/pLUMpH8u05AF1yHLOeW2S1+Hhx6iPSN1T3XBOsO0d7ol1WgCcVF75ZjTYA==}
+  repo-check@1.43.0:
+    resolution: {integrity: sha512-vKeQysGHFjT27m8kXUnspSdoIPnvXh+VXzj/XZHJzXbCCAWnn/pIUyJTWjtO5JhJcOeT+C0PyfloN7aBZHhXiA==}
     hasBin: true
 
   require-directory@2.1.1:
@@ -1596,10 +1596,6 @@ packages:
   shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
-
-  shuutils@10.5.0:
-    resolution: {integrity: sha512-XIBlpWI8zIRYV1f1hdIApAPtsThzqBkIoLfBpmbQY+RVTwDn3mtfJ/ir3ifhdsnoQjcDKkcdiJGdnoLje/KU3w==}
-    hasBin: true
 
   shuutils@10.6.0:
     resolution: {integrity: sha512-y3dveSrmnFKIxxIwKN6sSaX6nfCMK8WF20MJWzqqJ1DIFv7MBK9SXoJT4mU7F+w+yz3404vgnDD8wohWC7w1IA==}
@@ -3312,10 +3308,10 @@ snapshots:
     dependencies:
       jsesc: 3.0.2
 
-  repo-check@1.42.0:
+  repo-check@1.43.0:
     dependencies:
       arg: 5.0.2
-      shuutils: 10.5.0
+      shuutils: 10.6.0
       sort-json: 2.0.1
 
   require-directory@2.1.1: {}
@@ -3371,10 +3367,6 @@ snapshots:
       shebang-regex: 3.0.0
 
   shebang-regex@3.0.0: {}
-
-  shuutils@10.5.0:
-    dependencies:
-      tiny-glob: 0.2.9
 
   shuutils@10.6.0:
     dependencies:
