@@ -13,6 +13,7 @@
   - [Recommended IDE Setup](#recommended-ide-setup)
   - [Todos](#todos)
   - [Thanks](#thanks)
+  - [Stargazers over time](#stargazers-over-time)
 
 ## Vue 3 + TypeScript + Vite
 
@@ -63,6 +64,7 @@ This template should help get you started developing with Vue 3 and TypeScript i
 - [Shields.io](https://shields.io) : for the nice badges on top of this readme
 - [Shoelace](https://shoelace.style) : for their great web components library <3
 - [Shuutils](https://github.com/Shuunen/shuutils) : collection of pure JS utils
+- [Svg Omg](https://jakearchibald.github.io/svgomg/) : the great king of svg file size reduction
 - [SvgOmg](https://jakearchibald.github.io/svgomg) : awesome tool to optimize svg files
 - [TailwindCss](https://tailwindcss.com) : awesome lib to produce maintainable style
 - [V8](https://github.com/demurgos/v8-coverage) : simple & effective cli for code coverage
@@ -70,3 +72,7 @@ This template should help get you started developing with Vue 3 and TypeScript i
 - [Vitest](https://github.com/vitest-dev/vitest) : super fast vite-native testing framework
 - [Vue](https://vuejs.org) : when I need a front framework, this is the one I choose <3
 - [Vue3-carousel](https://github.com/ismail9k/vue3-carousel) : nice lightweight carousel component by Abdelrahman Ismail
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/Shuunen/c-est-donne.svg?variant=adaptive)](https://starchart.cc/Shuunen/c-est-donne)
