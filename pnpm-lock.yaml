@@ -21,8 +21,8 @@ importers:
         specifier: '3.5'
         version: 3.5.13(typescript@5.8.3)
       vue3-carousel:
-        specifier: '0.15'
-        version: 0.15.1(vue@3.5.13(typescript@5.8.3))
+        specifier: '0.16'
+        version: 0.16.0(vue@3.5.13(typescript@5.8.3))
     devDependencies:
       '@tailwindcss/postcss':
         specifier: '4.1'
@@ -2128,8 +2128,8 @@ packages:
     peerDependencies:
       typescript: '>=5.0.0'
 
-  vue3-carousel@0.15.1:
-    resolution: {integrity: sha512-nV2ChLZtgAOikmls8WaVe37vO4Wagk4RYawePHIvXrFtduFnQODyzPx8MmXaAb6l+ka72yAi04ZeCyciiyJMyA==}
+  vue3-carousel@0.16.0:
+    resolution: {integrity: sha512-IKRKtvHP8gNDRHSzINXwFbJ/Zy2HS+Gv2lXPnAEop6pxsvB17+fz2WQlNZ6ytilLkM5DOu/jXPoDQi/xy17bjg==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -4237,7 +4237,7 @@ snapshots:
       '@vue/language-core': 2.2.10(typescript@5.8.3)
       typescript: 5.8.3
 
-  vue3-carousel@0.15.1(vue@3.5.13(typescript@5.8.3)):
+  vue3-carousel@0.16.0(vue@3.5.13(typescript@5.8.3)):
     dependencies:
       vue: 3.5.13(typescript@5.8.3)
 
