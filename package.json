@@ -24,7 +24,7 @@
     "typescript": "5.8",
     "vite": "7.0",
     "vitest": "3.2",
-    "vue-tsc": "2.2"
+    "vue-tsc": "3.0"
   },
   "files": [
     "src"
