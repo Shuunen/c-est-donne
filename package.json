@@ -21,7 +21,7 @@
     "repo-check": "1.45",
     "rollup-plugin-visualizer": "6.0",
     "tailwindcss": "4.1",
-    "typescript": "5.8",
+    "typescript": "5.9",
     "vite": "7.0",
     "vitest": "3.2",
     "vue-tsc": "3.0"
